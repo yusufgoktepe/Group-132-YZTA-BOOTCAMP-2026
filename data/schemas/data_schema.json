@@ -1,0 +1,48 @@
+{
+  "students": {
+    "student_id": "unique student id",
+    "name": "student name",
+    "school_type": "university or high_school",
+    "university_or_school": "school name",
+    "department": "student department",
+    "grade": "class/year",
+    "interests": "list of interests",
+    "career_goals": "list of goals",
+    "skill_level": "beginner/intermediate/advanced",
+    "preferred_event_types": "workshop/seminar/networking/social",
+    "availability": "weekday/weekend/evening",
+    "location_preference": "online/onsite/hybrid"
+  },
+  "clubs": {
+    "club_id": "unique club id",
+    "club_name": "club name",
+    "category": "club category",
+    "description": "club description",
+    "target_departments": "target departments",
+    "target_interests": "target interests",
+    "activity_level": "low/medium/high"
+  },
+  "events": {
+    "event_id": "unique event id",
+    "club_id": "related club id",
+    "title": "event title",
+    "description": "event description",
+    "category": "event category",
+    "event_type": "workshop/seminar/networking/social",
+    "level": "beginner/intermediate/advanced",
+    "date": "event date",
+    "location_type": "online/onsite/hybrid",
+    "quota": "event quota",
+    "target_interests": "target interests",
+    "target_departments": "target departments"
+  },
+  "interactions": {
+    "student_id": "related student id",
+    "event_id": "related event id",
+    "viewed": "0/1",
+    "saved": "0/1",
+    "applied": "0/1",
+    "attended": "0/1",
+    "rating": "1-5 optional"
+  }
+}
