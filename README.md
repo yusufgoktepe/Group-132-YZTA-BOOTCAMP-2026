@@ -1,155 +1,172 @@
 # Group 132 - YZTA Bootcamp 2026
 
-## Takım İsmi
+## Takim Ismi
 
 **Group 132**
 
-## Takım Üyeleri
+## Takim Uyeleri
 
-| İsim                 | Rol           |
-| -------------------- | ------------- |
-| Yusuf Göktepe        | Scrum Master  |
-| Yusuf Öztop          | Product Owner |
-| Betül Tuba Gümüş     | Developer     |
-| Gülşen Eymen Dediler | Developer     |
-| Cemal Faruk Tuğrul   | Developer     |
+| Isim | Rol |
+|---|---|
+| Yusuf Goktepe | Scrum Master |
+| Yusuf Oztop | Product Owner |
+| Betul Tuba Gumus | Developer |
+| Gulsen Eymen Dediler | Developer |
+| Cemal Faruk Tugrul | Developer |
 
 ---
 
-# Ürün İle İlgili Bilgiler
+## Urun Bilgisi
 
-## Ürün İsmi
+### Urun Ismi
 
 **CampusMatch AI**
 
-> Ürün ismi geliştirme sürecinde değiştirilebilir.
+### Urun Aciklamasi
 
-## Ürün Açıklaması
+CampusMatch AI, ogrencilerin ilgi alanlarina, bolumlerine, hedeflerine ve tercihlerine gore kendilerine uygun kulup ve etkinlikleri kesfetmesini saglayan yapay zeka destekli mobil bir platformdur.
 
-CampusMatch AI, öğrencilerin ilgi alanlarına, bölüm bilgilerine, hedeflerine ve ihtiyaçlarına göre kendilerine uygun kulüp ve etkinlikleri keşfetmesini sağlayan yapay zeka destekli mobil bir platformdur.
+Platformun temel amaci, ogrenci ile dogru etkinligi daha hizli ve daha anlamli sekilde bulusturmaktir. Ayni zamanda kulup ve topluluklarin da etkinliklerini daha dogru ogrenci kitlesine ulastirabilmesine yardimci olur.
 
-Platform, öğrenciler ile kulüp/etkinlikleri daha doğru, hızlı ve kişiselleştirilmiş şekilde eşleştirmeyi amaçlar. Öğrenciler kendilerine önerilen etkinlikleri görebilirken, kulüp yöneticileri de etkinliklerini doğru hedef kitleye ulaştırabilir.
+### Problem
 
-## Ürün Özellikleri
+- Ogrenciler etkinlik ve kulup duyurularini daginik kanallardan takip ediyor.
+- Ilgi alanina uygun firsatlari kacirmak kolaylasiyor.
+- Kulup yoneticileri hedef kitlelerine dogru sekilde ulasmakta zorlanabiliyor.
 
-- Öğrenci profili oluşturma
-- İlgi alanı ve hedef bazlı etkinlik/kulüp önerileri
-- Etkinlikleri görüntüleme ve kaydetme
-- Kulüp yöneticisi için etkinlik oluşturma
-- Kulüp ve etkinlik yönetim paneli
-- Yapay zeka destekli öneri sistemi
-- Açıklanabilir öneri mantığı: “Bu etkinlik neden önerildi?”
+### Cozum
 
-## Hedef Kitle
+- Ogrenci profili ve ilgi alanlarina dayali etkinlik onerileri
+- Aciklanabilir oneriler: "Bu etkinlik neden onerildi?"
+- Mobil-first deneyim
+- Ileride gelistirilebilir AI tabanli recommendation yapisi
 
-- Üniversite öğrencileri
-- Lise öğrencileri
-- Kulüp ve topluluklara katılmak isteyen öğrenciler
-- Üniversite/lise kulüp yöneticileri
-- Etkinlik düzenleyen öğrenci toplulukları
+### Hedef Kitle
 
-## Kullanılacak Teknolojiler
+- Universite ogrencileri
+- Lise ogrencileri
+- Kulup ve topluluklara katilmak isteyen ogrenciler
+- Etkinlik duzenleyen ogrenci topluluklari
+- Kulup yoneticileri
 
-| Alan              | Teknoloji                      |
-| ----------------- | ------------------------------ |
-| Mobil Uygulama    | React Native / Expo            |
-| Backend           | FastAPI                        |
-| Veri Tabanı       | SQLite / PostgreSQL            |
-| AI / Data Science | Python, pandas, scikit-learn   |
-| Proje Yönetimi    | GitHub Projects, GitHub Issues |
+### Kullanilacak Teknolojiler
 
-## Product Backlog URL
-
-[GitHub Projects Board Linki buraya eklenecek]
+| Alan | Teknoloji |
+|---|---|
+| Mobil Uygulama | React Native / Expo |
+| Backend | FastAPI |
+| Veri Tabani | SQLite / PostgreSQL |
+| AI / Data Science | Python, pandas, scikit-learn |
+| Proje Yonetimi | GitHub Projects, GitHub Issues |
 
 ---
 
-# Sprint 1
+## MVP Kapsami
 
-## Sprint Notları
+Ilk hedef, ogrencinin profil bilgilerini girip kendisine uygun etkinlik onerilerini gorebildigi bir MVP olusturmaktir.
 
-Sprint 1’de temel amaç, ürün fikrini netleştirmek, takım içi görev dağılımını yapmak, proje yönetim yapısını kurmak ve ürünün ilk teknik temelini hazırlamaktır.
+MVP icindeki temel akis:
 
-Bu sprintte odaklanılan ana konular:
+1. Ogrenci profilini olusturur.
+2. Ilgi alanlarini ve tercihlerini belirtir.
+3. Sistem sentetik veri ve skor bazli mantikla oneriler uretir.
+4. Ogrenci kendisine onerilen etkinlikleri gorur.
+5. Oneri nedeni kullaniciya aciklanir.
 
-- Ürün fikrinin netleştirilmesi
+---
+
+## Sprint 1 Ozeti
+
+### Sprint Tarihi
+
+**19 Haziran 2026 - 5 Temmuz 2026**
+
+### Sprint Amaci
+
+Sprint 1'de amac, urun fikrini netlestirmek, takim ici gorev dagilimini yapmak, proje yonetim yapisini kurmak ve Sprint 2 gelistirmesine temel olacak teknik ve urunsel cerceveyi olusturmaktir.
+
+### Sprint 1 Boyunca Odaklanilan Basliklar
+
+- Urun vizyonunun netlestirilmesi
 - Hedef kitlenin belirlenmesi
-- Öğrenci ve kulüp tarafındaki temel ihtiyaçların çıkarılması
-- Kullanılacak teknolojilere karar verilmesi
-- GitHub repo yapısının oluşturulması
-- Product backlog’un hazırlanması
-- Sentetik veri seti yapısının planlanması
-- İlk öneri sistemi mantığının tasarlanması
+- Ogrenci ve kulup yoneticisi kullanici akislarinin cikarilmasi
+- Product backlog yapisinin olusturulmasi
+- Veri semasi ve sentetik veri mantiginin planlanmasi
+- Aciklanabilir recommendation yaklasiminin belirlenmesi
+- Mobil ekran ve backend ihtiyaclarinin tanimlanmasi
 
-## Puan Tamamlama Mantığı
+### Sprint 1 Ciktilari
 
-Toplam proje süreci 3 sprint üzerinden ilerleyecektir. Sprint 1’de ürünün temel planlama, tasarım ve mimari kararlarının alınması hedeflenmiştir. Bu nedenle ilk sprintte daha çok ürün fikri, proje yönetimi, veri yapısı ve temel teknik hazırlıklar üzerine yoğunlaşılmıştır.
+- README ve temel repo dokumantasyonu hazirlandi.
+- Product vision, target audience, user stories ve user flows dokumanlari olusturuldu.
+- Product backlog'un ilk versiyonu cikarildi.
+- Veri semasi ve ornek veri yapisi planlandi.
+- Recommendation sistemi icin skor bazli bir baseline mantik olusturuldu.
+- FastAPI tarafinda temel backend iskeleti baslatildi.
 
-## Backlog Düzeni ve Story Seçimleri
+### Sprint 1 Sonunda Projenin Durumu
 
-Sprint 1 backlog’u, sonraki sprintlerde geliştirilecek mobil uygulama, backend ve öneri sistemi için temel oluşturacak görevlerden seçilmiştir.
+Sprint 1 sonunda proje, planlama ve temel mimari kararlarini tamamlamis; Sprint 2'de kod gelistirmesine gecmeye hazir bir duruma gelmistir.
 
-Öncelikli backlog maddeleri:
+---
 
-- Öğrenci kullanıcı akışının belirlenmesi
-- Kulüp yöneticisi kullanıcı akışının belirlenmesi
-- Temel veri tablolarının planlanması
-- Öneri sistemi için kullanılacak kriterlerin belirlenmesi
-- Mobil uygulama ekran taslaklarının çıkarılması
-- Backend API ihtiyaçlarının belirlenmesi
-- GitHub repo ve proje yönetimi düzeninin kurulması
+## Sprint 2 Icin Hazir Olan Alanlar
 
-## Daily Scrum
+- Mobil ekran gelistirmesine uygun urun akislar
+- Backend endpoint planlamasi
+- Sentetik veri ve sema temeli
+- Recommendation mantigi icin ilk prototip
 
-Daily Scrum toplantılarının takım uygunluğuna göre WhatsApp üzerinden yapılmasına karar verilmiştir.
+Sprint 2'de odak, bu planlari calisan urun parcaciklarina donusturmek olacaktir.
 
-Daily Scrum notları bu bölümde veya ayrı bir dosyada paylaşılacaktır:
+---
 
-[Daily Scrum Notes Linki buraya eklenecek]
+## Repo Yapisi
 
-## Ürün Durumu
+```text
+.
+|-- assets/
+|-- backend/
+|-- data/
+|-- docs/
+|-- ml/
+|-- mobile/
+|-- product/
+|-- scrum/
+```
 
-Sprint 1 sonunda hedeflenen ürün çıktıları:
+### Klasor Aciklamalari
 
-- Ürün fikri netleştirildi.
-- Hedef kitle belirlendi.
-- Öğrenci ve kulüp tarafı için temel kullanıcı akışları çıkarıldı.
-- Kullanılacak teknoloji seti belirlendi.
-- Veri seti için ilk tablo yapısı planlandı.
-- Öneri sistemi için ilk skor bazlı yaklaşım tasarlandı.
-- Mobil uygulama için temel ekran taslakları hazırlanıyor.
+- `backend/`: FastAPI tabanli API iskeleti
+- `mobile/`: React Native / Expo tarafinin planlama ve gelistirme alani
+- `ml/`: Recommendation mantigi ve AI yaklasimi
+- `data/`: Veri semasi ve ornek sentetik veri
+- `product/`: Product vision, user story, user flow ve backlog dokumanlari
+- `scrum/`: Sprint planning, review, retrospective ve scrum notlari
+- `docs/`: Teknik kararlar ve destekleyici dokumantasyon
 
-## Sprint Review
+---
 
-Sprint 1 sonunda alınan kararlar:
+## Onemli Dokumanlar
 
-- Ürünün mobil-first geliştirilmesine karar verildi.
-- Öğrenci tarafının ürünün ana odak noktası olmasına karar verildi.
-- Kulüp yöneticisi tarafının da final ürününde yer almasına karar verildi.
-- İlk AI özelliğinin öneri sistemi olması kararlaştırıldı.
-- Gerçek veri olmadığı için kaliteli sentetik veri seti oluşturulmasına karar verildi.
-- React Native/Expo ve FastAPI teknolojileri üzerinde ilerlenmesi uygun görüldü.
+- [Product Vision](./product/product_vision.md)
+- [Product Backlog](./product/product_backlog.md)
+- [User Stories](./product/user_stories.md)
+- [User Flows](./product/user_flows.md)
+- [Tech Stack](./docs/tech_stack.md)
+- [Backend README](./backend/README.md)
+- [Sprint 1 Planning](./scrum/sprint-1/sprint_planning.md)
+- [Sprint 1 Review](./scrum/sprint-1/sprint_review.md)
+- [Sprint 1 Retrospective](./scrum/sprint-1/sprint_retrospective.md)
 
-Sprint Review katılımcıları:
+---
 
-- Yusuf Göktepe
-- Yusuf Öztop
-- Betül Tuba Gümüş
-- Gülşen Eymen Dediler
-- Cemal Faruk Tuğrul
+## Product Backlog
 
-## Sprint Retrospective
+GitHub Projects board linki eklendiginde bu bolum guncellenecektir.
 
-Sprint 1 sonunda değerlendirilecek konular:
+---
 
-- Takım içi iletişim düzeni
-- Görev dağılımının netliği
-- Sprint sürecinde yaşanan blocker’lar
-- Sonraki sprintte geliştirme hızını artırmak için alınacak aksiyonlar
+## Not
 
-İlk değerlendirme notları:
-
-- Proje fikri ekip içinde ortak bir noktaya getirildi.
-- Ürünün öğrenci ve kulüp taraflarını birlikte ele almasına karar verildi.
-- Geliştirme sürecinin daha rahat ilerlemesi için görevlerin mobil, backend, AI/veri ve dokümantasyon olarak ayrılması planlandı.
-- Sprint 2’de daha fazla kod geliştirme ve ekran üretimine odaklanılması gerektiği belirlendi.
+Bu repo Sprint 1 sonunda urunsel planlama, veri kurgusu ve teknik temel olusturma asamasini belgelemektedir. Sprint 2 ile birlikte mobil, backend ve AI katmanlarinda daha fazla pratik gelistirme yapilacaktir.
