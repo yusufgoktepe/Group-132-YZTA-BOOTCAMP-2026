@@ -1,24 +1,36 @@
 # Sprint 1 Retrospective
 
-## İyi Gidenler
+## Iyi Gidenler
 
-- Proje fikri ekip içinde ortak bir noktaya getirildi.
-- Ürünün öğrenci ve kulüp taraflarını birlikte ele almasına karar verildi.
-- Mobil-first ürün yaklaşımı netleşti.
-- AI tarafında ilk aşamada öneri sistemiyle ilerlenmesine karar verildi.
+- Proje fikri takim icinde ortak bir noktaya getirildi.
+- Ogrenci ve kulup yoneticisi taraflarini birlikte ele alan net bir urun yonu belirlendi.
+- Mobil-first yaklasim uzerinde hizli sekilde anlasildi.
+- AI tarafinda ilk asama icin sade ve aciklanabilir bir recommendation yaklasimi secildi.
+- Repo yapisi duzenli sekilde ayrildi.
 
-## Geliştirilebilecek Noktalar
+## Gelistirilebilecek Noktalar
 
-- Takım içi görev paylaşımı daha net hale getirilmeli.
-- GitHub Projects düzeni aktif kullanılmalı.
-- Sprint 2’de daha fazla kod geliştirme ve ekran üretimine odaklanılmalı.
-- Daily Scrum notları daha düzenli tutulmalı.
+- Gorev sahipligi daha erken ve daha net belirlenmeli.
+- GitHub Projects kullanimi daha aktif hale getirilmeli.
+- Daily scrum notlari sprint boyunca daha duzenli tutulmali.
+- Sprint kapanisina birakilan dokumantasyon isleri daha erken yayilmali.
 
-## Aksiyonlar
+## Ogrenilenler
 
-| Aksiyon | Sorumlu | Durum |
+- Kapsami erken daraltmak takim hizini artiriyor.
+- Ogrenci tarafini merkeze almak MVP kararlarini kolaylastiriyor.
+- Teknik gelistirmeye gecmeden once veri ve akis dokumani hazirlamak sonraki sprinti kolaylastiriyor.
+
+## Sprint 2 Icin Aksiyonlar
+
+| Aksiyon | Sorumlu Alan | Durum |
 |---|---|---|
-| GitHub Projects board oluşturulacak | Scrum Master | To Do |
-| Sprint görevleri issue olarak açılacak | Takım | To Do |
-| Öğrenci/kulüp akışları görselleştirilecek | Product Owner + Developer Team | To Do |
-| Sentetik veri üretim planı hazırlanacak | AI/Data Science | To Do |
+| GitHub Projects board aktif sekilde guncellenecek | Scrum Master | To Do |
+| Sprint gorevleri issue olarak acilacak ve atanacak | Takim | To Do |
+| Mobil ekran wireframe'leri netlestirilecek | Mobile / Product | To Do |
+| Backend endpoint'leri kod seviyesinde genisletilecek | Backend | To Do |
+| Recommendation akisi ornek veri ile test edilecek | AI / Data Science | To Do |
+
+## Genel Sonuc
+
+Sprint 1, urunun temel mantigini ve proje yapisini kurmak acisindan basarili gecmistir. Sprint 2'de ana ihtiyac, bu zemini calisan urun parcalarina donusturmektir.

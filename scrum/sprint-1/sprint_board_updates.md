@@ -1,23 +1,22 @@
 # Sprint Board Updates - Sprint 1
 
-Sprint görevleri GitHub Projects üzerinden takip edilecektir.
+Sprint 1 gorevleri GitHub Projects uzerinden takip edilmek uzere planlandi. Board linki ve ekran goruntuleri eklendiginde bu dosya guncellenecektir.
+
+## Board'da Takip Edilen Ana Alanlar
+
+- Product ve dokumantasyon
+- Mobil planlama
+- Backend planlama
+- AI / veri planlama
+- Sprint kapanis dokumanlari
 
 ## Board Link
 
 [GitHub Projects Board Linki buraya eklenecek]
 
-## Board Screenshot Alanı
+## Sprint Durum Ozeti
 
-Aşağıdaki alanlara sprint boyunca board ekran görüntüleri eklenecektir.
+- Sprint 1 daha cok planlama, cerceve olusturma ve teknik temel hazirliga odaklandi.
+- Gorevlerin onemli kismi dokumantasyon, akis ve sistem tasarimi etrafinda toplandi.
+- Sprint 2'ye aktarilacak teknik gelistirme maddeleri netlestirildi.
 
-### Screenshot 1
-
-![Sprint Board Screenshot 1](../../assets/screenshots/sprint1-board-1.png)
-
-### Screenshot 2
-
-![Sprint Board Screenshot 2](../../assets/screenshots/sprint1-board-2.png)
-
-### Screenshot 3
-
-![Sprint Board Screenshot 3](../../assets/screenshots/sprint1-board-3.png)

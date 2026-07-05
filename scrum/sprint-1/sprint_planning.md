@@ -1,31 +1,44 @@
 # Sprint 1 Planning
 
-## Sprint Tarih Aralığı
+## Sprint Tarih Araligi
 
-19 Haziran 2026 - 5 Temmuz 2026
+**19 Haziran 2026 - 5 Temmuz 2026**
 
 ## Sprint Hedefi
 
-Ürün fikrini netleştirmek, takım içi görev dağılımını yapmak, GitHub proje yönetimi düzenini kurmak, veri/AI yaklaşımını planlamak ve ürünün ilk teknik temelini hazırlamak.
+Urun fikrini netlestirmek, takim ici gorev dagilimini yapmak, GitHub proje yonetim yapisini kurmak, veri ve AI yaklasimini planlamak ve Sprint 2 gelistirmesi icin gerekli temel dokumantasyonu tamamlamak.
 
 ## Sprint Backlog
 
-| ID | Görev | Sorumlu | Durum |
+| ID | Gorev | Sorumlu Alan | Durum |
 |---|---|---|---|
-| S1-01 | README başlangıç dokümantasyonunun hazırlanması | Yusuf Göktepe | Done |
-| S1-02 | Product vision dokümanının hazırlanması | Yusuf Öztop | In Progress |
-| S1-03 | Hedef kitle ve user story dokümanlarının hazırlanması | Takım | In Progress |
-| S1-04 | Öğrenci kullanıcı akışının çıkarılması | Developer Team | To Do |
-| S1-05 | Kulüp yöneticisi kullanıcı akışının çıkarılması | Developer Team | To Do |
-| S1-06 | Sentetik veri şemasının planlanması | AI/Data Science | To Do |
-| S1-07 | Öneri sistemi kriterlerinin belirlenmesi | AI/Data Science | To Do |
-| S1-08 | Mobil uygulama ekran taslaklarının hazırlanması | Mobile Team | To Do |
-| S1-09 | Backend API ihtiyaçlarının çıkarılması | Backend Team | To Do |
+| S1-01 | README baslangic dokumantasyonunun hazirlanmasi | Scrum / Dokumantasyon | Done |
+| S1-02 | Product vision dokumaninin hazirlanmasi | Product | Done |
+| S1-03 | Hedef kitle ve user story dokumanlarinin hazirlanmasi | Product / Takim | Done |
+| S1-04 | Ogrenci kullanici akisinin cikarilmasi | Product / Developer Team | Done |
+| S1-05 | Kulup yoneticisi kullanici akisinin cikarilmasi | Product / Developer Team | Done |
+| S1-06 | Sentetik veri semasinin planlanmasi | AI / Data Science | Done |
+| S1-07 | Oneri sistemi kriterlerinin belirlenmesi | AI / Data Science | Done |
+| S1-08 | Mobil uygulama ekran ihtiyaclarinin belirlenmesi | Mobile Team | Done |
+| S1-09 | Backend API ihtiyaclarinin cikarilmasi | Backend Team | Done |
+| S1-10 | Recommendation baseline mantiginin yazilmasi | AI / Backend | Done |
 
-## Sprint İçinde Tamamlanması Tahmin Edilen Puan
+## Sprint Icinde Tamamlanmasi Beklenen Cikti
 
-100 Puan
+- Urun kapsaminin netlesmesi
+- Sprint 2 icin hazir product backlog
+- Kullanici akislarinin belgelenmesi
+- Veri semasi ve recommendation kriterlerinin netlesmesi
+- Mobil ve backend tarafi icin ilk teknik cerceve
 
-## Notlar
+## Sprintte Izlenen Yaklasim
 
-Sprint 1 ağırlıklı olarak planlama, dokümantasyon, temel mimari kararlar ve ürün akışları üzerine kurulmuştur.
+Sprint 1 agirlikli olarak planlama ve temel olusturma sprinti olarak ele alindi. Bu nedenle dogrudan kapsamli urun gelistirmek yerine:
+
+- once urun problemi ve hedef kitlesi netlestirildi,
+- sonra kullanici akislarina odaklanildi,
+- ardindan veri, AI ve teknik altyapi ihtiyaclari belirlendi.
+
+## Sprint Sonu Degerlendirme
+
+Sprint hedefine genel olarak ulasildi. Sprint 2'ye gecmeden once urun mantigi, veri yapisi ve teknik iskelet konusunda ortak bir zemin olusturuldu.
