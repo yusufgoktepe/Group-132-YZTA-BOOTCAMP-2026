@@ -1,9 +1,14 @@
 # Group 132 - YZTA Bootcamp 2026
 
+<<<<<<< HEAD
 ## Takim Ismi
+=======
+## CampusMatch AI
+>>>>>>> 2099799 (docs: simplify README for jury evaluation)
 
-**Group 132**
+CampusMatch AI, ogrencilerin ilgi alanlarina, bolumlerine ve hedeflerine gore kendilerine uygun kulup ve etkinlikleri kesfetmesini saglayan yapay zeka destekli mobil platform fikridir.
 
+<<<<<<< HEAD
 ## Takim Uyeleri
 
 | Isim | Rol |
@@ -13,15 +18,37 @@
 | Betul Tuba Gumus | Developer |
 | Gulsen Eymen Dediler | Developer |
 | Cemal Faruk Tugrul | Developer |
+=======
+Bu repo, urunun Sprint 1 sonunda ulasilan planlama, urun kurgusu ve teknik temelini tek dokumanda ozetlemek icin hazirlanmistir.
 
----
+## Takim
+>>>>>>> 2099799 (docs: simplify README for jury evaluation)
 
+| Isim | Rol |
+|---|---|
+| Yusuf Goktepe | Scrum Master |
+| Yusuf Oztop | Product Owner |
+| Betul Tuba Gumus | Developer |
+| Gulsen Eymen Dediler | Developer |
+| Cemal Faruk Tugrul | Developer |
+
+<<<<<<< HEAD
 ## Urun Bilgisi
 
 ### Urun Ismi
+=======
+## Kisa Ozet
 
-**CampusMatch AI**
+- Problem: Ogrenciler uygun etkinlik ve kulup firsatlarini daginik kanallarda kaybedebiliyor.
+- Cozum: Ogrenci profiline gore kisisellestirilmis ve aciklanabilir etkinlik onerileri sunmak.
+- Hedef: Ogrenci ile dogru etkinligi daha hizli bulusturmak, kuluplarin da dogru kitleye ulasmasini kolaylastirmak.
+- Platform yaklasimi: Mobil-first.
+- Ilk AI ozelligi: Skor bazli ve aciklanabilir recommendation sistemi.
+>>>>>>> 2099799 (docs: simplify README for jury evaluation)
 
+## Urun Vizyonu
+
+<<<<<<< HEAD
 ### Urun Aciklamasi
 
 CampusMatch AI, ogrencilerin ilgi alanlarina, bolumlerine, hedeflerine ve tercihlerine gore kendilerine uygun kulup ve etkinlikleri kesfetmesini saglayan yapay zeka destekli mobil bir platformdur.
@@ -58,9 +85,51 @@ Platformun temel amaci, ogrenci ile dogru etkinligi daha hizli ve daha anlamli s
 | Veri Tabani | SQLite / PostgreSQL |
 | AI / Data Science | Python, pandas, scikit-learn |
 | Proje Yonetimi | GitHub Projects, GitHub Issues |
+=======
+**Dogru ogrenci, dogru kulup ve dogru etkinlikle daha hizli bulussun.**
 
----
+<details>
+<summary><strong>Problem ve Cozum</strong></summary>
 
+### Problem
+
+- Ogrenciler kulup ve etkinlik duyurularini farkli kanallardan takip ediyor.
+- Ilgi alanina uygun firsatlari kacirmak kolaylasiyor.
+- Kulup yoneticileri etkinliklerini dogru hedef kitleye ulastirmakta zorlanabiliyor.
+
+### Cozum
+
+CampusMatch AI; ogrenci profili, ilgi alanlari, bolum bilgisi, hedefler ve tercihleri kullanarak kisisellestirilmis etkinlik onerileri sunar. Oneriler sadece listelenmez, ayni zamanda "neden onerildi" mantigiyla aciklanir.
+</details>
+
+<details>
+<summary><strong>Hedef Kitle</strong></summary>
+
+- Universite ogrencileri
+- Lise ogrencileri
+- Kulup ve topluluklara katilmak isteyen ogrenciler
+- Etkinlik duzenleyen ogrenci topluluklari
+- Universite ve lise kulup yoneticileri
+
+</details>
+
+<details>
+<summary><strong>Temel Ozellikler</strong></summary>
+
+- Ogrenci profili olusturma
+- Ilgi alani ve hedef bazli etkinlik onerileri
+- Etkinlik detaylarini goruntuleme
+- Etkinlik kaydetme
+- Kulup yoneticisi icin etkinlik olusturma
+- AI destekli recommendation mantigi
+- Aciklanabilir oneriler
+
+</details>
+>>>>>>> 2099799 (docs: simplify README for jury evaluation)
+
+## MVP Kapsami
+
+<<<<<<< HEAD
 ## MVP Kapsami
 
 Ilk hedef, ogrencinin profil bilgilerini girip kendisine uygun etkinlik onerilerini gorebildigi bir MVP olusturmaktir.
@@ -170,3 +239,112 @@ GitHub Projects board linki eklendiginde bu bolum guncellenecektir.
 ## Not
 
 Bu repo Sprint 1 sonunda urunsel planlama, veri kurgusu ve teknik temel olusturma asamasini belgelemektedir. Sprint 2 ile birlikte mobil, backend ve AI katmanlarinda daha fazla pratik gelistirme yapilacaktir.
+=======
+Sprint 2 ve sonrasi icin belirlenen ilk MVP hedefi:
+
+1. Ogrenci profilini olusturur.
+2. Ilgi alanlarini ve tercihlerini girer.
+3. Sistem ogrenciye uygun etkinlikleri listeler.
+4. Ogrenci etkinlik detayini gorur.
+5. Sistem neden bu etkinligi onerdigini aciklar.
+
+## Kullanici Odaklari
+
+<details>
+<summary><strong>Ogrenci Tarafi</strong></summary>
+
+- Profil olusturma
+- Ilgi alanlarini secme
+- Onerilen etkinlikleri gorme
+- Etkinlik detayina bakma
+- Ilgilenilen etkinlikleri kaydetme
+- Oneri nedenini gorme
+
+</details>
+
+<details>
+<summary><strong>Kulup Yonetici Tarafi</strong></summary>
+
+- Kulup profili olusturma
+- Etkinlik olusturma
+- Hedef kitleye uygun duyuru yapma
+- Ilerleyen asamalarda ilgi gosteren ogrencileri analiz etme
+
+</details>
+
+## Teknoloji Yigini
+
+| Alan | Teknoloji |
+|---|---|
+| Mobil Uygulama | React Native / Expo |
+| Backend | FastAPI |
+| Veri Tabani | SQLite / PostgreSQL |
+| AI / Data Science | Python, pandas, scikit-learn |
+| Proje Yonetimi | GitHub Projects, GitHub Issues |
+
+## Sprint 1 Ozeti
+
+**Sprint Tarihi:** 19 Haziran 2026 - 5 Temmuz 2026
+
+**Sprint Amaci:** Urun fikrini netlestirmek, backlog ve kullanici akislarini olusturmak, veri ve AI yaklasimini planlamak, teknik temel dokumantasyonunu hazirlamak.
+
+### Sprint 1'de Yapilanlar
+
+- Urun vizyonu netlestirildi.
+- Hedef kitle tanimlandi.
+- Ogrenci ve kulup yoneticisi user story'leri yazildi.
+- Temel kullanici akislarinin cercevesi cikartildi.
+- Product backlog'un ilk hali olusturuldu.
+- Veri semasi ve sentetik veri mantigi planlandi.
+- Recommendation sistemi icin skor bazli ilk yaklasim secildi.
+- FastAPI tarafinda temel backend iskeleti baslatildi.
+
+### Sprint 1 Sonunda Alinan Kararlar
+
+- Urun mobil-first ilerleyecek.
+- Ogrenci tarafi ana odak olacak.
+- Kulup yoneticisi tarafi da urunun bir parcasi olacak.
+- Ilk AI ozelligi recommendation sistemi olacak.
+- Baslangicta sentetik veri ile ilerlenilecek.
+
+## Backlog Ozet Durumu
+
+| ID | Is / User Story | Durum |
+|---|---|---|
+| PB-01 | Urun fikrinin netlestirilmesi | Done |
+| PB-02 | Hedef kitlenin belirlenmesi | Done |
+| PB-03 | Teknoloji setinin belirlenmesi | Done |
+| PB-04 | Ogrenci kullanici akisinin cikarilmasi | In Progress |
+| PB-05 | Kulup yoneticisi kullanici akisinin cikarilmasi | In Progress |
+| PB-06 | Sentetik veri yapisinin planlanmasi | In Progress |
+| PB-07 | Oneri sistemi kriterlerinin belirlenmesi | In Progress |
+| PB-08 | Mobil ekran taslaklarinin hazirlanmasi | To Do |
+| PB-09 | Backend API ihtiyaclarinin cikarilmasi | To Do |
+| PB-10 | Ilk oneri sistemi prototipinin hazirlanmasi | To Do |
+
+## Sonraki Adimlar
+
+- Mobil ekranlarin gelistirilmesi
+- Backend endpoint'lerinin genisletilmesi
+- Sentetik veri ile recommendation akisinin test edilmesi
+- Ogrenci tarafi MVP'nin calisir hale getirilmesi
+- Kulup yonetici akisinin temel seviyede eklenmesi
+
+## Repo Yapisi
+
+```text
+.
+|-- assets/
+|-- backend/
+|-- data/
+|-- docs/
+|-- ml/
+|-- mobile/
+|-- product/
+|-- scrum/
+```
+
+## Son Not
+
+Bu README, juri degerlendirmesi icin proje hakkindaki temel bilgileri tek yerde ve sade bir yapida toplamak amaciyla hazirlanmistir. Daha detayli dokumanlar repo icindeki ilgili klasorlerde yer almaktadir.
+>>>>>>> 2099799 (docs: simplify README for jury evaluation)
