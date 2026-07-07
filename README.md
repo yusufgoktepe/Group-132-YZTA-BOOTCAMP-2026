@@ -1,336 +1,266 @@
 # Group 132 - YZTA Bootcamp 2026
 
-<<<<<<< HEAD
-## Takim Ismi
-=======
 ## CampusMatch AI
->>>>>>> 2099799 (docs: simplify README for jury evaluation)
 
-CampusMatch AI, ogrencilerin ilgi alanlarina, bolumlerine ve hedeflerine gore kendilerine uygun kulup ve etkinlikleri kesfetmesini saglayan yapay zeka destekli mobil platform fikridir.
+CampusMatch AI, öğrencilerin ilgi alanlarına, bölümlerine, hedeflerine ve tercihlerine göre kendilerine uygun kulüp ve etkinlikleri keşfetmesini sağlayan yapay zeka destekli mobil platform fikridir.
 
-<<<<<<< HEAD
-## Takim Uyeleri
+Bu README, jüri değerlendirmesi için proje hakkında gerekli olan ürün, sprint ve teknik bilgileri tek dosyada toplamak amacıyla hazırlanmıştır.
 
-| Isim | Rol |
+## Takım ve Roller
+
+| İsim | Rol |
 |---|---|
-| Yusuf Goktepe | Scrum Master |
-| Yusuf Oztop | Product Owner |
-| Betul Tuba Gumus | Developer |
-| Gulsen Eymen Dediler | Developer |
-| Cemal Faruk Tugrul | Developer |
-=======
-Bu repo, urunun Sprint 1 sonunda ulasilan planlama, urun kurgusu ve teknik temelini tek dokumanda ozetlemek icin hazirlanmistir.
+| Yusuf Göktepe | Scrum Master |
+| Yusuf Öztop | Product Owner |
+| Betül Tuba Gümüş | Developer |
+| Gülşen Eymen Dediler | Developer |
+| Cemal Faruk Tuğrul | Developer |
 
-## Takim
->>>>>>> 2099799 (docs: simplify README for jury evaluation)
+## Kısa Özet
 
-| Isim | Rol |
-|---|---|
-| Yusuf Goktepe | Scrum Master |
-| Yusuf Oztop | Product Owner |
-| Betul Tuba Gumus | Developer |
-| Gulsen Eymen Dediler | Developer |
-| Cemal Faruk Tugrul | Developer |
+- Problem: Öğrenciler uygun etkinlik ve kulüp fırsatlarını dağınık kanallarda kaçırabiliyor.
+- Çözüm: Öğrenci profiline göre kişiselleştirilmiş ve açıklanabilir etkinlik önerileri sunmak.
+- Hedef: Öğrenci ile doğru etkinliği daha hızlı buluşturmak, kulüplerin de doğru hedef kitleye ulaşmasını kolaylaştırmak.
+- Platform yaklaşımı: Mobil-first.
+- İlk AI özelliği: Skor bazlı ve açıklanabilir öneri sistemi.
 
-<<<<<<< HEAD
-## Urun Bilgisi
+## Ürün Vizyonu
 
-### Urun Ismi
-=======
-## Kisa Ozet
-
-- Problem: Ogrenciler uygun etkinlik ve kulup firsatlarini daginik kanallarda kaybedebiliyor.
-- Cozum: Ogrenci profiline gore kisisellestirilmis ve aciklanabilir etkinlik onerileri sunmak.
-- Hedef: Ogrenci ile dogru etkinligi daha hizli bulusturmak, kuluplarin da dogru kitleye ulasmasini kolaylastirmak.
-- Platform yaklasimi: Mobil-first.
-- Ilk AI ozelligi: Skor bazli ve aciklanabilir recommendation sistemi.
->>>>>>> 2099799 (docs: simplify README for jury evaluation)
-
-## Urun Vizyonu
-
-<<<<<<< HEAD
-### Urun Aciklamasi
-
-CampusMatch AI, ogrencilerin ilgi alanlarina, bolumlerine, hedeflerine ve tercihlerine gore kendilerine uygun kulup ve etkinlikleri kesfetmesini saglayan yapay zeka destekli mobil bir platformdur.
-
-Platformun temel amaci, ogrenci ile dogru etkinligi daha hizli ve daha anlamli sekilde bulusturmaktir. Ayni zamanda kulup ve topluluklarin da etkinliklerini daha dogru ogrenci kitlesine ulastirabilmesine yardimci olur.
-
-### Problem
-
-- Ogrenciler etkinlik ve kulup duyurularini daginik kanallardan takip ediyor.
-- Ilgi alanina uygun firsatlari kacirmak kolaylasiyor.
-- Kulup yoneticileri hedef kitlelerine dogru sekilde ulasmakta zorlanabiliyor.
-
-### Cozum
-
-- Ogrenci profili ve ilgi alanlarina dayali etkinlik onerileri
-- Aciklanabilir oneriler: "Bu etkinlik neden onerildi?"
-- Mobil-first deneyim
-- Ileride gelistirilebilir AI tabanli recommendation yapisi
-
-### Hedef Kitle
-
-- Universite ogrencileri
-- Lise ogrencileri
-- Kulup ve topluluklara katilmak isteyen ogrenciler
-- Etkinlik duzenleyen ogrenci topluluklari
-- Kulup yoneticileri
-
-### Kullanilacak Teknolojiler
-
-| Alan | Teknoloji |
-|---|---|
-| Mobil Uygulama | React Native / Expo |
-| Backend | FastAPI |
-| Veri Tabani | SQLite / PostgreSQL |
-| AI / Data Science | Python, pandas, scikit-learn |
-| Proje Yonetimi | GitHub Projects, GitHub Issues |
-=======
-**Dogru ogrenci, dogru kulup ve dogru etkinlikle daha hizli bulussun.**
+**Doğru öğrenci, doğru kulüp ve doğru etkinlikle daha hızlı buluşsun.**
 
 <details>
-<summary><strong>Problem ve Cozum</strong></summary>
+<summary><strong>Problem ve Çözüm</strong></summary>
 
 ### Problem
 
-- Ogrenciler kulup ve etkinlik duyurularini farkli kanallardan takip ediyor.
-- Ilgi alanina uygun firsatlari kacirmak kolaylasiyor.
-- Kulup yoneticileri etkinliklerini dogru hedef kitleye ulastirmakta zorlanabiliyor.
+Öğrenciler kulüp ve etkinlik duyurularını çoğu zaman dağınık kanallardan takip eder. Bu durum, ilgi alanlarına ve hedeflerine uygun fırsatların kaçmasına neden olabilir.
 
-### Cozum
+Kulüpler ise etkinliklerini duyururken doğru hedef kitleye ulaşmakta zorlanabilir. Duyurular geniş kitlelere ulaşsa bile gerçekten ilgilenebilecek öğrencilerle kişiselleştirilmiş bir eşleşme çoğu zaman kurulamaz.
 
-CampusMatch AI; ogrenci profili, ilgi alanlari, bolum bilgisi, hedefler ve tercihleri kullanarak kisisellestirilmis etkinlik onerileri sunar. Oneriler sadece listelenmez, ayni zamanda "neden onerildi" mantigiyla aciklanir.
+### Çözüm
+
+CampusMatch AI; öğrenci profili, kulüp bilgileri ve etkinlik özelliklerini kullanarak kişiselleştirilmiş öneriler üretir. İlk aşamada skor bazlı ve açıklanabilir bir öneri sistemiyle ilerlenmesi planlanmıştır.
 </details>
 
 <details>
 <summary><strong>Hedef Kitle</strong></summary>
 
-- Universite ogrencileri
-- Lise ogrencileri
-- Kulup ve topluluklara katilmak isteyen ogrenciler
-- Etkinlik duzenleyen ogrenci topluluklari
-- Universite ve lise kulup yoneticileri
+### Birincil Hedef Kitle
 
+- Üniversite öğrencileri
+- Lise öğrencileri
+- Kulüp ve topluluklara katılmak isteyen öğrenciler
+- Kariyer, sosyal gelişim, teknik beceri veya topluluk deneyimi kazanmak isteyen öğrenciler
+
+### İkincil Hedef Kitle
+
+- Üniversite kulüpleri
+- Lise toplulukları
+- Etkinlik düzenleyen öğrenci organizasyonları
+- Katılımcı kitlesini daha doğru belirlemek isteyen kulüp ekipleri
+
+### Öncelik Dağılımı
+
+- Öğrenci tarafı: 6/10
+- Kulüp yöneticisi tarafı: 4/10
+
+Ürün, öğrenci deneyimini ana vitrin olarak konumlandırır; ancak kulüp yöneticisi tarafı da final üründe anlamlı ve kullanılabilir bir panel olarak yer almalıdır.
 </details>
 
 <details>
-<summary><strong>Temel Ozellikler</strong></summary>
+<summary><strong>Temel Özellikler</strong></summary>
 
-- Ogrenci profili olusturma
-- Ilgi alani ve hedef bazli etkinlik onerileri
-- Etkinlik detaylarini goruntuleme
+- Öğrenci profili oluşturma
+- İlgi alanı ve hedef bazlı etkinlik önerileri
+- Etkinlik detaylarını görüntüleme
 - Etkinlik kaydetme
-- Kulup yoneticisi icin etkinlik olusturma
-- AI destekli recommendation mantigi
-- Aciklanabilir oneriler
+- Kulüp yöneticisi için etkinlik oluşturma
+- Kulüp ve etkinlik yönetim mantığı
+- Yapay zeka destekli öneri sistemi
+- “Bu etkinlik neden önerildi?” açıklama mantığı
 
 </details>
->>>>>>> 2099799 (docs: simplify README for jury evaluation)
 
-## MVP Kapsami
+## MVP Kapsamı
 
-<<<<<<< HEAD
-## MVP Kapsami
+İlk hedef, öğrencinin profil bilgilerini girip kendisine uygun etkinlik önerilerini görebildiği bir MVP oluşturmaktır.
 
-Ilk hedef, ogrencinin profil bilgilerini girip kendisine uygun etkinlik onerilerini gorebildigi bir MVP olusturmaktir.
+1. Öğrenci profilini oluşturur.
+2. İlgi alanlarını ve tercihlerini girer.
+3. Sistem öğrenciye uygun kulüp ve etkinlikleri listeler.
+4. Öğrenci etkinlik detayını inceler.
+5. Sistem önerinin neden yapıldığını açıklar.
 
-MVP icindeki temel akis:
-
-1. Ogrenci profilini olusturur.
-2. Ilgi alanlarini ve tercihlerini belirtir.
-3. Sistem sentetik veri ve skor bazli mantikla oneriler uretir.
-4. Ogrenci kendisine onerilen etkinlikleri gorur.
-5. Oneri nedeni kullaniciya aciklanir.
-
----
-
-## Sprint 1 Ozeti
-
-### Sprint Tarihi
-
-**19 Haziran 2026 - 5 Temmuz 2026**
-
-### Sprint Amaci
-
-Sprint 1'de amac, urun fikrini netlestirmek, takim ici gorev dagilimini yapmak, proje yonetim yapisini kurmak ve Sprint 2 gelistirmesine temel olacak teknik ve urunsel cerceveyi olusturmaktir.
-
-### Sprint 1 Boyunca Odaklanilan Basliklar
-
-- Urun vizyonunun netlestirilmesi
-- Hedef kitlenin belirlenmesi
-- Ogrenci ve kulup yoneticisi kullanici akislarinin cikarilmasi
-- Product backlog yapisinin olusturulmasi
-- Veri semasi ve sentetik veri mantiginin planlanmasi
-- Aciklanabilir recommendation yaklasiminin belirlenmesi
-- Mobil ekran ve backend ihtiyaclarinin tanimlanmasi
-
-### Sprint 1 Ciktilari
-
-- README ve temel repo dokumantasyonu hazirlandi.
-- Product vision, target audience, user stories ve user flows dokumanlari olusturuldu.
-- Product backlog'un ilk versiyonu cikarildi.
-- Veri semasi ve ornek veri yapisi planlandi.
-- Recommendation sistemi icin skor bazli bir baseline mantik olusturuldu.
-- FastAPI tarafinda temel backend iskeleti baslatildi.
-
-### Sprint 1 Sonunda Projenin Durumu
-
-Sprint 1 sonunda proje, planlama ve temel mimari kararlarini tamamlamis; Sprint 2'de kod gelistirmesine gecmeye hazir bir duruma gelmistir.
-
----
-
-## Sprint 2 Icin Hazir Olan Alanlar
-
-- Mobil ekran gelistirmesine uygun urun akislar
-- Backend endpoint planlamasi
-- Sentetik veri ve sema temeli
-- Recommendation mantigi icin ilk prototip
-
-Sprint 2'de odak, bu planlari calisan urun parcaciklarina donusturmek olacaktir.
-
----
-
-## Repo Yapisi
-
-```text
-.
-|-- assets/
-|-- backend/
-|-- data/
-|-- docs/
-|-- ml/
-|-- mobile/
-|-- product/
-|-- scrum/
-```
-
-### Klasor Aciklamalari
-
-- `backend/`: FastAPI tabanli API iskeleti
-- `mobile/`: React Native / Expo tarafinin planlama ve gelistirme alani
-- `ml/`: Recommendation mantigi ve AI yaklasimi
-- `data/`: Veri semasi ve ornek sentetik veri
-- `product/`: Product vision, user story, user flow ve backlog dokumanlari
-- `scrum/`: Sprint planning, review, retrospective ve scrum notlari
-- `docs/`: Teknik kararlar ve destekleyici dokumantasyon
-
----
-
-## Onemli Dokumanlar
-
-- [Product Vision](./product/product_vision.md)
-- [Product Backlog](./product/product_backlog.md)
-- [User Stories](./product/user_stories.md)
-- [User Flows](./product/user_flows.md)
-- [Tech Stack](./docs/tech_stack.md)
-- [Backend README](./backend/README.md)
-- [Sprint 1 Planning](./scrum/sprint-1/sprint_planning.md)
-- [Sprint 1 Review](./scrum/sprint-1/sprint_review.md)
-- [Sprint 1 Retrospective](./scrum/sprint-1/sprint_retrospective.md)
-
----
-
-## Product Backlog
-
-GitHub Projects board linki eklendiginde bu bolum guncellenecektir.
-
----
-
-## Not
-
-Bu repo Sprint 1 sonunda urunsel planlama, veri kurgusu ve teknik temel olusturma asamasini belgelemektedir. Sprint 2 ile birlikte mobil, backend ve AI katmanlarinda daha fazla pratik gelistirme yapilacaktir.
-=======
-Sprint 2 ve sonrasi icin belirlenen ilk MVP hedefi:
-
-1. Ogrenci profilini olusturur.
-2. Ilgi alanlarini ve tercihlerini girer.
-3. Sistem ogrenciye uygun etkinlikleri listeler.
-4. Ogrenci etkinlik detayini gorur.
-5. Sistem neden bu etkinligi onerdigini aciklar.
-
-## Kullanici Odaklari
+## Kullanıcı Hikayeleri ve Akışlar
 
 <details>
-<summary><strong>Ogrenci Tarafi</strong></summary>
+<summary><strong>Öğrenci Tarafı</strong></summary>
 
-- Profil olusturma
-- Ilgi alanlarini secme
-- Onerilen etkinlikleri gorme
-- Etkinlik detayina bakma
-- Ilgilenilen etkinlikleri kaydetme
-- Oneri nedenini gorme
+### Öncelikli Kullanıcı Hikayeleri
+
+- Bir öğrenci olarak profil oluşturmak istiyorum.
+- Bir öğrenci olarak ilgi alanlarımı seçmek istiyorum.
+- Bir öğrenci olarak bana önerilen etkinlikleri görmek istiyorum.
+- Bir öğrenci olarak etkinlik detaylarını görüntülemek istiyorum.
+- Bir öğrenci olarak etkinlikleri kaydetmek istiyorum.
+- Bir öğrenci olarak önerinin neden yapıldığını görmek istiyorum.
+
+### Öğrenci Akışı
+
+1. Öğrenci uygulamaya girer.
+2. Profil bilgilerini doldurur.
+3. İlgi alanlarını ve hedeflerini seçer.
+4. Sistem öğrenciye uygun kulüp ve etkinlikleri listeler.
+5. Öğrenci etkinlik detayını inceler.
+6. Öğrenci etkinliği kaydeder veya katılım isteği oluşturur.
 
 </details>
 
 <details>
-<summary><strong>Kulup Yonetici Tarafi</strong></summary>
+<summary><strong>Kulüp Yöneticisi Tarafı</strong></summary>
 
-- Kulup profili olusturma
-- Etkinlik olusturma
-- Hedef kitleye uygun duyuru yapma
-- Ilerleyen asamalarda ilgi gosteren ogrencileri analiz etme
+### Öncelikli Kullanıcı Hikayeleri
+
+- Bir kulüp yöneticisi olarak kulüp profili oluşturmak istiyorum.
+- Bir kulüp yöneticisi olarak etkinlik oluşturmak istiyorum.
+- Bir kulüp yöneticisi olarak etkinliğime ilgi gösteren öğrencileri görmek istiyorum.
+- Bir kulüp yöneticisi olarak AI’dan hedef kitle önerisi almak istiyorum.
+
+### Kulüp Yöneticisi Akışı
+
+1. Kulüp yöneticisi uygulamaya veya panele girer.
+2. Kulüp profilini oluşturur.
+3. Etkinlik bilgilerini girer.
+4. Hedef kitle etiketlerini belirler.
+5. Etkinliği yayınlar.
+6. Etkinliğe ilgi gösteren öğrencileri takip eder.
 
 </details>
 
-## Teknoloji Yigini
+## Teknoloji Yığını
 
 | Alan | Teknoloji |
 |---|---|
 | Mobil Uygulama | React Native / Expo |
 | Backend | FastAPI |
-| Veri Tabani | SQLite / PostgreSQL |
+| Veri Tabanı | SQLite / PostgreSQL |
 | AI / Data Science | Python, pandas, scikit-learn |
-| Proje Yonetimi | GitHub Projects, GitHub Issues |
+| Proje Yönetimi | GitHub Projects, GitHub Issues |
 
-## Sprint 1 Ozeti
+<details>
+<summary><strong>Neden Bu Teknolojiler?</strong></summary>
 
-**Sprint Tarihi:** 19 Haziran 2026 - 5 Temmuz 2026
+- React Native / Expo: Mobil-first ürün için hızlı prototipleme sağlar.
+- FastAPI: Python tabanlı AI/ML entegrasyonu için uygundur.
+- SQLite: İlk geliştirme aşamasında hızlı başlangıç sağlar.
+- PostgreSQL: Proje büyüdüğünde daha güçlü veritabanı seçeneğidir.
+- scikit-learn: İlk öneri sistemi prototipi için sade ve anlaşılır modelleme sunar.
 
-**Sprint Amaci:** Urun fikrini netlestirmek, backlog ve kullanici akislarini olusturmak, veri ve AI yaklasimini planlamak, teknik temel dokumantasyonunu hazirlamak.
+</details>
 
-### Sprint 1'de Yapilanlar
+## Sprint 1 Özeti
 
-- Urun vizyonu netlestirildi.
-- Hedef kitle tanimlandi.
-- Ogrenci ve kulup yoneticisi user story'leri yazildi.
-- Temel kullanici akislarinin cercevesi cikartildi.
-- Product backlog'un ilk hali olusturuldu.
-- Veri semasi ve sentetik veri mantigi planlandi.
-- Recommendation sistemi icin skor bazli ilk yaklasim secildi.
-- FastAPI tarafinda temel backend iskeleti baslatildi.
+**Sprint Tarihi:** 19 Haziran 2026 - 5 Temmuz 2026  
+**Sprint Amacı:** Ürün fikrini netleştirmek, takım içi görev dağılımını yapmak, veri ve AI yaklaşımını planlamak, proje yönetim düzenini kurmak ve Sprint 2 geliştirmesine temel olacak teknik çerçeveyi hazırlamak.
 
-### Sprint 1 Sonunda Alinan Kararlar
+<details open>
+<summary><strong>Sprint 1 Planlama ve Backlog</strong></summary>
 
-- Urun mobil-first ilerleyecek.
-- Ogrenci tarafi ana odak olacak.
-- Kulup yoneticisi tarafi da urunun bir parcasi olacak.
-- Ilk AI ozelligi recommendation sistemi olacak.
-- Baslangicta sentetik veri ile ilerlenilecek.
+| ID | Görev | Sorumlu Alan | Durum |
+|---|---|---|---|
+| S1-01 | README başlangıç dokümantasyonunun hazırlanması | Scrum / Dokümantasyon | Done |
+| S1-02 | Product vision dokümanının hazırlanması | Product | Done |
+| S1-03 | Hedef kitle ve user story dokümanlarının hazırlanması | Product / Takım | Done |
+| S1-04 | Öğrenci kullanıcı akışının çıkarılması | Product / Developer Team | Done |
+| S1-05 | Kulüp yöneticisi kullanıcı akışının çıkarılması | Product / Developer Team | Done |
+| S1-06 | Sentetik veri şemasının planlanması | AI / Data Science | Done |
+| S1-07 | Öneri sistemi kriterlerinin belirlenmesi | AI / Data Science | Done |
+| S1-08 | Mobil uygulama ekran ihtiyaçlarının belirlenmesi | Mobile Team | Done |
+| S1-09 | Backend API ihtiyaçlarının çıkarılması | Backend Team | Done |
+| S1-10 | Recommendation baseline mantığının yazılması | AI / Backend | Done |
 
-## Backlog Ozet Durumu
+</details>
 
-| ID | Is / User Story | Durum |
+<details>
+<summary><strong>Sprint 1 Boyunca Yapılanlar</strong></summary>
+
+- Ürün vizyonu netleştirildi.
+- Hedef kitle belirlendi.
+- Öğrenci ve kulüp yöneticisi kullanıcı hikayeleri çıkarıldı.
+- Temel kullanıcı akışları dokümante edildi.
+- Product backlog’un ilk sürümü hazırlandı.
+- Veri şeması ve örnek veri yapısı planlandı.
+- Recommendation sistemi için skor bazlı ilk yaklaşım belirlendi.
+- FastAPI tarafında temel backend iskeleti başlatıldı.
+
+</details>
+
+<details>
+<summary><strong>Sprint 1 Sonunda Alınan Kararlar</strong></summary>
+
+- Ürün mobil-first olarak ilerleyecek.
+- Öğrenci deneyimi ana odak olacak.
+- Kulüp yöneticisi tarafı da final ürünün önemli bir parçası olacak.
+- İlk AI özelliği recommendation sistemi olacak.
+- Başlangıçta sentetik veri ile ilerlenilecek.
+- Sprint 2’de daha fazla kod, ekran ve entegrasyon çalışması yapılacak.
+
+</details>
+
+<details>
+<summary><strong>Sprint 1 Retrospective</strong></summary>
+
+### İyi Gidenler
+
+- Proje fikri ekip içinde ortak bir noktaya getirildi.
+- Öğrenci ve kulüp taraflarını birlikte ele alan net bir ürün yönü belirlendi.
+- Mobil-first yaklaşım üzerinde hızlı şekilde uzlaşıldı.
+- AI tarafında ilk aşama için sade ve açıklanabilir bir öneri yaklaşımı seçildi.
+
+### Geliştirilebilecek Noktalar
+
+- Görev sahipliği daha erken ve daha net belirlenmeli.
+- GitHub Projects daha aktif kullanılmalı.
+- Daily scrum notları daha düzenli tutulmalı.
+- Sprint kapanışına bırakılan işler daha erken yayılmalı.
+
+### Sprint 2 İçin Aksiyonlar
+
+- GitHub Projects board aktif şekilde güncellenecek.
+- Sprint görevleri issue olarak açılacak ve atanacak.
+- Mobil ekran wireframe’leri netleştirilecek.
+- Backend endpoint’leri kod seviyesinde genişletilecek.
+- Recommendation akışı örnek veri ile test edilecek.
+
+</details>
+
+## Product Backlog Özeti
+
+| ID | İş / User Story | Durum |
 |---|---|---|
-| PB-01 | Urun fikrinin netlestirilmesi | Done |
+| PB-01 | Ürün fikrinin netleştirilmesi | Done |
 | PB-02 | Hedef kitlenin belirlenmesi | Done |
 | PB-03 | Teknoloji setinin belirlenmesi | Done |
-| PB-04 | Ogrenci kullanici akisinin cikarilmasi | In Progress |
-| PB-05 | Kulup yoneticisi kullanici akisinin cikarilmasi | In Progress |
-| PB-06 | Sentetik veri yapisinin planlanmasi | In Progress |
-| PB-07 | Oneri sistemi kriterlerinin belirlenmesi | In Progress |
-| PB-08 | Mobil ekran taslaklarinin hazirlanmasi | To Do |
-| PB-09 | Backend API ihtiyaclarinin cikarilmasi | To Do |
-| PB-10 | Ilk oneri sistemi prototipinin hazirlanmasi | To Do |
+| PB-04 | Öğrenci kullanıcı akışının çıkarılması | In Progress |
+| PB-05 | Kulüp yöneticisi kullanıcı akışının çıkarılması | In Progress |
+| PB-06 | Sentetik veri yapısının planlanması | In Progress |
+| PB-07 | Öneri sistemi kriterlerinin belirlenmesi | In Progress |
+| PB-08 | Mobil ekran taslaklarının hazırlanması | To Do |
+| PB-09 | Backend API ihtiyaçlarının çıkarılması | To Do |
+| PB-10 | İlk öneri sistemi prototipinin hazırlanması | To Do |
+| PB-11 | Öğrenci profil ekranının geliştirilmesi | To Do |
+| PB-12 | Etkinlik önerileri ekranının geliştirilmesi | To Do |
+| PB-13 | Kulüp yöneticisi etkinlik oluşturma ekranının geliştirilmesi | To Do |
 
-## Sonraki Adimlar
+## Sonraki Adımlar
 
-- Mobil ekranlarin gelistirilmesi
-- Backend endpoint'lerinin genisletilmesi
-- Sentetik veri ile recommendation akisinin test edilmesi
-- Ogrenci tarafi MVP'nin calisir hale getirilmesi
-- Kulup yonetici akisinin temel seviyede eklenmesi
+- Mobil ekranların geliştirilmesi
+- Backend endpoint’lerinin genişletilmesi
+- Sentetik veri ile recommendation akışının test edilmesi
+- Öğrenci tarafı MVP’nin çalışır hale getirilmesi
+- Kulüp yöneticisi tarafının temel seviyede eklenmesi
 
-## Repo Yapisi
+## Repo Yapısı
 
 ```text
 .
@@ -346,5 +276,4 @@ Sprint 2 ve sonrasi icin belirlenen ilk MVP hedefi:
 
 ## Son Not
 
-Bu README, juri degerlendirmesi icin proje hakkindaki temel bilgileri tek yerde ve sade bir yapida toplamak amaciyla hazirlanmistir. Daha detayli dokumanlar repo icindeki ilgili klasorlerde yer almaktadir.
->>>>>>> 2099799 (docs: simplify README for jury evaluation)
+Bu README, jüri değerlendirmesi için gerekli ürün, sprint ve teknik bilgileri sade ama yeterli bir yapıda tek yerde toplamak amacıyla hazırlanmıştır.
