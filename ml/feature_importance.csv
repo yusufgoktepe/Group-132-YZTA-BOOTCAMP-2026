@@ -1,0 +1,14 @@
+feature,importance
+etkinlik_kategorisi,0.30309847
+etkinlik_ucreti,0.20893808
+olusturan_guven_puani,0.17552017
+dinamik_ilgi_akademik,0.043022417
+dinamik_ilgi_spor,0.041586764
+dinamik_ilgi_oyun,0.036202356
+etkinlik_turu,0.031997196
+kullanici_guven_puani,0.029792044
+zaman_farki_dk,0.028862586
+bolum_kodu,0.026645267
+sinif,0.026543707
+kampus_id,0.024774821
+zaman_lokasyon,0.023016043
