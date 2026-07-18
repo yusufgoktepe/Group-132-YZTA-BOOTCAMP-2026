@@ -1,12 +1,52 @@
-# Group 132 - YZTA Bootcamp 2026
+<div align="center">
 
-## CampusMatch AI
+# CampusMatch AI
 
-CampusMatch AI, öğrencilerin ilgi alanlarına, bölümlerine, hedeflerine ve tercihlerine göre kendilerine uygun kulüp ve etkinlikleri keşfetmesini sağlayan yapay zeka destekli mobil platform fikridir.
+### Doğru öğrenci, doğru kulüp ve doğru etkinlikle daha hızlı buluşsun.
 
-Bu README, jüri değerlendirmesi için proje hakkında gerekli olan ürün, sprint ve teknik bilgileri tek dosyada toplamak amacıyla hazırlanmıştır.
+**YZTA Bootcamp 2026 · Grup 132 · Mobil Öncelikli Öğrenci Etkinlik Platformu**
 
-## Takım ve Roller
+`Sprint 2 Tamamlandı` · `Mobil MVP Çalışıyor` · `Açıklanabilir Öneri Sistemi`
+
+<br>
+
+<img src="assets/screenshots/sprint-2/01-onboarding.jpeg" width="32%" alt="CampusMatch onboarding ekranı" />
+&nbsp;&nbsp;&nbsp;
+<img src="assets/screenshots/sprint-2/06-personalized-discovery.jpeg" width="32%" alt="CampusMatch kişiselleştirilmiş keşif ekranı" />
+
+</div>
+
+---
+
+## Proje Özeti
+
+CampusMatch AI, Türkiye'deki üniversite öğrencilerinin ilgi alanları, programları ve etkinlik tercihleri doğrultusunda uygun kulüp ve etkinlikleri keşfetmesini sağlayan yapay zekâ destekli mobil platformdur.
+
+| Problem | Çözüm |
+|---|---|
+| Etkinlik duyurularının dağınık kanallarda kaybolması | Öğrenci profiline göre tek yerde kişiselleştirilmiş keşif |
+| Öğrencinin neden bir etkinlik gördüğünü bilmemesi | Açıklanabilir eşleşme skoru ve öneri nedenleri |
+| Kulüplerin doğru öğrenci kitlesine ulaşamaması | İlgi, program ve davranış sinyallerine dayalı hedefleme altyapısı |
+
+**Birincil hedef kitle:** Türkiye'deki üniversite öğrencileri<br>
+**İkincil hedef kitle:** Üniversite kulüpleri ve öğrenci toplulukları<br>
+**MVP odağı:** Öğrenci profili → kişiselleştirilmiş öneri → etkinlik detayı → kaydetme
+
+<details>
+<summary><strong>Ürün kapsamı ve temel özellikler</strong></summary>
+
+- Kontrollü üniversite, program ve sınıf seçimi
+- Geniş ilgi alanı ve katılım amacı seçenekleri
+- Katılım biçimi, ücret ve dil tercihleri
+- Kişiselleştirilmiş etkinlik sıralaması
+- Eşleşme yüzdesi ve “Neden önerildi?” açıklaması
+- Etkinlik detay ve kaydetme akışı
+- Canlı backend önerisi ile yerel öneri arasında güvenli geçiş
+- İlerleyen aşamada swipe etkileşimi ve kulüp yönetim paneli
+
+</details>
+
+## Takım
 
 | İsim | Rol |
 |---|---|
@@ -16,264 +56,281 @@ Bu README, jüri değerlendirmesi için proje hakkında gerekli olan ürün, spr
 | Gülşen Eymen Dediler | Developer |
 | Cemal Faruk Tuğrul | Developer |
 
-## Kısa Özet
+## Kullanıcı Akışı
 
-- Problem: Öğrenciler uygun etkinlik ve kulüp fırsatlarını dağınık kanallarda kaçırabiliyor.
-- Çözüm: Öğrenci profiline göre kişiselleştirilmiş ve açıklanabilir etkinlik önerileri sunmak.
-- Hedef: Öğrenci ile doğru etkinliği daha hızlı buluşturmak, kulüplerin de doğru hedef kitleye ulaşmasını kolaylaştırmak.
-- Platform yaklaşımı: Mobil-first.
-- İlk AI özelliği: Skor bazlı ve açıklanabilir öneri sistemi.
+```mermaid
+flowchart LR
+    A[Onboarding] --> B[Üniversite seçimi]
+    B --> C[Program ve sınıf]
+    C --> D[İlgi alanları]
+    D --> E[Etkinlik tercihleri]
+    E --> F[Kişiselleştirilmiş keşif]
+    F --> G[Etkinlik detayı]
+    G --> H[Kaydet veya ilgilen]
+```
 
-## Ürün Vizyonu
+## Teknik Yapı
 
-**Doğru öğrenci, doğru kulüp ve doğru etkinlikle daha hızlı buluşsun.**
-
-<details>
-<summary><strong>Problem ve Çözüm</strong></summary>
-
-### Problem
-
-Öğrenciler kulüp ve etkinlik duyurularını çoğu zaman dağınık kanallardan takip eder. Bu durum, ilgi alanlarına ve hedeflerine uygun fırsatların kaçmasına neden olabilir.
-
-Kulüpler ise etkinliklerini duyururken doğru hedef kitleye ulaşmakta zorlanabilir. Duyurular geniş kitlelere ulaşsa bile gerçekten ilgilenebilecek öğrencilerle kişiselleştirilmiş bir eşleşme çoğu zaman kurulamaz.
-
-### Çözüm
-
-CampusMatch AI; öğrenci profili, kulüp bilgileri ve etkinlik özelliklerini kullanarak kişiselleştirilmiş öneriler üretir. İlk aşamada skor bazlı ve açıklanabilir bir öneri sistemiyle ilerlenmesi planlanmıştır.
-</details>
-
-<details>
-<summary><strong>Hedef Kitle</strong></summary>
-
-### Birincil Hedef Kitle
-
-- Üniversite öğrencileri
-- Lise öğrencileri
-- Kulüp ve topluluklara katılmak isteyen öğrenciler
-- Kariyer, sosyal gelişim, teknik beceri veya topluluk deneyimi kazanmak isteyen öğrenciler
-
-### İkincil Hedef Kitle
-
-- Üniversite kulüpleri
-- Lise toplulukları
-- Etkinlik düzenleyen öğrenci organizasyonları
-- Katılımcı kitlesini daha doğru belirlemek isteyen kulüp ekipleri
-
-### Öncelik Dağılımı
-
-- Öğrenci tarafı: 6/10
-- Kulüp yöneticisi tarafı: 4/10
-
-Ürün, öğrenci deneyimini ana vitrin olarak konumlandırır; ancak kulüp yöneticisi tarafı da final üründe anlamlı ve kullanılabilir bir panel olarak yer almalıdır.
-</details>
-
-<details>
-<summary><strong>Temel Özellikler</strong></summary>
-
-- Öğrenci profili oluşturma
-- İlgi alanı ve hedef bazlı etkinlik önerileri
-- Etkinlik detaylarını görüntüleme
-- Etkinlik kaydetme
-- Kulüp yöneticisi için etkinlik oluşturma
-- Kulüp ve etkinlik yönetim mantığı
-- Yapay zeka destekli öneri sistemi
-- “Bu etkinlik neden önerildi?” açıklama mantığı
-
-</details>
-
-## MVP Kapsamı
-
-İlk hedef, öğrencinin profil bilgilerini girip kendisine uygun etkinlik önerilerini görebildiği bir MVP oluşturmaktır.
-
-1. Öğrenci profilini oluşturur.
-2. İlgi alanlarını ve tercihlerini girer.
-3. Sistem öğrenciye uygun kulüp ve etkinlikleri listeler.
-4. Öğrenci etkinlik detayını inceler.
-5. Sistem önerinin neden yapıldığını açıklar.
-
-## Kullanıcı Hikayeleri ve Akışlar
-
-<details>
-<summary><strong>Öğrenci Tarafı</strong></summary>
-
-### Öncelikli Kullanıcı Hikayeleri
-
-- Bir öğrenci olarak profil oluşturmak istiyorum.
-- Bir öğrenci olarak ilgi alanlarımı seçmek istiyorum.
-- Bir öğrenci olarak bana önerilen etkinlikleri görmek istiyorum.
-- Bir öğrenci olarak etkinlik detaylarını görüntülemek istiyorum.
-- Bir öğrenci olarak etkinlikleri kaydetmek istiyorum.
-- Bir öğrenci olarak önerinin neden yapıldığını görmek istiyorum.
-
-### Öğrenci Akışı
-
-1. Öğrenci uygulamaya girer.
-2. Profil bilgilerini doldurur.
-3. İlgi alanlarını ve hedeflerini seçer.
-4. Sistem öğrenciye uygun kulüp ve etkinlikleri listeler.
-5. Öğrenci etkinlik detayını inceler.
-6. Öğrenci etkinliği kaydeder veya katılım isteği oluşturur.
-
-</details>
-
-<details>
-<summary><strong>Kulüp Yöneticisi Tarafı</strong></summary>
-
-### Öncelikli Kullanıcı Hikayeleri
-
-- Bir kulüp yöneticisi olarak kulüp profili oluşturmak istiyorum.
-- Bir kulüp yöneticisi olarak etkinlik oluşturmak istiyorum.
-- Bir kulüp yöneticisi olarak etkinliğime ilgi gösteren öğrencileri görmek istiyorum.
-- Bir kulüp yöneticisi olarak AI’dan hedef kitle önerisi almak istiyorum.
-
-### Kulüp Yöneticisi Akışı
-
-1. Kulüp yöneticisi uygulamaya veya panele girer.
-2. Kulüp profilini oluşturur.
-3. Etkinlik bilgilerini girer.
-4. Hedef kitle etiketlerini belirler.
-5. Etkinliği yayınlar.
-6. Etkinliğe ilgi gösteren öğrencileri takip eder.
-
-</details>
-
-## Teknoloji Yığını
-
-| Alan | Teknoloji |
+| Alan | Kullanılan Teknoloji / Yaklaşım |
 |---|---|
-| Mobil Uygulama | React Native / Expo |
-| Backend | FastAPI |
-| Veri Tabanı | SQLite / PostgreSQL |
-| AI / Data Science | Python, pandas, scikit-learn |
-| Proje Yönetimi | GitHub Projects, GitHub Issues |
+| Mobil | React Native, Expo, Expo Router, TypeScript |
+| Backend | FastAPI, Uvicorn, Python |
+| AI / Veri | Açıklanabilir skor, sentetik etkileşim verisi, XGBoost baseline |
+| Veri yapısı | CSV ve JSON Schema; SQLite/PostgreSQL sonraki aşama |
+| Test / Kalite | TypeScript kontrolü, Expo lint, Python derleme ve API testleri |
 
 <details>
-<summary><strong>Neden Bu Teknolojiler?</strong></summary>
+<summary><strong>Öneri sistemi nasıl çalışıyor?</strong></summary>
 
-- React Native / Expo: Mobil-first ürün için hızlı prototipleme sağlar.
-- FastAPI: Python tabanlı AI/ML entegrasyonu için uygundur.
-- SQLite: İlk geliştirme aşamasında hızlı başlangıç sağlar.
-- PostgreSQL: Proje büyüdüğünde daha güçlü veritabanı seçeneğidir.
-- scikit-learn: İlk öneri sistemi prototipi için sade ve anlaşılır modelleme sunar.
+Öğrenci profili; ilgi alanları, program, katılım amacı, katılım biçimi, ücret ve dil tercihleri üzerinden değerlendirilir. Canlı öneri endpoint'i profil eşleşmesini sentetik swipe etkileşimleriyle birleştirir:
+
+- Profil uyumu: `%80`
+- Etkileşim sinyali: `%20`
+
+İlk veri çalışmasında 1.000 kullanıcı, 200 etkinlik ve 50.000 swipe kaydı üretildi. XGBoost baseline modeli eğitildi; etkinlik kategorisi, ücret ve organizatör güven puanı en etkili özellikler olarak gözlemlendi.
+
+Sprint 2 sonunda hazırlanan V2 veri yapısı ise 1.000 profil, 500 etkinlik ve 50.000 `view/skip/save/like/apply` etkileşimi içerir. Böylece eski spor/oyun/akademik kısıtı daha geniş kategori yapısına taşınmıştır.
+
+> Eğitilmiş `.pkl` model mobil cihazda çalıştırılmaz. Modelleme backend/ML katmanında tutulur; mobil uygulama yalnızca API sonucunu kullanır.
 
 </details>
+
+<details>
+<summary><strong>API endpoint'leri</strong></summary>
+
+- `GET /health`
+- `GET /students`
+- `GET /clubs`
+- `GET /events`
+- `POST /recommendations/student/{student_id}`
+- `POST /recommendations/profile`
+
+Mobil uygulama backend'e ulaşamazsa kullanıcı deneyimini kesmeden yerel açıklanabilir öneri sistemine döner. Keşif ekranında `Canlı öneri`, `Bağlantı kontrol ediliyor` veya `Yerel öneri` durumu gösterilir.
+
+</details>
+
+---
 
 ## Sprint 1 Özeti
 
-**Sprint Tarihi:** 19 Haziran 2026 - 5 Temmuz 2026  
-**Sprint Amacı:** Ürün fikrini netleştirmek, takım içi görev dağılımını yapmak, veri ve AI yaklaşımını planlamak, proje yönetim düzenini kurmak ve Sprint 2 geliştirmesine temel olacak teknik çerçeveyi hazırlamak.
-
-<details open>
-<summary><strong>Sprint 1 Planlama ve Backlog</strong></summary>
-
-| ID | Görev | Sorumlu Alan | Durum |
-|---|---|---|---|
-| S1-01 | README başlangıç dokümantasyonunun hazırlanması | Scrum / Dokümantasyon | Done |
-| S1-02 | Product vision dokümanının hazırlanması | Product | Done |
-| S1-03 | Hedef kitle ve user story dokümanlarının hazırlanması | Product / Takım | Done |
-| S1-04 | Öğrenci kullanıcı akışının çıkarılması | Product / Developer Team | Done |
-| S1-05 | Kulüp yöneticisi kullanıcı akışının çıkarılması | Product / Developer Team | Done |
-| S1-06 | Sentetik veri şemasının planlanması | AI / Data Science | Done |
-| S1-07 | Öneri sistemi kriterlerinin belirlenmesi | AI / Data Science | Done |
-| S1-08 | Mobil uygulama ekran ihtiyaçlarının belirlenmesi | Mobile Team | Done |
-| S1-09 | Backend API ihtiyaçlarının çıkarılması | Backend Team | Done |
-| S1-10 | Recommendation baseline mantığının yazılması | AI / Backend | Done |
-
-</details>
+**Tarih:** 19 Haziran – 5 Temmuz 2026<br>
+**Amaç:** Ürün fikrini, hedef kitleyi, kullanıcı akışlarını, ekip çalışma modelini ve teknik yaklaşımı netleştirmek.
 
 <details>
-<summary><strong>Sprint 1 Boyunca Yapılanlar</strong></summary>
+<summary><strong>Sprint 1 çıktıları, review ve retrospective</strong></summary>
 
-- Ürün vizyonu netleştirildi.
-- Hedef kitle belirlendi.
-- Öğrenci ve kulüp yöneticisi kullanıcı hikayeleri çıkarıldı.
-- Temel kullanıcı akışları dokümante edildi.
-- Product backlog’un ilk sürümü hazırlandı.
-- Veri şeması ve örnek veri yapısı planlandı.
-- Recommendation sistemi için skor bazlı ilk yaklaşım belirlendi.
-- FastAPI tarafında temel backend iskeleti başlatıldı.
+### Tamamlananlar
 
-</details>
-
-<details>
-<summary><strong>Sprint 1 Sonunda Alınan Kararlar</strong></summary>
-
-- Ürün mobil-first olarak ilerleyecek.
-- Öğrenci deneyimi ana odak olacak.
-- Kulüp yöneticisi tarafı da final ürünün önemli bir parçası olacak.
-- İlk AI özelliği recommendation sistemi olacak.
-- Başlangıçta sentetik veri ile ilerlenilecek.
-- Sprint 2’de daha fazla kod, ekran ve entegrasyon çalışması yapılacak.
-
-</details>
-
-<details>
-<summary><strong>Sprint 1 Retrospective</strong></summary>
+- Ürün vizyonu ve problem tanımı oluşturuldu.
+- Öğrenci ve kulüp yöneticisi kullanıcı hikâyeleri çıkarıldı.
+- Product backlog'un ilk sürümü hazırlandı.
+- Mobil-first yaklaşım ve öğrenci MVP önceliği belirlendi.
+- Sentetik veri şeması ve açıklanabilir öneri kriterleri oluşturuldu.
+- FastAPI iskeleti ve skor bazlı recommendation baseline başlatıldı.
 
 ### İyi Gidenler
 
-- Proje fikri ekip içinde ortak bir noktaya getirildi.
-- Öğrenci ve kulüp taraflarını birlikte ele alan net bir ürün yönü belirlendi.
-- Mobil-first yaklaşım üzerinde hızlı şekilde uzlaşıldı.
-- AI tarafında ilk aşama için sade ve açıklanabilir bir öneri yaklaşımı seçildi.
+- Ekip ortak ürün yönünde uzlaştı.
+- Öğrenci deneyimi net biçimde önceliklendirildi.
+- İlk AI yaklaşımı sade, test edilebilir ve açıklanabilir tutuldu.
 
-### Geliştirilebilecek Noktalar
+### Geliştirme Alanları
 
-- Görev sahipliği daha erken ve daha net belirlenmeli.
-- GitHub Projects daha aktif kullanılmalı.
-- Daily scrum notları daha düzenli tutulmalı.
-- Sprint kapanışına bırakılan işler daha erken yayılmalı.
+- Görev sahipliği ve GitHub Projects kullanımı daha düzenli yürütülmeli.
+- Mobil ve backend ekipleri ortak veri sözleşmesini daha erken belirlemeli.
+- Sprint kapanışına bırakılan işler sprint içine daha dengeli dağıtılmalı.
 
-### Sprint 2 İçin Aksiyonlar
+### Sprint 2'ye Aktarılan Hedefler
 
-- GitHub Projects board aktif şekilde güncellenecek.
-- Sprint görevleri issue olarak açılacak ve atanacak.
-- Mobil ekran wireframe’leri netleştirilecek.
-- Backend endpoint’leri kod seviyesinde genişletilecek.
-- Recommendation akışı örnek veri ile test edilecek.
+- Çalışan Expo mobil iskeleti
+- Onboarding ve profil oluşturma
+- Etkinlik keşif ve detay ekranları
+- Backend endpoint'lerinin genişletilmesi
+- Sentetik veri ile öneri entegrasyonu
 
 </details>
 
-## Product Backlog Özeti
+---
 
-| ID | İş / User Story | Durum |
+## Sprint 2
+
+**Tarih:** 6 – 18 Temmuz 2026<br>
+**Sprint amacı:** Sprint 1'de planlanan öğrenci deneyimini çalışan mobil MVP'ye dönüştürmek; backend, veri ve öneri katmanları arasında ilk uçtan uca entegrasyonu kurmak.
+
+### Sprint 2 Beklentileri
+
+- Expo tabanlı mobil uygulamanın çalışması
+- Onboarding ve öğrenci profil akışının tamamlanması
+- Etkinlik keşif, detay ve kaydetme ekranlarının geliştirilmesi
+- FastAPI endpoint'lerinin gerçek veri döndürmesi
+- Sentetik verinin öneri sistemine bağlanması
+- Öneri sonucunun açıklanabilir olması
+- Mobil uygulamanın iPhone üzerinde Expo Go ile test edilmesi
+
+### Sprint 2 Backlog ve Durum
+
+| ID | Görev | Alan | Durum |
+|---|---|---|---|
+| S2-01 | Expo ve Expo Router mobil iskeleti | Mobil | ✅ Tamamlandı |
+| S2-02 | Modern onboarding ekranı | Mobil / UI | ✅ Tamamlandı |
+| S2-03 | Kontrollü Profil V2 akışı | Mobil / Product | ✅ Tamamlandı |
+| S2-04 | Üniversite → program → sınıf bağımlı seçimi | Mobil / Veri | ✅ Tamamlandı |
+| S2-05 | Geniş ilgi alanı ve etkinlik tercihleri | Mobil / Product | ✅ Tamamlandı |
+| S2-06 | Kişiselleştirilmiş etkinlik keşif ekranı | Mobil | ✅ Tamamlandı |
+| S2-07 | Etkinlik detay ve kaydetme akışı | Mobil | ✅ Tamamlandı |
+| S2-08 | Öğrenci, kulüp, etkinlik ve öneri endpoint'leri | Backend | ✅ Tamamlandı |
+| S2-09 | Data branch'indeki 50.000 etkileşimin entegrasyonu | AI / Backend | ✅ Tamamlandı |
+| S2-10 | XGBoost baseline ve özellik önemleri | AI / Veri | ✅ Tamamlandı |
+| S2-11 | Gerçek profil ile `/recommendations/profile` akışı | Mobil / Backend | ✅ Tamamlandı |
+| S2-12 | Profil V2 ve Etkinlik V2 JSON şemaları | Veri / Backend | ✅ Tamamlandı |
+| S2-13 | 500 etkinlikli V2 sentetik dataset | AI / Veri | ✅ Tamamlandı |
+| S2-14 | Türkiye üniversite-program referans altyapısı | Veri / Mobil | 🟡 Kısmi |
+| S2-15 | Mobil, backend ve veri doğrulamaları | Test | ✅ Tamamlandı |
+
+<details open>
+<summary><strong>Sprint 2 ürün çıktıları</strong></summary>
+
+### Mobil Uygulama
+
+- iPhone 11 üzerinde Expo Go bağlantısı kuruldu.
+- Kullanıcı dostu, sade, modern ve ferah görsel dil oluşturuldu.
+- Dört adımlı Profil V2 akışı geliştirildi.
+- Serbest metin üniversite, bölüm ve sınıf girişleri kontrollü seçimlere dönüştürüldü.
+- Genel “seviye” ve “uygunluk zamanı” soruları kaldırıldı.
+- İlgi alanları teknoloji, kariyer, tasarım-sanat ve yaşam-topluluk başlıklarında genişletildi.
+- Katılım amacı, biçimi, ücret ve dil tercihleri eklendi.
+- Etkinlik filtreleme, detay görüntüleme ve kaydetme çalışır hâle getirildi.
+- Etkinlik kartları ileride swipe deneyimine uyarlanabilecek bağımsız yapıda hazırlandı.
+
+### Backend ve Entegrasyon
+
+- FastAPI proje ortamı ve hafif bağımlılık yapısı kuruldu.
+- Gerçek profil gövdesini kabul eden öneri endpoint'i eklendi.
+- Profil ile backend arasındaki demo öğrenci bağı kaldırıldı.
+- Backend erişilemediğinde yerel öneriye dönüş sağlandı.
+- Yerel ağ üzerinden fiziksel iPhone bağlantısı doğrulandı.
+
+### AI ve Veri
+
+- 50.000 swipe kaydı sisteme alındı.
+- Açıklanabilir profil skoru davranış sinyaliyle birleştirildi.
+- XGBoost modeli, eğitim betiği ve feature importance çıktısı projeye eklendi.
+- Profil ve etkinlik için sürümlenebilir V2 şemaları oluşturuldu.
+- 7 kategoriye yayılan 500 etkinlik ve 50.000 çoklu etkileşim içeren V2 veri üretildi.
+
+</details>
+
+<details>
+<summary><strong>Sprint 2 ekran görüntüleri</strong></summary>
+
+### Profil Oluşturma Akışı
+
+<p align="center">
+  <img src="assets/screenshots/sprint-2/02-university-selection.jpeg" width="23%" alt="Üniversite seçimi" />
+  <img src="assets/screenshots/sprint-2/03-program-and-class.jpeg" width="23%" alt="Program ve sınıf seçimi" />
+  <img src="assets/screenshots/sprint-2/04-interest-selection.jpeg" width="23%" alt="İlgi alanı seçimi" />
+  <img src="assets/screenshots/sprint-2/05-event-preferences.jpeg" width="23%" alt="Etkinlik tercihleri" />
+</p>
+
+### Keşif Deneyimi
+
+<p align="center">
+  <img src="assets/screenshots/sprint-2/01-onboarding.jpeg" width="31%" alt="Onboarding" />
+  <img src="assets/screenshots/sprint-2/06-personalized-discovery.jpeg" width="31%" alt="Kişiselleştirilmiş etkinlik keşfi" />
+</p>
+
+</details>
+
+<details>
+<summary><strong>Sprint 2 test ve doğrulama sonuçları</strong></summary>
+
+| Kontrol | Sonuç |
+|---|---|
+| TypeScript `tsc --noEmit` | Başarılı |
+| Expo lint | Başarılı |
+| Python sözdizimi / derleme | Başarılı |
+| FastAPI `/health` | Başarılı |
+| FastAPI profil önerisi | Başarılı |
+| Yerel ağ üzerinden API erişimi | Başarılı |
+| V2 profil sayısı | 1.000 |
+| V2 etkinlik sayısı | 500 |
+| V2 etkileşim sayısı | 50.000 |
+
+</details>
+
+### Sprint 2 Review
+
+Sprint hedefinin ana bölümü gerçekleştirildi. Öğrenci onboarding'den başlayarak profilini oluşturabiliyor, kişiselleştirilmiş etkinlikleri görebiliyor, öneri nedenini inceleyebiliyor ve etkinliği kaydedebiliyor. Mobil, backend ve veri katmanları ilk kez uçtan uca bağlandı.
+
+Tamamlanmayan ana madde, Türkiye'deki tüm aktif üniversite ve programların resmî referans veriyle doldurulmasıdır. Seçim altyapısı hazırdır; mevcut kayıtlar geliştirme amaçlı örnek üniversitelerdir.
+
+### Sprint 2 Retrospective
+
+| İyi Gidenler | Geliştirilecek Noktalar | Alınan Aksiyon |
 |---|---|---|
-| PB-01 | Ürün fikrinin netleştirilmesi | Done |
-| PB-02 | Hedef kitlenin belirlenmesi | Done |
-| PB-03 | Teknoloji setinin belirlenmesi | Done |
-| PB-04 | Öğrenci kullanıcı akışının çıkarılması | In Progress |
-| PB-05 | Kulüp yöneticisi kullanıcı akışının çıkarılması | In Progress |
-| PB-06 | Sentetik veri yapısının planlanması | In Progress |
-| PB-07 | Öneri sistemi kriterlerinin belirlenmesi | In Progress |
-| PB-08 | Mobil ekran taslaklarının hazırlanması | To Do |
-| PB-09 | Backend API ihtiyaçlarının çıkarılması | To Do |
-| PB-10 | İlk öneri sistemi prototipinin hazırlanması | To Do |
-| PB-11 | Öğrenci profil ekranının geliştirilmesi | To Do |
-| PB-12 | Etkinlik önerileri ekranının geliştirilmesi | To Do |
-| PB-13 | Kulüp yöneticisi etkinlik oluşturma ekranının geliştirilmesi | To Do |
+| Mobil MVP'nin fiziksel telefonda çalışması | Profil alanlarının geliştirme sırasında değişmesi | Form, öneri profili ve ML özelliği katmanları ayrıldı |
+| Backend ve veri entegrasyonunun kurulması | Dataset kategorilerinin başlangıçta dar kalması | 7 kategorili V2 dataset üretildi |
+| Açıklanabilir öneri yaklaşımının korunması | Canlı ve yerel önerinin kullanıcı tarafından ayırt edilememesi | Kaynak göstergesi eklendi |
+| Mock veriyle ekiplerin beklemeden ilerlemesi | Tam YÖK referans listesinin henüz bulunmaması | Sürümlü eğitim referans altyapısı oluşturuldu |
 
-## Sonraki Adımlar
+---
 
-- Mobil ekranların geliştirilmesi
-- Backend endpoint’lerinin genişletilmesi
-- Sentetik veri ile recommendation akışının test edilmesi
-- Öğrenci tarafı MVP’nin çalışır hale getirilmesi
-- Kulüp yöneticisi tarafının temel seviyede eklenmesi
+## Güncel Product Backlog
+
+| Öncelik | İş | Durum |
+|---|---|---|
+| P0 | Öğrenci onboarding ve Profil V2 | ✅ Tamamlandı |
+| P0 | Etkinlik keşif, detay ve kaydetme | ✅ Tamamlandı |
+| P0 | Gerçek profil ile öneri API'si | ✅ Tamamlandı |
+| P0 | Açıklanabilir öneri nedenleri | ✅ Tamamlandı |
+| P1 | Tam Türkiye üniversite-program referansı | 🟡 Devam ediyor |
+| P1 | Profil ve kaydedilen etkinlikleri veritabanında saklama | ⬜ Planlandı |
+| P1 | Swipe `like/skip` ve interaction endpoint'i | ⬜ Planlandı |
+| P1 | V2 veriyle model eğitimi ve model servisleme | ⬜ Planlandı |
+| P2 | Kulüp yöneticisi profil ve etkinlik oluşturma | ⬜ Planlandı |
+| P2 | Kimlik doğrulama ve üniversite doğrulaması | ⬜ Planlandı |
+
+## Sprint 3 İçin Önerilen Sıra
+
+1. YÖK/ÖSYM referansından tam üniversite ve program listesini oluşturmak.
+2. SQLite ile profil, kaydedilen etkinlik ve interaction kayıtlarını kalıcılaştırmak.
+3. Swipe deneyimi ile `like`, `skip`, `save` ve `view_detail` olaylarını backend'e göndermek.
+4. V2 dataset üzerinde yeni modeli eğitip FastAPI üzerinden güvenli şekilde servislemek.
+5. Kulüp yöneticisi için temel etkinlik oluşturma akışını başlatmak.
+
+## Çalıştırma
+
+**Backend:**
+
+```powershell
+cd C:\Users\yusuf\Desktop\Group-132-YZTA-BOOTCAMP-2026-Starter
+.\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
+```
+
+**Mobil uygulama:**
+
+```powershell
+cd C:\Users\yusuf\Desktop\Group-132-YZTA-BOOTCAMP-2026-Starter\mobile
+npx expo start
+```
 
 ## Repo Yapısı
 
 ```text
 .
-|-- assets/
-|-- backend/
-|-- data/
-|-- docs/
-|-- ml/
-|-- mobile/
-|-- product/
-|-- scrum/
+├── assets/screenshots/  # Sprint ve ürün ekranları
+├── backend/             # FastAPI servisleri
+├── data/                # Şemalar, referanslar ve sentetik veriler
+├── ml/                  # Veri üretimi ve modelleme
+├── mobile/              # Expo mobil uygulaması
+├── product/             # Ürün çalışma belgeleri
+└── scrum/               # Sprint arşivi
 ```
 
-## Son Not
+---
 
-Bu README, jüri değerlendirmesi için gerekli ürün, sprint ve teknik bilgileri sade ama yeterli bir yapıda tek yerde toplamak amacıyla hazırlanmıştır.
+<div align="center">
+
+Bu README, jüri değerlendirmesi için ürün, teknik yapı, Sprint 1 ve Sprint 2 bilgilerini **tek dosyada** sunar.
+
+</div>
