@@ -1,3 +1,5 @@
-event_id,club_id,title,description,category,event_type,level,date,location_type,quota,target_interests,target_departments
-1,1,Intro to Data Science,Python ve veri bilimine giriş workshop'u,data science,workshop,beginner,2026-07-10,hybrid,50,data science;python;ai,Management Information Systems;Computer Engineering;Statistics
-2,2,Mobile App Meetup,Mobil uygulama geliştirme ve kariyer buluşması,software,networking,intermediate,2026-07-12,onsite,40,mobile development;software,Computer Engineering;Software Engineering
+event_id,club_id,university_id,title,description,category,event_type,level,date,location_type,quota,target_interests,target_departments,target_goals,fee_type,language
+1,1,yok-hacettepe,Üretken Yapay Zekâ Atölyesi,Üretken yapay zekâ araçlarını uygulamalı keşfet,technology,workshop,all,2026-08-10,hybrid,50,ai;data-science,Bilgisayar Mühendisliği;Yapay Zekâ Mühendisliği;Yönetim Bilişim Sistemleri,learn;career;build-project,free,tr
+2,2,yok-itu,Mobil Uygulama Buluşması,Mobil ürün geliştiren öğrencilerle tanış ve ekip kur,technology,networking,all,2026-08-12,onsite,40,mobile-development;product,Bilgisayar Mühendisliği;Yazılım Mühendisliği;Yönetim Bilişim Sistemleri,network;career;build-project,free,tr
+3,3,yok-bogazici,Fikirden Ürüne Girişimcilik,Fikrini doğrula ve ilk ürün yol haritanı oluştur,career,seminar,all,2026-08-15,onsite,80,entrepreneurship;product;career,all,career;network;build-project,free,tr
+4,4,yok-yildiz,Tasarım Odaklı Düşünme,Kullanıcı problemlerine yaratıcı çözümler üret,design,workshop,all,2026-08-18,online,35,ui-ux;graphic-design,all,learn;build-project,paid,tr

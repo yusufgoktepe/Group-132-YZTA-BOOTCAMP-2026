@@ -1,3 +1,5 @@
 club_id,club_name,category,description,target_departments,target_interests,activity_level
-1,Data Science Club,technology,Veri bilimi ve yapay zeka odaklı öğrenci kulübü,Management Information Systems;Computer Engineering;Statistics,data science;ai;python,high
-2,Software Community,technology,Yazılım geliştirme ve kariyer etkinlikleri düzenleyen topluluk,Computer Engineering;Software Engineering;Management Information Systems,software;mobile development;backend,medium
+1,Veri Bilimi Kulübü,technology,Veri bilimi ve yapay zekâ odaklı öğrenci kulübü,Bilgisayar Mühendisliği;Yapay Zekâ Mühendisliği,ai;data-science,high
+2,Yazılım Topluluğu,technology,Yazılım geliştirme ve kariyer etkinlikleri düzenleyen topluluk,Bilgisayar Mühendisliği;Yazılım Mühendisliği,mobile-development;web-development,high
+3,Girişimcilik Kulübü,career,Fikirleri ürüne dönüştürmek isteyen öğrencileri buluşturur,all,entrepreneurship;product,medium
+4,Tasarım ve İnovasyon Kulübü,design,Tasarım ve yaratıcı problem çözme odaklı topluluk,all,ui-ux;graphic-design,medium
