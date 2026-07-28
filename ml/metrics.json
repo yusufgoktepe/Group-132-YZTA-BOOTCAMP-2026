@@ -1,0 +1,55 @@
+{
+  "generated_on": "2026-07-29",
+  "dataset": "data/sample/campusmatch_mvp_data.csv",
+  "row_count": 50000,
+  "test_row_count": 10000,
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true
+  },
+  "decision_threshold": 0.5,
+  "model_source": "kayitli model (ml/xgb_model.pkl)",
+  "production_scorer": "rule_based",
+  "results": {
+    "majority": {
+      "label": "Cogunluk",
+      "metrics": {
+        "accuracy": 0.6049,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "roc_auc": 0.5,
+        "precision_at_5": 0.4008
+      }
+    },
+    "rule_based": {
+      "label": "Kural bazli",
+      "metrics": {
+        "accuracy": 0.6484,
+        "precision": 0.6108,
+        "recall": 0.3035,
+        "f1": 0.4055,
+        "roc_auc": 0.658,
+        "precision_at_5": 0.4825
+      }
+    },
+    "xgboost": {
+      "label": "XGBoost",
+      "metrics": {
+        "accuracy": 0.5811,
+        "precision": 0.4766,
+        "recall": 0.6145,
+        "f1": 0.5369,
+        "roc_auc": 0.6552,
+        "precision_at_5": 0.4837
+      }
+    }
+  },
+  "notes": [
+    "- Kural bazli skor, cogunluk tabanina gore ROC-AUC'yi 0.5000 seviyesinden 0.6580 seviyesine tasiyor; yani siralama tesadufi degil.",
+    "- XGBoost ROC-AUC 0.6552 ile kural bazli skorun 0.0028 puan altinda.",
+    "- Fark anlamli degil. Sentetik veri, backend'in de kullandigi ilgi/ucret/guven kurallarindan uretildigi icin aciklanabilir skor bu veri setinde modelin yakaladigi sinyalin buyuk kismini zaten yakaliyor.",
+    "- MVP icin aciklanabilir kural bazli skor tercih edilmelidir: ayni isabetle geliyor, her oneri icin gerekce uretebiliyor ve calisma zamaninda model dosyasina bagimli degil."
+  ]
+}
