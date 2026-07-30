@@ -11,6 +11,7 @@ import { applyRecommendationOverrides, getPersonalizedEvents } from '@/utils/rec
 
 export default function DiscoverScreen() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
+  const [skippedEventIds, setSkippedEventIds] = useState<string[]>([]);
   const [recommendationRequest, setRecommendationRequest] = useState(0);
   const [recommendationSource, setRecommendationSource] = useState<'local' | 'checking' | 'live'>(
     'local'
@@ -25,6 +26,7 @@ export default function DiscoverScreen() {
     setRecommendationOverrides,
     savedEventIds,
     toggleSavedEvent,
+    recordEventInteraction,
   } = useApp();
   const eventCategories = ['Tümü', ...new Set(catalogEvents.map((event) => event.category))];
   const firstName = profile?.displayName.trim().split(/\s+/)[0] || 'Öğrenci';
@@ -32,9 +34,10 @@ export default function DiscoverScreen() {
     getPersonalizedEvents(catalogEvents, profile),
     recommendationOverrides
   );
-  const visibleEvents = selectedCategory === 'Tümü'
+  const categoryEvents = selectedCategory === 'Tümü'
     ? personalizedEvents
     : personalizedEvents.filter((event) => event.category === selectedCategory);
+  const visibleEvents = categoryEvents.filter((event) => !skippedEventIds.includes(event.id));
 
   useEffect(() => {
     let isActive = true;
@@ -67,6 +70,11 @@ export default function DiscoverScreen() {
   const retryConnection = () => {
     retryCatalog();
     setRecommendationRequest((current) => current + 1);
+  };
+
+  const skipEvent = (eventId: string) => {
+    setSkippedEventIds((current) => [...new Set([...current, eventId])]);
+    recordEventInteraction(eventId, 'skip');
   };
 
   const isCheckingConnection = catalogStatus === 'loading' || recommendationSource === 'checking';
@@ -156,10 +164,23 @@ export default function DiscoverScreen() {
             <View style={styles.emptyIcon}>
               <Ionicons color={BrandColors.primary} name="compass-outline" size={26} />
             </View>
-            <Text style={styles.emptyTitle}>Bu kategoride etkinlik bulunamadı</Text>
-            <Text style={styles.emptyText}>Diğer önerilere dönerek yeni etkinlikleri keşfedebilirsin.</Text>
-            <Pressable onPress={() => setSelectedCategory('Tümü')} style={styles.emptyButton}>
-              <Text style={styles.emptyButtonText}>Tüm etkinlikleri göster</Text>
+            <Text style={styles.emptyTitle}>
+              {categoryEvents.length > 0 ? 'Bu önerilerin hepsini geçtin' : 'Bu kategoride etkinlik bulunamadı'}
+            </Text>
+            <Text style={styles.emptyText}>
+              {categoryEvents.length > 0
+                ? 'İstersen geçtiğin kartları yeniden inceleyebilirsin.'
+                : 'Diğer önerilere dönerek yeni etkinlikleri keşfedebilirsin.'}
+            </Text>
+            <Pressable
+              onPress={() => {
+                if (categoryEvents.length > 0) setSkippedEventIds([]);
+                else setSelectedCategory('Tümü');
+              }}
+              style={styles.emptyButton}>
+              <Text style={styles.emptyButtonText}>
+                {categoryEvents.length > 0 ? 'Geçilenleri geri getir' : 'Tüm etkinlikleri göster'}
+              </Text>
             </Pressable>
           </View>
         ) : (
@@ -169,6 +190,7 @@ export default function DiscoverScreen() {
               isSaved={savedEventIds.includes(event.id)}
               key={event.id}
               onPress={() => router.push({ pathname: '/event/[id]', params: { id: event.id } })}
+              onSkip={() => skipEvent(event.id)}
               onToggleSaved={() => toggleSavedEvent(event.id)}
             />
           ))

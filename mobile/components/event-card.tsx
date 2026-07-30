@@ -8,10 +8,11 @@ type EventCardProps = {
   event: CampusEvent;
   isSaved: boolean;
   onPress: () => void;
+  onSkip?: () => void;
   onToggleSaved: () => void;
 };
 
-export function EventCard({ event, isSaved, onPress, onToggleSaved }: EventCardProps) {
+export function EventCard({ event, isSaved, onPress, onSkip, onToggleSaved }: EventCardProps) {
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
       <View style={[styles.visual, { backgroundColor: event.color }]}>
@@ -48,6 +49,18 @@ export function EventCard({ event, isSaved, onPress, onToggleSaved }: EventCardP
           <Ionicons color={BrandColors.accentDark} name="bulb-outline" size={15} />
           <Text numberOfLines={1} style={styles.reasonText}>{event.reasons[0]}</Text>
         </View>
+        {onSkip ? (
+          <Pressable
+            accessibilityLabel={`${event.title} etkinliğini geç`}
+            onPress={(pressEvent) => {
+              pressEvent.stopPropagation();
+              onSkip();
+            }}
+            style={({ pressed }) => [styles.skipButton, pressed && styles.skipButtonPressed]}>
+            <Ionicons color={BrandColors.textMuted} name="play-skip-forward-outline" size={16} />
+            <Text style={styles.skipButtonText}>Bu öneriyi geç</Text>
+          </Pressable>
+        ) : null}
       </View>
     </Pressable>
   );
@@ -68,4 +81,7 @@ const styles = StyleSheet.create({
   dot: { backgroundColor: BrandColors.border, borderRadius: 2, height: 4, marginHorizontal: 8, width: 4 },
   reason: { alignItems: 'center', backgroundColor: BrandColors.accentSoft, borderRadius: 12, flexDirection: 'row', gap: 7, marginTop: 13, paddingHorizontal: 10, paddingVertical: 9 },
   reasonText: { color: BrandColors.accentDark, flex: 1, fontFamily: Fonts.rounded, fontSize: 12, fontWeight: '600' },
+  skipButton: { alignItems: 'center', alignSelf: 'flex-start', flexDirection: 'row', gap: 6, marginTop: 13, paddingHorizontal: 3, paddingVertical: 5 },
+  skipButtonPressed: { opacity: 0.55 },
+  skipButtonText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 12, fontWeight: '700' },
 });
