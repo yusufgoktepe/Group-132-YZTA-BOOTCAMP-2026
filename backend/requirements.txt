@@ -1,2 +1,4 @@
+# Calisma zamani bagimliliklari.
+# Veritabani icin standart kutuphanedeki sqlite3 kullanilir, ek paket gerekmez.
 fastapi
 uvicorn

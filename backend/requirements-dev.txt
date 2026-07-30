@@ -1,0 +1,4 @@
+# Test bagimliliklari. Once backend/requirements.txt kurulmalidir.
+-r requirements.txt
+pytest
+httpx
