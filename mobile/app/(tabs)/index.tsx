@@ -11,6 +11,7 @@ import { applyRecommendationOverrides, getPersonalizedEvents } from '@/utils/rec
 
 export default function DiscoverScreen() {
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
+  const [recommendationRequest, setRecommendationRequest] = useState(0);
   const [recommendationSource, setRecommendationSource] = useState<'local' | 'checking' | 'live'>(
     'local'
   );
@@ -18,6 +19,8 @@ export default function DiscoverScreen() {
     profile,
     profileId,
     catalogEvents,
+    catalogStatus,
+    retryCatalog,
     recommendationOverrides,
     setRecommendationOverrides,
     savedEventIds,
@@ -59,7 +62,15 @@ export default function DiscoverScreen() {
     return () => {
       isActive = false;
     };
-  }, [profile, profileId, setRecommendationOverrides]);
+  }, [profile, profileId, recommendationRequest, setRecommendationOverrides]);
+
+  const retryConnection = () => {
+    retryCatalog();
+    setRecommendationRequest((current) => current + 1);
+  };
+
+  const isCheckingConnection = catalogStatus === 'loading' || recommendationSource === 'checking';
+  const isUsingFallback = catalogStatus === 'fallback' || recommendationSource === 'local';
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -115,15 +126,53 @@ export default function DiscoverScreen() {
           <Text style={styles.resultCount}>{visibleEvents.length} sonuç</Text>
         </View>
 
-        {visibleEvents.map((event) => (
-          <EventCard
-            event={event}
-            isSaved={savedEventIds.includes(event.id)}
-            key={event.id}
-            onPress={() => router.push({ pathname: '/event/[id]', params: { id: event.id } })}
-            onToggleSaved={() => toggleSavedEvent(event.id)}
-          />
-        ))}
+        {isCheckingConnection ? (
+          <View accessibilityLiveRegion="polite" style={styles.statusCard}>
+            <View style={[styles.statusIcon, styles.statusIconLoading]}>
+              <Ionicons color={BrandColors.primary} name="cloud-download-outline" size={20} />
+            </View>
+            <View style={styles.statusCopy}>
+              <Text style={styles.statusTitle}>Öneriler güncelleniyor</Text>
+              <Text style={styles.statusText}>Bağlantıyı kontrol ederken etkinlikleri hazırlıyoruz.</Text>
+            </View>
+          </View>
+        ) : isUsingFallback ? (
+          <View accessibilityLiveRegion="polite" style={[styles.statusCard, styles.statusCardWarning]}>
+            <View style={[styles.statusIcon, styles.statusIconWarning]}>
+              <Ionicons color={BrandColors.accentDark} name="cloud-offline-outline" size={20} />
+            </View>
+            <View style={styles.statusCopy}>
+              <Text style={styles.statusTitle}>Demo etkinlikleri gösteriliyor</Text>
+              <Text style={styles.statusText}>Sunucuya ulaşılamadı. Keşfe kesintisiz devam edebilirsin.</Text>
+            </View>
+            <Pressable accessibilityLabel="Bağlantıyı tekrar dene" hitSlop={8} onPress={retryConnection} style={styles.retryButton}>
+              <Ionicons color={BrandColors.accentDark} name="refresh" size={18} />
+            </Pressable>
+          </View>
+        ) : null}
+
+        {visibleEvents.length === 0 ? (
+          <View style={styles.emptyState}>
+            <View style={styles.emptyIcon}>
+              <Ionicons color={BrandColors.primary} name="compass-outline" size={26} />
+            </View>
+            <Text style={styles.emptyTitle}>Bu kategoride etkinlik bulunamadı</Text>
+            <Text style={styles.emptyText}>Diğer önerilere dönerek yeni etkinlikleri keşfedebilirsin.</Text>
+            <Pressable onPress={() => setSelectedCategory('Tümü')} style={styles.emptyButton}>
+              <Text style={styles.emptyButtonText}>Tüm etkinlikleri göster</Text>
+            </Pressable>
+          </View>
+        ) : (
+          visibleEvents.map((event) => (
+            <EventCard
+              event={event}
+              isSaved={savedEventIds.includes(event.id)}
+              key={event.id}
+              onPress={() => router.push({ pathname: '/event/[id]', params: { id: event.id } })}
+              onToggleSaved={() => toggleSavedEvent(event.id)}
+            />
+          ))
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -153,4 +202,19 @@ const styles = StyleSheet.create({
   sectionHeader: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 13 },
   sectionTitle: { color: BrandColors.text, fontFamily: Fonts.rounded, fontSize: 19, fontWeight: '800' },
   resultCount: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 12 },
+  statusCard: { alignItems: 'center', backgroundColor: BrandColors.primarySoft, borderColor: BrandColors.border, borderRadius: 18, borderWidth: 1, flexDirection: 'row', marginBottom: 14, padding: 13 },
+  statusCardWarning: { backgroundColor: BrandColors.accentSoft, borderColor: BrandColors.accentBorder },
+  statusIcon: { alignItems: 'center', borderRadius: 13, height: 40, justifyContent: 'center', width: 40 },
+  statusIconLoading: { backgroundColor: BrandColors.surface },
+  statusIconWarning: { backgroundColor: '#FFF8EC' },
+  statusCopy: { flex: 1, marginLeft: 11 },
+  statusTitle: { color: BrandColors.text, fontFamily: Fonts.rounded, fontSize: 13, fontWeight: '800' },
+  statusText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 11, lineHeight: 16, marginTop: 2 },
+  retryButton: { alignItems: 'center', borderColor: BrandColors.accentBorder, borderRadius: 12, borderWidth: 1, height: 38, justifyContent: 'center', marginLeft: 8, width: 38 },
+  emptyState: { alignItems: 'center', backgroundColor: BrandColors.surface, borderColor: BrandColors.border, borderRadius: 22, borderWidth: 1, paddingHorizontal: 24, paddingVertical: 32 },
+  emptyIcon: { alignItems: 'center', backgroundColor: BrandColors.primarySoft, borderRadius: 22, height: 50, justifyContent: 'center', width: 50 },
+  emptyTitle: { color: BrandColors.text, fontFamily: Fonts.rounded, fontSize: 16, fontWeight: '800', marginTop: 14, textAlign: 'center' },
+  emptyText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 12, lineHeight: 18, marginTop: 6, textAlign: 'center' },
+  emptyButton: { backgroundColor: BrandColors.primary, borderRadius: 14, marginTop: 18, paddingHorizontal: 18, paddingVertical: 11 },
+  emptyButtonText: { color: BrandColors.surface, fontFamily: Fonts.rounded, fontSize: 12, fontWeight: '800' },
 });

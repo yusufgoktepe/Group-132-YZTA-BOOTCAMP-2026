@@ -10,7 +10,7 @@ Bu sprintin amacı CampusMatch AI projesini çalışan, test edilmiş ve jüriye
 - [x] Etkinlik kaydetme ve kayıttan çıkarma işlemlerinin çalışması
 - [ ] Beğenme tamamlandı; geçme/swipe işleminin eklenmesi
 - [x] Kaydedilen etkinliklerin uygulama yeniden açıldığında korunması
-- [ ] Yükleniyor, bağlantı hatası ve boş sonuç ekranlarının hazırlanması
+- [x] Yükleniyor, bağlantı hatası ve boş sonuç ekranlarının hazırlanması
 - [x] Profil düzenleme özelliğinin tamamlanması
 - [ ] Uygulamanın fiziksel telefonda kontrol edilmesi
 

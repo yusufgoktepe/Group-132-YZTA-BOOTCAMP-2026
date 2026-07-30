@@ -21,6 +21,8 @@ type AppContextValue = {
   profileId: string | null;
   isHydrated: boolean;
   catalogEvents: CampusEvent[];
+  catalogStatus: 'loading' | 'live' | 'fallback';
+  retryCatalog: () => void;
   saveProfile: (profile: StudentProfile) => void;
   recommendationOverrides: Record<string, RecommendationOverride>;
   setRecommendationOverrides: (overrides: Record<string, RecommendationOverride>) => void;
@@ -56,15 +58,37 @@ export function AppProvider({ children }: PropsWithChildren) {
   const profileSyncRef = useRef<Promise<string | null> | null>(null);
   const [isHydrated, setIsHydrated] = useState(false);
   const [catalogEvents, setCatalogEvents] = useState<CampusEvent[]>(fallbackEvents);
+  const [catalogStatus, setCatalogStatus] = useState<'loading' | 'live' | 'fallback'>(
+    'loading'
+  );
   const [recommendationOverrides, setRecommendationOverrides] = useState<
     Record<string, RecommendationOverride>
   >({});
   const [savedEventIds, setSavedEventIds] = useState<string[]>([]);
 
+  const loadCatalog = async () => {
+    setCatalogStatus('loading');
+    try {
+      const remoteEvents = await fetchEventCatalog();
+      if (remoteEvents.length === 0) {
+        setCatalogEvents(fallbackEvents);
+        setCatalogStatus('fallback');
+        return;
+      }
+      setCatalogEvents(remoteEvents);
+      setCatalogStatus('live');
+    } catch (error) {
+      console.warn('Etkinlik kataloğu alınamadı; demo verileri gösteriliyor.', error);
+      setCatalogEvents(fallbackEvents);
+      setCatalogStatus('fallback');
+    }
+  };
+
   useEffect(() => {
     let active = true;
 
     async function hydrate() {
+      void loadCatalog();
       try {
         const entries = await AsyncStorage.multiGet([
           PROFILE_KEY,
@@ -84,12 +108,6 @@ export function AppProvider({ children }: PropsWithChildren) {
         setProfile(storedProfile);
         setProfileId(storedProfileId);
         setSavedEventIds(storedSavedIds);
-
-        fetchEventCatalog()
-          .then((remoteEvents) => {
-            if (active && remoteEvents.length > 0) setCatalogEvents(remoteEvents);
-          })
-          .catch(() => undefined);
 
         if (storedProfileId) {
           fetchSavedEventIds(storedProfileId)
@@ -162,6 +180,8 @@ export function AppProvider({ children }: PropsWithChildren) {
         profileId,
         isHydrated,
         catalogEvents,
+        catalogStatus,
+        retryCatalog: () => void loadCatalog(),
         saveProfile,
         recommendationOverrides,
         setRecommendationOverrides,
