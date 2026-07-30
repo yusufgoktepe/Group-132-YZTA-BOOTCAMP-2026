@@ -1,0 +1,1954 @@
+[
+  {
+    "id": "event-1",
+    "title": "Üretken Yapay Zekâ Atölyesi",
+    "clubName": "Yapay Zekâ ve Veri Topluluğu",
+    "category": "Teknoloji",
+    "interestIds": [
+      "ai",
+      "data-science"
+    ],
+    "goalIds": [
+      "learn",
+      "career"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "3 Ağustos",
+    "time": "13.00",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Atölye",
+    "matchScore": 62,
+    "description": "Üretken Yapay Zekâ Atölyesi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Ai",
+      "Data Science",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-2",
+    "title": "Mobil Uygulama Geliştirme Günü",
+    "clubName": "Yazılım Geliştirme Kulübü",
+    "category": "Teknoloji",
+    "interestIds": [
+      "mobile-development",
+      "product"
+    ],
+    "goalIds": [
+      "network",
+      "build-project"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "5 Ağustos",
+    "time": "15.00",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Seminer",
+    "matchScore": 69,
+    "description": "Mobil Uygulama Geliştirme Günü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Mobile Development",
+      "Product",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-3",
+    "title": "Siber Güvenliğe İlk Adım",
+    "clubName": "Yapay Zekâ ve Veri Topluluğu",
+    "category": "Teknoloji",
+    "interestIds": [
+      "cybersecurity",
+      "web-development"
+    ],
+    "goalIds": [
+      "career",
+      "compete"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "7 Ağustos",
+    "time": "17.30",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Networking",
+    "matchScore": 76,
+    "description": "Siber Güvenliğe İlk Adım, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Cybersecurity",
+      "Web Development",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-4",
+    "title": "Veriden Hikâye Çıkarma",
+    "clubName": "Yazılım Geliştirme Kulübü",
+    "category": "Teknoloji",
+    "interestIds": [
+      "data-science",
+      "ai"
+    ],
+    "goalIds": [
+      "build-project",
+      "social-impact"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "9 Ağustos",
+    "time": "11.00",
+    "location": "İzmir Yüksek Teknoloji Enstitüsü - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Sosyal",
+    "matchScore": 83,
+    "description": "Veriden Hikâye Çıkarma, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Data Science",
+      "Ai",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-5",
+    "title": "Oyun Geliştirme Maratonu",
+    "clubName": "Yapay Zekâ ve Veri Topluluğu",
+    "category": "Teknoloji",
+    "interestIds": [
+      "game-development",
+      "product"
+    ],
+    "goalIds": [
+      "compete",
+      "learn"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "11 Ağustos",
+    "time": "13.00",
+    "location": "Yıldız Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Yarışma",
+    "matchScore": 90,
+    "description": "Oyun Geliştirme Maratonu, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Game Development",
+      "Product",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-6",
+    "title": "Modern Web Teknolojileri",
+    "clubName": "Yazılım Geliştirme Kulübü",
+    "category": "Teknoloji",
+    "interestIds": [
+      "web-development",
+      "ui-ux"
+    ],
+    "goalIds": [
+      "social-impact",
+      "network"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "13 Ağustos",
+    "time": "15.30",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Konferans",
+    "matchScore": 61,
+    "description": "Modern Web Teknolojileri, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Web Development",
+      "Ui Ux",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-7",
+    "title": "Açık Kaynak Katkı Buluşması",
+    "clubName": "Yapay Zekâ ve Veri Topluluğu",
+    "category": "Teknoloji",
+    "interestIds": [
+      "web-development",
+      "career"
+    ],
+    "goalIds": [
+      "learn",
+      "career"
+    ],
+    "participationMode": "onsite",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "15 Ağustos",
+    "time": "17.00",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Gezi",
+    "matchScore": 68,
+    "description": "Açık Kaynak Katkı Buluşması, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Web Development",
+      "Career",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-8",
+    "title": "No-Code Ürün Sprinti",
+    "clubName": "Yazılım Geliştirme Kulübü",
+    "category": "Teknoloji",
+    "interestIds": [
+      "product",
+      "mobile-development"
+    ],
+    "goalIds": [
+      "network",
+      "build-project"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "17 Ağustos",
+    "time": "11.00",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Atölye",
+    "matchScore": 75,
+    "description": "No-Code Ürün Sprinti, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Product",
+      "Mobile Development",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "sparkles",
+    "color": "#DCEFE9"
+  },
+  {
+    "id": "event-9",
+    "title": "Fikirden Ürüne Girişimcilik",
+    "clubName": "Kariyer ve Gelişim Kulübü",
+    "category": "Kariyer",
+    "interestIds": [
+      "entrepreneurship",
+      "product"
+    ],
+    "goalIds": [
+      "network",
+      "career"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "en",
+    "dateLabel": "19 Ağustos",
+    "time": "13.30",
+    "location": "İzmir Yüksek Teknoloji Enstitüsü - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Networking",
+    "matchScore": 82,
+    "description": "Fikirden Ürüne Girişimcilik, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Entrepreneurship",
+      "Product",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-10",
+    "title": "Staj Mülakatı Simülasyonu",
+    "clubName": "Girişimcilik Topluluğu",
+    "category": "Kariyer",
+    "interestIds": [
+      "career",
+      "entrepreneurship"
+    ],
+    "goalIds": [
+      "career",
+      "build-project"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "21 Ağustos",
+    "time": "15.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Sosyal",
+    "matchScore": 89,
+    "description": "Staj Mülakatı Simülasyonu, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Career",
+      "Entrepreneurship",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-11",
+    "title": "Finansal Okuryazarlık 101",
+    "clubName": "Kariyer ve Gelişim Kulübü",
+    "category": "Kariyer",
+    "interestIds": [
+      "finance",
+      "career"
+    ],
+    "goalIds": [
+      "build-project",
+      "compete"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "23 Ağustos",
+    "time": "17.00",
+    "location": "Ankara Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Yarışma",
+    "matchScore": 60,
+    "description": "Finansal Okuryazarlık 101, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Finance",
+      "Career",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-12",
+    "title": "Ürün Yönetimi Vaka Çalışması",
+    "clubName": "Girişimcilik Topluluğu",
+    "category": "Kariyer",
+    "interestIds": [
+      "product",
+      "career"
+    ],
+    "goalIds": [
+      "compete",
+      "social-impact"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "25 Ağustos",
+    "time": "11.30",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Konferans",
+    "matchScore": 67,
+    "description": "Ürün Yönetimi Vaka Çalışması, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Product",
+      "Career",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-13",
+    "title": "Mezunlarla Networking Akşamı",
+    "clubName": "Kariyer ve Gelişim Kulübü",
+    "category": "Kariyer",
+    "interestIds": [
+      "career",
+      "entrepreneurship"
+    ],
+    "goalIds": [
+      "social-impact",
+      "learn"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "27 Ağustos",
+    "time": "13.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Gezi",
+    "matchScore": 74,
+    "description": "Mezunlarla Networking Akşamı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Career",
+      "Entrepreneurship",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-14",
+    "title": "CV ve LinkedIn Kliniği",
+    "clubName": "Girişimcilik Topluluğu",
+    "category": "Kariyer",
+    "interestIds": [
+      "career",
+      "product"
+    ],
+    "goalIds": [
+      "learn",
+      "network"
+    ],
+    "participationMode": "onsite",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "29 Ağustos",
+    "time": "15.00",
+    "location": "İstanbul Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Atölye",
+    "matchScore": 81,
+    "description": "CV ve LinkedIn Kliniği, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Career",
+      "Product",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-15",
+    "title": "Sosyal Girişim Tasarımı",
+    "clubName": "Kariyer ve Gelişim Kulübü",
+    "category": "Kariyer",
+    "interestIds": [
+      "entrepreneurship",
+      "social-responsibility"
+    ],
+    "goalIds": [
+      "network",
+      "career"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "31 Ağustos",
+    "time": "17.30",
+    "location": "İzmir Yüksek Teknoloji Enstitüsü - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Seminer",
+    "matchScore": 88,
+    "description": "Sosyal Girişim Tasarımı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Entrepreneurship",
+      "Social Responsibility",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-16",
+    "title": "Kariyer Rotanı Tasarla",
+    "clubName": "Girişimcilik Topluluğu",
+    "category": "Kariyer",
+    "interestIds": [
+      "career",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "career",
+      "build-project"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "2 Eylül",
+    "time": "11.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Networking",
+    "matchScore": 59,
+    "description": "Kariyer Rotanı Tasarla, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Career",
+      "Wellbeing",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "rocket",
+    "color": "#FFEBD3"
+  },
+  {
+    "id": "event-17",
+    "title": "Tasarım Odaklı Düşünme",
+    "clubName": "Tasarım ve İnovasyon Kulübü",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "ui-ux",
+      "product"
+    ],
+    "goalIds": [
+      "career"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "4 Eylül",
+    "time": "13.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Yarışma",
+    "matchScore": 66,
+    "description": "Tasarım Odaklı Düşünme, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Ui Ux",
+      "Product",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-18",
+    "title": "Mobil Arayüz Tasarım Atölyesi",
+    "clubName": "Kampüs Sanat Topluluğu",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "ui-ux",
+      "mobile-development"
+    ],
+    "goalIds": [
+      "build-project"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "en",
+    "dateLabel": "6 Eylül",
+    "time": "15.30",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Konferans",
+    "matchScore": 73,
+    "description": "Mobil Arayüz Tasarım Atölyesi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Ui Ux",
+      "Mobile Development",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-19",
+    "title": "Kampüste Fotoğraf Yürüyüşü",
+    "clubName": "Tasarım ve İnovasyon Kulübü",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "photography",
+      "culture"
+    ],
+    "goalIds": [
+      "compete"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "8 Eylül",
+    "time": "17.00",
+    "location": "İstanbul Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Gezi",
+    "matchScore": 80,
+    "description": "Kampüste Fotoğraf Yürüyüşü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Photography",
+      "Culture",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-20",
+    "title": "Afiş Tasarım Laboratuvarı",
+    "clubName": "Kampüs Sanat Topluluğu",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "graphic-design",
+      "ui-ux"
+    ],
+    "goalIds": [
+      "social-impact"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "10 Eylül",
+    "time": "11.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Atölye",
+    "matchScore": 87,
+    "description": "Afiş Tasarım Laboratuvarı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Graphic Design",
+      "Ui Ux",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-21",
+    "title": "Doğaçlama Tiyatro Gecesi",
+    "clubName": "Tasarım ve İnovasyon Kulübü",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "theatre",
+      "culture"
+    ],
+    "goalIds": [
+      "learn"
+    ],
+    "participationMode": "onsite",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "12 Eylül",
+    "time": "13.30",
+    "location": "Yıldız Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Seminer",
+    "matchScore": 58,
+    "description": "Doğaçlama Tiyatro Gecesi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Theatre",
+      "Culture",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-22",
+    "title": "Yeni Başlayanlar İçin Müzik",
+    "clubName": "Kampüs Sanat Topluluğu",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "music",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "network"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "14 Eylül",
+    "time": "15.00",
+    "location": "Ankara Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Networking",
+    "matchScore": 65,
+    "description": "Yeni Başlayanlar İçin Müzik, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Music",
+      "Wellbeing",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-23",
+    "title": "Portfolyo Değerlendirme Günü",
+    "clubName": "Tasarım ve İnovasyon Kulübü",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "graphic-design",
+      "career"
+    ],
+    "goalIds": [
+      "career"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "16 Eylül",
+    "time": "17.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Sosyal",
+    "matchScore": 72,
+    "description": "Portfolyo Değerlendirme Günü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Graphic Design",
+      "Career",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-24",
+    "title": "Kısa Film Üretim Sprinti",
+    "clubName": "Kampüs Sanat Topluluğu",
+    "category": "Tasarım ve Sanat",
+    "interestIds": [
+      "photography",
+      "theatre"
+    ],
+    "goalIds": [
+      "build-project"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "18 Eylül",
+    "time": "11.30",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Yarışma",
+    "matchScore": 79,
+    "description": "Kısa Film Üretim Sprinti, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Photography",
+      "Theatre",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "color-palette",
+    "color": "#F6E2E7"
+  },
+  {
+    "id": "event-25",
+    "title": "Öğrenci Araştırmaları Konferansı",
+    "clubName": "Bilim ve Araştırma Kulübü",
+    "category": "Bilim",
+    "interestIds": [
+      "engineering",
+      "natural-sciences"
+    ],
+    "goalIds": [
+      "build-project",
+      "career"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "20 Eylül",
+    "time": "13.00",
+    "location": "İzmir Yüksek Teknoloji Enstitüsü - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Gezi",
+    "matchScore": 86,
+    "description": "Öğrenci Araştırmaları Konferansı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Engineering",
+      "Natural Sciences",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-26",
+    "title": "Sağlıkta Yapay Zekâ Paneli",
+    "clubName": "Sağlık Bilimleri Topluluğu",
+    "category": "Bilim",
+    "interestIds": [
+      "health-sciences",
+      "ai"
+    ],
+    "goalIds": [
+      "compete",
+      "build-project"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "22 Eylül",
+    "time": "15.00",
+    "location": "Yıldız Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Atölye",
+    "matchScore": 57,
+    "description": "Sağlıkta Yapay Zekâ Paneli, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Health Sciences",
+      "Ai",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-27",
+    "title": "Laboratuvar Güvenliği Eğitimi",
+    "clubName": "Bilim ve Araştırma Kulübü",
+    "category": "Bilim",
+    "interestIds": [
+      "natural-sciences",
+      "engineering"
+    ],
+    "goalIds": [
+      "social-impact",
+      "compete"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "en",
+    "dateLabel": "24 Eylül",
+    "time": "17.30",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Seminer",
+    "matchScore": 64,
+    "description": "Laboratuvar Güvenliği Eğitimi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Natural Sciences",
+      "Engineering",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-28",
+    "title": "Sosyal Bilimlerde Veri Analizi",
+    "clubName": "Sağlık Bilimleri Topluluğu",
+    "category": "Bilim",
+    "interestIds": [
+      "social-sciences",
+      "data-science"
+    ],
+    "goalIds": [
+      "learn",
+      "social-impact"
+    ],
+    "participationMode": "onsite",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "26 Eylül",
+    "time": "11.00",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Networking",
+    "matchScore": 71,
+    "description": "Sosyal Bilimlerde Veri Analizi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Social Sciences",
+      "Data Science",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-29",
+    "title": "Robotik Proje Buluşması",
+    "clubName": "Bilim ve Araştırma Kulübü",
+    "category": "Bilim",
+    "interestIds": [
+      "engineering",
+      "ai"
+    ],
+    "goalIds": [
+      "network",
+      "learn"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "28 Eylül",
+    "time": "13.00",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Sosyal",
+    "matchScore": 78,
+    "description": "Robotik Proje Buluşması, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Engineering",
+      "Ai",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-30",
+    "title": "Psikoloji Araştırmaları Günü",
+    "clubName": "Sağlık Bilimleri Topluluğu",
+    "category": "Bilim",
+    "interestIds": [
+      "social-sciences",
+      "mental-health"
+    ],
+    "goalIds": [
+      "career",
+      "network"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "30 Eylül",
+    "time": "15.30",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Yarışma",
+    "matchScore": 85,
+    "description": "Psikoloji Araştırmaları Günü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Social Sciences",
+      "Mental Health",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-31",
+    "title": "İklim Bilimi Söyleşisi",
+    "clubName": "Bilim ve Araştırma Kulübü",
+    "category": "Bilim",
+    "interestIds": [
+      "natural-sciences",
+      "sustainability"
+    ],
+    "goalIds": [
+      "build-project",
+      "career"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "2 Ekim",
+    "time": "17.00",
+    "location": "İzmir Yüksek Teknoloji Enstitüsü - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Konferans",
+    "matchScore": 56,
+    "description": "İklim Bilimi Söyleşisi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Natural Sciences",
+      "Sustainability",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-32",
+    "title": "Akademik Poster Atölyesi",
+    "clubName": "Sağlık Bilimleri Topluluğu",
+    "category": "Bilim",
+    "interestIds": [
+      "natural-sciences",
+      "graphic-design"
+    ],
+    "goalIds": [
+      "compete",
+      "build-project"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "4 Ekim",
+    "time": "11.00",
+    "location": "Yıldız Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Gezi",
+    "matchScore": 63,
+    "description": "Akademik Poster Atölyesi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Natural Sciences",
+      "Graphic Design",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "flask",
+    "color": "#E4E7FA"
+  },
+  {
+    "id": "event-33",
+    "title": "Gün Doğumu Koşu Grubu",
+    "clubName": "Kampüs Spor Kulübü",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "sports",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "compete",
+      "career"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "6 Ekim",
+    "time": "13.30",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Seminer",
+    "matchScore": 70,
+    "description": "Gün Doğumu Koşu Grubu, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Sports",
+      "Wellbeing",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-34",
+    "title": "Yeni Başlayanlar İçin Yoga",
+    "clubName": "İyi Yaşam Topluluğu",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "sports",
+      "mental-health"
+    ],
+    "goalIds": [
+      "social-impact",
+      "build-project"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "8 Ekim",
+    "time": "15.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Networking",
+    "matchScore": 77,
+    "description": "Yeni Başlayanlar İçin Yoga, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Sports",
+      "Mental Health",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-35",
+    "title": "Kampüs Voleybol Turnuvası",
+    "clubName": "Kampüs Spor Kulübü",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "sports",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "learn",
+      "compete"
+    ],
+    "participationMode": "onsite",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "10 Ekim",
+    "time": "17.00",
+    "location": "İstanbul Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Sosyal",
+    "matchScore": 84,
+    "description": "Kampüs Voleybol Turnuvası, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Sports",
+      "Wellbeing",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-36",
+    "title": "Sınav Döneminde İyi Oluş",
+    "clubName": "İyi Yaşam Topluluğu",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "mental-health",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "network",
+      "social-impact"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "en",
+    "dateLabel": "12 Ekim",
+    "time": "11.30",
+    "location": "İzmir Yüksek Teknoloji Enstitüsü - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Yarışma",
+    "matchScore": 55,
+    "description": "Sınav Döneminde İyi Oluş, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Mental Health",
+      "Wellbeing",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-37",
+    "title": "Öğrenciler İçin Sağlıklı Beslenme",
+    "clubName": "Kampüs Spor Kulübü",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "nutrition",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "career",
+      "learn"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "14 Ekim",
+    "time": "13.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Konferans",
+    "matchScore": 62,
+    "description": "Öğrenciler İçin Sağlıklı Beslenme, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Nutrition",
+      "Wellbeing",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-38",
+    "title": "Masa Tenisi Tanışma Günü",
+    "clubName": "İyi Yaşam Topluluğu",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "sports",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "build-project",
+      "network"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "16 Ekim",
+    "time": "15.00",
+    "location": "Ankara Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Gezi",
+    "matchScore": 69,
+    "description": "Masa Tenisi Tanışma Günü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Sports",
+      "Wellbeing",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-39",
+    "title": "Nefes ve Odaklanma Atölyesi",
+    "clubName": "Kampüs Spor Kulübü",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "mental-health",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "compete",
+      "career"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "18 Ekim",
+    "time": "17.30",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Atölye",
+    "matchScore": 76,
+    "description": "Nefes ve Odaklanma Atölyesi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Mental Health",
+      "Wellbeing",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-40",
+    "title": "Doğa Yürüyüşü Buluşması",
+    "clubName": "İyi Yaşam Topluluğu",
+    "category": "Spor ve Sağlık",
+    "interestIds": [
+      "sports",
+      "sustainability"
+    ],
+    "goalIds": [
+      "social-impact",
+      "build-project"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "20 Ekim",
+    "time": "11.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Seminer",
+    "matchScore": 83,
+    "description": "Doğa Yürüyüşü Buluşması, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Sports",
+      "Sustainability",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "fitness",
+    "color": "#DFF1E0"
+  },
+  {
+    "id": "event-41",
+    "title": "Sosyal Etki Fikir Maratonu",
+    "clubName": "Gönüllülük Kulübü",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "social-responsibility",
+      "entrepreneurship"
+    ],
+    "goalIds": [
+      "social-impact",
+      "career"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "22 Ekim",
+    "time": "13.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Sosyal",
+    "matchScore": 90,
+    "description": "Sosyal Etki Fikir Maratonu, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Social Responsibility",
+      "Entrepreneurship",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-42",
+    "title": "Kampüs Geri Dönüşüm Günü",
+    "clubName": "Sürdürülebilir Kampüs Topluluğu",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "sustainability",
+      "volunteering"
+    ],
+    "goalIds": [
+      "learn",
+      "build-project"
+    ],
+    "participationMode": "onsite",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "24 Ekim",
+    "time": "15.30",
+    "location": "Yıldız Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Yarışma",
+    "matchScore": 61,
+    "description": "Kampüs Geri Dönüşüm Günü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Sustainability",
+      "Volunteering",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-43",
+    "title": "Çocuklarla Bilim Atölyesi",
+    "clubName": "Gönüllülük Kulübü",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "volunteering",
+      "natural-sciences"
+    ],
+    "goalIds": [
+      "network",
+      "compete"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "26 Ekim",
+    "time": "17.00",
+    "location": "Ankara Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Konferans",
+    "matchScore": 68,
+    "description": "Çocuklarla Bilim Atölyesi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Volunteering",
+      "Natural Sciences",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-44",
+    "title": "Erişilebilir Kampüs Tasarımı",
+    "clubName": "Sürdürülebilir Kampüs Topluluğu",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "social-responsibility",
+      "ui-ux"
+    ],
+    "goalIds": [
+      "career",
+      "social-impact"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "28 Ekim",
+    "time": "11.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Gezi",
+    "matchScore": 75,
+    "description": "Erişilebilir Kampüs Tasarımı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Social Responsibility",
+      "Ui Ux",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-45",
+    "title": "Sokak Hayvanları Destek Günü",
+    "clubName": "Gönüllülük Kulübü",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "volunteering",
+      "social-responsibility"
+    ],
+    "goalIds": [
+      "build-project",
+      "learn"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "en",
+    "dateLabel": "30 Ekim",
+    "time": "13.30",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Atölye",
+    "matchScore": 82,
+    "description": "Sokak Hayvanları Destek Günü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Volunteering",
+      "Social Responsibility",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-46",
+    "title": "Sürdürülebilir Yaşam Semineri",
+    "clubName": "Sürdürülebilir Kampüs Topluluğu",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "sustainability",
+      "wellbeing"
+    ],
+    "goalIds": [
+      "compete",
+      "network"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "1 Kasım",
+    "time": "15.00",
+    "location": "İstanbul Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Seminer",
+    "matchScore": 89,
+    "description": "Sürdürülebilir Yaşam Semineri, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Sustainability",
+      "Wellbeing",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-47",
+    "title": "Toplumsal Fayda Proje Pazarı",
+    "clubName": "Gönüllülük Kulübü",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "social-responsibility",
+      "product"
+    ],
+    "goalIds": [
+      "social-impact",
+      "career"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "3 Kasım",
+    "time": "17.00",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Networking",
+    "matchScore": 60,
+    "description": "Toplumsal Fayda Proje Pazarı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Social Responsibility",
+      "Product",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-48",
+    "title": "Gönüllülük Deneyimi Paylaşımı",
+    "clubName": "Sürdürülebilir Kampüs Topluluğu",
+    "category": "Sosyal Etki",
+    "interestIds": [
+      "volunteering",
+      "career"
+    ],
+    "goalIds": [
+      "learn",
+      "build-project"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "5 Kasım",
+    "time": "11.30",
+    "location": "Yıldız Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Sosyal",
+    "matchScore": 67,
+    "description": "Gönüllülük Deneyimi Paylaşımı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Volunteering",
+      "Career",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "people",
+    "color": "#FFF0CF"
+  },
+  {
+    "id": "event-49",
+    "title": "İngilizce Konuşma Kulübü",
+    "clubName": "Kültürlerarası Etkileşim Kulübü",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "languages",
+      "international-community"
+    ],
+    "goalIds": [
+      "learn",
+      "career"
+    ],
+    "participationMode": "onsite",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "7 Kasım",
+    "time": "13.00",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Konferans",
+    "matchScore": 74,
+    "description": "İngilizce Konuşma Kulübü, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Languages",
+      "International Community",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  },
+  {
+    "id": "event-50",
+    "title": "Uluslararası Öğrenci Buluşması",
+    "clubName": "Gezi ve Dil Topluluğu",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "international-community",
+      "culture"
+    ],
+    "goalIds": [
+      "network",
+      "build-project"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "9 Kasım",
+    "time": "15.00",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Gezi",
+    "matchScore": 81,
+    "description": "Uluslararası Öğrenci Buluşması, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "International Community",
+      "Culture",
+      "Gezi"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  },
+  {
+    "id": "event-51",
+    "title": "İstanbul Kültür Rotası",
+    "clubName": "Kültürlerarası Etkileşim Kulübü",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "travel",
+      "culture"
+    ],
+    "goalIds": [
+      "career",
+      "compete"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "11 Kasım",
+    "time": "17.30",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Atölye",
+    "matchScore": 88,
+    "description": "İstanbul Kültür Rotası, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Travel",
+      "Culture",
+      "Atölye"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  },
+  {
+    "id": "event-52",
+    "title": "Dünya Mutfakları Gecesi",
+    "clubName": "Gezi ve Dil Topluluğu",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "culture",
+      "international-community"
+    ],
+    "goalIds": [
+      "build-project",
+      "social-impact"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "13 Kasım",
+    "time": "11.00",
+    "location": "İzmir Yüksek Teknoloji Enstitüsü - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Seminer",
+    "matchScore": 59,
+    "description": "Dünya Mutfakları Gecesi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Culture",
+      "International Community",
+      "Seminer"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  },
+  {
+    "id": "event-53",
+    "title": "Erasmus Deneyim Paylaşımı",
+    "clubName": "Kültürlerarası Etkileşim Kulübü",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "travel",
+      "languages"
+    ],
+    "goalIds": [
+      "compete",
+      "learn"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "15 Kasım",
+    "time": "13.00",
+    "location": "Yıldız Teknik Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Networking",
+    "matchScore": 66,
+    "description": "Erasmus Deneyim Paylaşımı, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Travel",
+      "Languages",
+      "Networking"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  },
+  {
+    "id": "event-54",
+    "title": "Kampüs Kitap Sohbeti",
+    "clubName": "Gezi ve Dil Topluluğu",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "culture",
+      "languages"
+    ],
+    "goalIds": [
+      "social-impact",
+      "network"
+    ],
+    "participationMode": "online",
+    "feeType": "free",
+    "language": "en",
+    "dateLabel": "17 Kasım",
+    "time": "15.30",
+    "location": "Çevrim içi",
+    "locationType": "Online",
+    "format": "Sosyal",
+    "matchScore": 73,
+    "description": "Kampüs Kitap Sohbeti, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Culture",
+      "Languages",
+      "Sosyal"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  },
+  {
+    "id": "event-55",
+    "title": "İşaret Diline Giriş",
+    "clubName": "Kültürlerarası Etkileşim Kulübü",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "languages",
+      "social-responsibility"
+    ],
+    "goalIds": [
+      "learn",
+      "career"
+    ],
+    "participationMode": "onsite",
+    "feeType": "free",
+    "language": "tr",
+    "dateLabel": "19 Kasım",
+    "time": "17.00",
+    "location": "Boğaziçi Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Kampüste",
+    "format": "Yarışma",
+    "matchScore": 80,
+    "description": "İşaret Diline Giriş, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Languages",
+      "Social Responsibility",
+      "Yarışma"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  },
+  {
+    "id": "event-56",
+    "title": "Şehirde Müze Keşfi",
+    "clubName": "Gezi ve Dil Topluluğu",
+    "category": "Kültür ve Topluluk",
+    "interestIds": [
+      "travel",
+      "culture"
+    ],
+    "goalIds": [
+      "network",
+      "build-project"
+    ],
+    "participationMode": "hybrid",
+    "feeType": "paid",
+    "language": "tr",
+    "dateLabel": "21 Kasım",
+    "time": "11.00",
+    "location": "Hacettepe Üniversitesi - Kampüs Etkinlik Alanı",
+    "locationType": "Hibrit",
+    "format": "Konferans",
+    "matchScore": 87,
+    "description": "Şehirde Müze Keşfi, farklı bölümlerden öğrencilerin birlikte öğrenmesi, yeni bağlantılar kurması ve kampüs deneyimini zenginleştirmesi için hazırlanan uygulamalı bir demo etkinliğidir.",
+    "tags": [
+      "Travel",
+      "Culture",
+      "Konferans"
+    ],
+    "reasons": [
+      "İlgi alanlarından biriyle eşleşiyor",
+      "Yeni bir kampüs deneyimi sunuyor"
+    ],
+    "icon": "globe",
+    "color": "#E8E3F4"
+  }
+]

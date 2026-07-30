@@ -1,4 +1,12 @@
-export type EventIcon = 'color-palette' | 'phone-portrait' | 'rocket' | 'sparkles';
+export type EventIcon =
+  | 'color-palette'
+  | 'fitness'
+  | 'flask'
+  | 'globe'
+  | 'people'
+  | 'phone-portrait'
+  | 'rocket'
+  | 'sparkles';
 
 export type CampusEvent = {
   id: string;

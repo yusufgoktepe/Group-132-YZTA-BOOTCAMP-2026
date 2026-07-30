@@ -6,7 +6,6 @@ import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'rea
 import { EventCard } from '@/components/event-card';
 import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
-import { eventCategories, events } from '@/mocks/events';
 import { fetchRecommendationOverrides } from '@/services/recommendations-api';
 import { applyRecommendationOverrides, getPersonalizedEvents } from '@/utils/recommendations';
 
@@ -17,14 +16,17 @@ export default function DiscoverScreen() {
   );
   const {
     profile,
+    profileId,
+    catalogEvents,
     recommendationOverrides,
     setRecommendationOverrides,
     savedEventIds,
     toggleSavedEvent,
   } = useApp();
+  const eventCategories = ['Tümü', ...new Set(catalogEvents.map((event) => event.category))];
   const firstName = profile?.displayName.trim().split(/\s+/)[0] || 'Öğrenci';
   const personalizedEvents = applyRecommendationOverrides(
-    getPersonalizedEvents(events, profile),
+    getPersonalizedEvents(catalogEvents, profile),
     recommendationOverrides
   );
   const visibleEvents = selectedCategory === 'Tümü'
@@ -43,7 +45,7 @@ export default function DiscoverScreen() {
     }
 
     setRecommendationSource('checking');
-    fetchRecommendationOverrides(profile).then((overrides) => {
+    fetchRecommendationOverrides(profile, profileId).then((overrides) => {
       if (!isActive) return;
       if (overrides) {
         setRecommendationOverrides(overrides);
@@ -57,7 +59,7 @@ export default function DiscoverScreen() {
     return () => {
       isActive = false;
     };
-  }, [profile, setRecommendationOverrides]);
+  }, [profile, profileId, setRecommendationOverrides]);
 
   return (
     <SafeAreaView style={styles.safeArea}>

@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useEffect, useRef } from 'react';
 import {
+  ActivityIndicator,
   Animated,
   Pressable,
   SafeAreaView,
@@ -11,6 +12,7 @@ import {
 } from 'react-native';
 
 import { BrandColors, Fonts } from '@/constants/theme';
+import { useApp } from '@/context/app-context';
 
 const benefits = [
   { icon: 'sparkles-outline' as const, label: 'Sana özel öneriler' },
@@ -19,6 +21,7 @@ const benefits = [
 ];
 
 export default function OnboardingScreen() {
+  const { isHydrated, profile } = useApp();
   const fade = useRef(new Animated.Value(0)).current;
   const rise = useRef(new Animated.Value(24)).current;
 
@@ -37,6 +40,20 @@ export default function OnboardingScreen() {
       }),
     ]).start();
   }, [fade, rise]);
+
+  useEffect(() => {
+    if (isHydrated && profile) router.replace('/(tabs)');
+  }, [isHydrated, profile]);
+
+  if (!isHydrated || profile) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.loadingState}>
+          <ActivityIndicator color={BrandColors.primary} size="small" />
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -367,5 +384,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 11,
     color: BrandColors.textMuted,
+  },
+  loadingState: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
 });

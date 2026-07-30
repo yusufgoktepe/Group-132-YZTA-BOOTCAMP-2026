@@ -84,6 +84,10 @@ def _profile_v2_score(profile: dict[str, Any], event: dict[str, Any]) -> tuple[f
         score += 10
         reasons.append("Katılım biçimi tercihine uyuyor.")
 
+    if event["university_id"] == profile["university_id"]:
+        score += 10
+        reasons.append("Kendi üniversitendeki bir topluluk tarafından düzenleniyor.")
+
     if profile["fee_preference"] != "free_only" or event["fee_type"] == "free":
         score += 5
         if profile["fee_preference"] == "free_only":
@@ -93,7 +97,7 @@ def _profile_v2_score(profile: dict[str, Any], event: dict[str, Any]) -> tuple[f
     if language_preference == "no_preference" or event["language"] in {language_preference, "mixed"}:
         score += 5
 
-    return score, reasons
+    return min(score, 100), reasons
 
 
 @lru_cache(maxsize=1)

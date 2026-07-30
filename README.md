@@ -91,6 +91,8 @@ flowchart LR
 
 Sprint 2 sonunda hazırlanan V2 veri yapısı ise 1.000 profil, 500 etkinlik ve 50.000 `view/skip/save/like/apply` etkileşimi içerir. Böylece eski spor/oyun/akademik kısıtı daha geniş kategori yapısına taşınmıştır.
 
+Model eğitim havuzu ile uygulamada gösterilen katalog birbirinden ayrıdır. Eğitim verisi yalnızca model geliştirme ve değerlendirme için kullanılır. Bootcamp demosunda ise 7 kategoriye dengeli dağıtılmış **14 sentetik kulüp ve 56 açıklamalı etkinlik** gösterilir. Bu katalog backend ile mobilin çevrimdışı yedeğinde aynı etkinlik kimliklerini kullanır.
+
 > Eğitilmiş `.pkl` model mobil cihazda çalıştırılmaz. Modelleme backend/ML katmanında tutulur; mobil uygulama yalnızca API sonucunu kullanır.
 
 </details>
@@ -255,6 +257,7 @@ Mobil uygulama backend'e ulaşamazsa kullanıcı deneyimini kesmeden yerel açı
 | V2 profil sayısı | 1.000 |
 | V2 etkinlik sayısı | 500 |
 | V2 etkileşim sayısı | 50.000 |
+| Uygulama demo kataloğu | 14 kulüp / 56 etkinlik / 7 kategori |
 
 </details>
 
@@ -284,19 +287,66 @@ Tamamlanmayan ana madde, Türkiye'deki tüm aktif üniversite ve programların r
 | P0 | Gerçek profil ile öneri API'si | ✅ Tamamlandı |
 | P0 | Açıklanabilir öneri nedenleri | ✅ Tamamlandı |
 | P1 | Tam Türkiye üniversite-program referansı | 🟡 Devam ediyor |
-| P1 | Profil ve kaydedilen etkinlikleri veritabanında saklama | ⬜ Planlandı |
-| P1 | Swipe `like/skip` ve interaction endpoint'i | ⬜ Planlandı |
-| P1 | V2 veriyle model eğitimi ve model servisleme | ⬜ Planlandı |
+| P1 | Profil ve kaydedilen etkinlikleri veritabanında saklama | ✅ Tamamlandı |
+| P1 | Interaction API ve mobil `like/save/view_detail` bağlantısı | ✅ Tamamlandı |
+| P1 | Swipe `like/skip` kart deneyimi | ⬜ Planlandı |
+| P1 | V2 model karşılaştırması ve üretim skoru kararı | ✅ Tamamlandı |
 | P2 | Kulüp yöneticisi profil ve etkinlik oluşturma | ⬜ Planlandı |
 | P2 | Kimlik doğrulama ve üniversite doğrulaması | ⬜ Planlandı |
 
-## Sprint 3 İçin Önerilen Sıra
+## Sprint 3 - Ürün Tamamlama Sprinti
 
-1. YÖK/ÖSYM referansından tam üniversite ve program listesini oluşturmak.
-2. SQLite ile profil, kaydedilen etkinlik ve interaction kayıtlarını kalıcılaştırmak.
-3. Swipe deneyimi ile `like`, `skip`, `save` ve `view_detail` olaylarını backend'e göndermek.
-4. V2 dataset üzerinde yeni modeli eğitip FastAPI üzerinden güvenli şekilde servislemek.
-5. Kulüp yöneticisi için temel etkinlik oluşturma akışını başlatmak.
+**Başlangıç:** 22 Temmuz 2026<br>
+**Amaç:** Çalışan prototipi kalıcı veri, gerçek API, interaction kaydı, V2 model, test ve jüri teslim paketiyle tamamlanmış MVP'ye dönüştürmek.
+
+<details open>
+<summary><strong>Sprint 3 kapsamı ve görev dağılımı</strong></summary>
+
+### Mutlaka Tamamlanacaklar
+
+1. Profil, etkinlik, kayıt ve interaction verilerini SQLite ile kalıcılaştırmak.
+2. Mobil uygulamadaki mock etkinlikleri gerçek backend verisiyle değiştirmek.
+3. `like`, `skip`, `save` ve `view_detail` olaylarını backend'e kaydetmek.
+4. Tam üniversite/program referansını sürümlü ve aranabilir hâle getirmek.
+5. V2 modelini eğitmek, metrikleri raporlamak ve güvenli fallback ile servislemek.
+6. Loading, hata, boş durum ve retry deneyimlerini tamamlamak.
+7. Uçtan uca iPhone testi, Sprint 3 review/retrospective ve final demo hazırlamak.
+
+### Önerilen Ana Sorumluluklar
+
+| Kişi | Sprint 3 Ana Alanı |
+|---|---|
+| Yusuf Göktepe | Scrum, mobil-backend entegrasyonu ve release |
+| Yusuf Öztop | Product, kabul testleri, README ve demo |
+| Betül Tuba Gümüş | Mobil UI, swipe ve kaydedilenler |
+| Gülşen Eymen Dediler | Backend, API ve SQLite |
+| Cemal Faruk Tuğrul | AI, V2 model ve eğitim referans verisi |
+
+### 10 Günlük Akış
+
+- D1–D3: Kapsam/API sözleşmesi, DB ve referans veri temeli
+- D4–D6: Interaction, swipe, gerçek API ve model entegrasyonu
+- D7: Feature freeze
+- D8: QA ve code freeze
+- D9–D10: README, demo, temiz kurulum testi ve final release
+
+### Bitmiş Ürün Kriteri
+
+Onboarding → profil → canlı öneri → detay → like/save akışı fiziksel telefonda çalışmalı; veriler uygulama yeniden açıldığında korunmalı; öneri nedeni görünür olmalı ve temiz kurulum komutları doğrulanmalıdır.
+
+### Güncel Entegrasyon Durumu
+
+- SQLite üzerinde profil, etkinlik ve interaction kalıcılığı tamamlandı.
+- Mobil profil ve profil kimliği AsyncStorage ile cihazda, API üzerinden SQLite'ta saklanıyor.
+- Mobil etkinlikleri `/events` üzerinden alıyor; bağlantı yoksa 56 etkinliklik yerel katalog kullanılıyor.
+- `save`, `unsave`, `like` ve `view_detail` hareketleri backend'e gönderiliyor.
+- Kaydedilen etkinlikler uygulama yeniden açıldığında backend ile eşitleniyor.
+- Backend testleri, TypeScript, Expo lint ve iOS Hermes bundle kontrolleri geçiyor.
+- Swipe ile `skip`, fiziksel iPhone testi ve final jüri provası henüz tamamlanmadı.
+
+**Ayrıntılı görev listesi, kabul kriterleri, bağımlılıklar, riskler ve teslim checklist'i:** [`scrum/sprint-3/sprint_planning.md`](scrum/sprint-3/sprint_planning.md)
+
+</details>
 
 ## Çalıştırma
 

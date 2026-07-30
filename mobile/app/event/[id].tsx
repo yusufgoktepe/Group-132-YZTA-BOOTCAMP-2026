@@ -1,22 +1,37 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
+import { useEffect, useRef } from 'react';
 import { Alert, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
-import { events } from '@/mocks/events';
 import { applyRecommendationOverrides, personalizeEvent } from '@/utils/recommendations';
 
 export default function EventDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { profile, recommendationOverrides, savedEventIds, toggleSavedEvent } = useApp();
-  const sourceEvent = events.find((item) => item.id === id);
+  const {
+    profile,
+    catalogEvents,
+    recommendationOverrides,
+    savedEventIds,
+    toggleSavedEvent,
+    recordEventInteraction,
+  } = useApp();
+  const sourceEvent = catalogEvents.find((item) => item.id === id);
   const event = sourceEvent
     ? applyRecommendationOverrides(
         [personalizeEvent(sourceEvent, profile)],
         recommendationOverrides
       )[0]
     : undefined;
+
+  const viewedEventId = useRef<string | null>(null);
+  useEffect(() => {
+    if (id && viewedEventId.current !== id) {
+      viewedEventId.current = id;
+      recordEventInteraction(id, 'view_detail');
+    }
+  }, [id, recordEventInteraction]);
 
   if (!event) {
     return (
@@ -79,7 +94,10 @@ export default function EventDetailScreen() {
           ))}
         </View>
 
-        <Pressable onPress={() => Alert.alert('İlgin kaydedildi', 'Etkinlik yaklaşınca sana hatırlatacağız.')} style={({ pressed }) => [styles.primaryButton, pressed && styles.pressed]}>
+        <Pressable onPress={() => {
+          recordEventInteraction(event.id, 'like');
+          Alert.alert('İlgin kaydedildi', 'Bu tercih sonraki önerilerini iyileştirecek.');
+        }} style={({ pressed }) => [styles.primaryButton, pressed && styles.pressed]}>
           <Text style={styles.primaryButtonText}>İlgileniyorum</Text>
           <Ionicons color={BrandColors.surface} name="arrow-forward" size={19} />
         </Pressable>

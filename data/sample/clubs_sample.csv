@@ -1,5 +1,15 @@
-club_id,club_name,category,description,target_departments,target_interests,activity_level
-1,Veri Bilimi Kulübü,technology,Veri bilimi ve yapay zekâ odaklı öğrenci kulübü,Bilgisayar Mühendisliği;Yapay Zekâ Mühendisliği,ai;data-science,high
-2,Yazılım Topluluğu,technology,Yazılım geliştirme ve kariyer etkinlikleri düzenleyen topluluk,Bilgisayar Mühendisliği;Yazılım Mühendisliği,mobile-development;web-development,high
-3,Girişimcilik Kulübü,career,Fikirleri ürüne dönüştürmek isteyen öğrencileri buluşturur,all,entrepreneurship;product,medium
-4,Tasarım ve İnovasyon Kulübü,design,Tasarım ve yaratıcı problem çözme odaklı topluluk,all,ui-ux;graphic-design,medium
+﻿club_id,club_name,category,description,target_departments,target_interests,activity_level
+1,Yapay Zekâ ve Veri Topluluğu,technology,Teknoloji alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,ai;career;cybersecurity;data-science;game-development;mobile-development;product;ui-ux;web-development,high
+2,Yazılım Geliştirme Kulübü,technology,Teknoloji alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,ai;career;cybersecurity;data-science;game-development;mobile-development;product;ui-ux;web-development,medium
+3,Kariyer ve Gelişim Kulübü,career,Kariyer alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,career;entrepreneurship;finance;product;social-responsibility;wellbeing,medium
+4,Girişimcilik Topluluğu,career,Kariyer alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,career;entrepreneurship;finance;product;social-responsibility;wellbeing,high
+5,Tasarım ve İnovasyon Kulübü,design-art,Tasarım ve Sanat alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,career;culture;graphic-design;mobile-development;music;photography;product;theatre;ui-ux;wellbeing,medium
+6,Kampüs Sanat Topluluğu,design-art,Tasarım ve Sanat alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,career;culture;graphic-design;mobile-development;music;photography;product;theatre;ui-ux;wellbeing,medium
+7,Bilim ve Araştırma Kulübü,science,Bilim alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,ai;data-science;engineering;graphic-design;health-sciences;mental-health;natural-sciences;social-sciences;sustainability,high
+8,Sağlık Bilimleri Topluluğu,science,Bilim alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,ai;data-science;engineering;graphic-design;health-sciences;mental-health;natural-sciences;social-sciences;sustainability,medium
+9,Kampüs Spor Kulübü,sports-health,Spor ve Sağlık alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,mental-health;nutrition;sports;sustainability;wellbeing,medium
+10,İyi Yaşam Topluluğu,sports-health,Spor ve Sağlık alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,mental-health;nutrition;sports;sustainability;wellbeing,high
+11,Gönüllülük Kulübü,social-impact,Sosyal Etki alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,career;entrepreneurship;natural-sciences;product;social-responsibility;sustainability;ui-ux;volunteering;wellbeing,medium
+12,Sürdürülebilir Kampüs Topluluğu,social-impact,Sosyal Etki alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,career;entrepreneurship;natural-sciences;product;social-responsibility;sustainability;ui-ux;volunteering;wellbeing,medium
+13,Kültürlerarası Etkileşim Kulübü,culture-community,Kültür ve Topluluk alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,culture;international-community;languages;social-responsibility;travel,high
+14,Gezi ve Dil Topluluğu,culture-community,Kültür ve Topluluk alanında öğrencileri buluşturan demo öğrenci topluluğu.,all,culture;international-community;languages;social-responsibility;travel,medium

@@ -21,6 +21,7 @@ def test_events_are_served_from_database_with_club_name(client):
 
     assert payload["count"] == len(payload["events"])
     assert all(event["club_name"] for event in payload["events"])
+    assert all(event["time"] and event["location"] for event in payload["events"])
 
 
 def test_events_can_be_filtered_by_category(client):
@@ -248,6 +249,48 @@ def test_saved_profile_recommendations_react_to_user_actions(client, created_pro
 
     assert scores[top_event_id] < before_scores[top_event_id]
     assert after["profile_id"] == profile_id
+
+
+def test_unsave_removes_saved_recommendation_bonus(client, created_profile):
+    profile_id = created_profile["profile_id"]
+
+    client.post(
+        "/interactions",
+        json={"profile_id": profile_id, "event_id": "1", "action": "save"},
+    )
+    saved = client.post(f"/recommendations/profile/{profile_id}").json()
+    saved_event = next(
+        item for item in saved["recommendations"] if item["event"]["event_id"] == "1"
+    )
+    assert saved_event["score_breakdown"]["personal_adjustment"] == 12
+
+    client.post(
+        "/interactions",
+        json={"profile_id": profile_id, "event_id": "1", "action": "unsave"},
+    )
+    unsaved = client.post(f"/recommendations/profile/{profile_id}").json()
+    unsaved_event = next(
+        item for item in unsaved["recommendations"] if item["event"]["event_id"] == "1"
+    )
+
+    assert unsaved_event["score_breakdown"]["personal_adjustment"] == 0
+    assert "Bu etkinliği daha önce kaydettin." not in unsaved_event["reasons"]
+
+
+def test_latest_like_or_skip_controls_personal_adjustment(client, created_profile):
+    profile_id = created_profile["profile_id"]
+    for action in ("like", "skip", "like"):
+        client.post(
+            "/interactions",
+            json={"profile_id": profile_id, "event_id": "1", "action": action},
+        )
+
+    payload = client.post(f"/recommendations/profile/{profile_id}").json()
+    event = next(
+        item for item in payload["recommendations"] if item["event"]["event_id"] == "1"
+    )
+    assert event["score_breakdown"]["personal_adjustment"] == 8
+    assert "Daha önce geçtiğin için sıralamada geriye alındı." not in event["reasons"]
 
 
 def test_recommendations_for_unknown_profile_return_404(client):

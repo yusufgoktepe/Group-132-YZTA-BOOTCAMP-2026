@@ -6,6 +6,10 @@ aktarılır. Kullanıcı profilleri ve kullanıcı hareketleri (`like`, `skip`, 
 `unsave`, `view_detail`) veritabanında kalıcı olarak saklanır; servis yeniden
 başlatıldığında kaybolmaz.
 
+Bootcamp uygulama demosunda `data/sample` altındaki 14 kulüp ve 56 etkinlikten oluşan
+sentetik katalog kullanılır. Bu katalog model eğitimindeki 500 etkinliklik V2 veri
+setinden ayrıdır ve `ml/generate_demo_catalog.py` ile tekrar üretilebilir.
+
 ## Kurulum ve çalıştırma
 
 Proje kökünde:
@@ -126,8 +130,12 @@ Eğitilmiş XGBoost modeli servise bağlı değildir. Kural bazlı skorla karş�
 `ml/model_comparison.md` ve `ml/metrics.json` dosyalarındadır; üretmek için:
 
 ```bash
+python -m pip install -r ml/requirements.txt
 python ml/compare_baseline_vs_model.py
 ```
+
+Model bağımlılıkları bulunamazsa komut hata ile durur ve mevcut rapor dosyalarının
+üzerine eksik sonuç yazmaz.
 
 ## Hata cevapları
 

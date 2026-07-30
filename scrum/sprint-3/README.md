@@ -1,11 +1,11 @@
-# Sprint 3
+# Sprint 3 - Ürün Tamamlama Sprinti
 
-Bu klasör ilgili sprint başladığında güncellenecektir.
+Sprint 3, CampusMatch AI'ın çalışan prototipten jüriye sunulabilir MVP'ye taşındığı son geliştirme sprintidir.
 
-Beklenen dosyalar:
+- Ayrıntılı plan: [`sprint_planning.md`](sprint_planning.md)
+- Temel görev listesi: [`yapilmasi-gerekenler.md`](yapilmasi-gerekenler.md)
+- Ana hedef: Öğrenci akışını kalıcı veri, gerçek API, interaction kaydı ve öneri sistemiyle uçtan uca tamamlamak
+- Başlangıç: 22 Temmuz 2026
+- Planlama modeli: 10 çalışma günü; final teslim tarihine göre takvime uyarlanabilir
 
-- sprint_planning.md
-- daily_scrum_notes.md
-- sprint_board_updates.md
-- sprint_review.md
-- sprint_retrospective.md
+Sprint boyunca ilerleme GitHub Issues/Projects üzerinde takip edilmeli; sprint review, retrospective ve final ekran görüntüleri sprint sonunda kök `README.md` dosyasına da aktarılmalıdır.

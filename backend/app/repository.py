@@ -214,16 +214,28 @@ def saved_events(connection: sqlite3.Connection, profile_id: str) -> list[dict[s
 
 
 def profile_action_map(connection: sqlite3.Connection, profile_id: str) -> dict[str, set[str]]:
-    """Etkinlik kimliğinden o profilin yaptığı hareketlere eşleme.
+    """Etkinlik kimliğinden profil için geçerli hareket durumuna eşleme.
 
-    Öneri sıralamasında beğenilen etkinlikleri öne, geçilenleri geriye almak için kullanılır.
+    Save/unsave ve like/skip çiftlerinde yalnızca son durum öneri skoruna katılır.
     """
     rows = connection.execute(
-        "SELECT event_id, action FROM interactions WHERE profile_id = ?", (profile_id,)
+        "SELECT event_id, action FROM interactions WHERE profile_id = ? "
+        "ORDER BY interaction_id",
+        (profile_id,),
     ).fetchall()
     actions: dict[str, set[str]] = {}
     for row in rows:
-        actions.setdefault(row["event_id"], set()).add(row["action"])
+        event_actions = actions.setdefault(row["event_id"], set())
+        action = row["action"]
+        if action == "save":
+            event_actions.add("save")
+        elif action == "unsave":
+            event_actions.discard("save")
+        elif action in {"like", "skip"}:
+            event_actions.difference_update({"like", "skip"})
+            event_actions.add(action)
+        else:
+            event_actions.add(action)
     return actions
 
 

@@ -323,8 +323,13 @@ def main() -> None:
     }
 
     scores, model_source = xgboost_scores(train_frame, test_frame)
-    if scores is not None:
-        results["xgboost"] = {"label": "XGBoost", "metrics": evaluate(test_frame, scores)}
+    if scores is None:
+        raise RuntimeError(
+            "XGBoost karşılaştırması tamamlanamadı. Önce "
+            "'python -m pip install -r ml/requirements.txt' komutunu çalıştırın. "
+            "Mevcut metrik dosyaları değiştirilmedi."
+        )
+    results["xgboost"] = {"label": "XGBoost", "metrics": evaluate(test_frame, scores)}
 
     payload = {
         "generated_on": date.today().isoformat(),

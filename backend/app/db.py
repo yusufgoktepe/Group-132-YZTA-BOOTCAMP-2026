@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS events (
     event_type         TEXT NOT NULL DEFAULT '',
     level              TEXT NOT NULL DEFAULT '',
     date               TEXT NOT NULL DEFAULT '',
+    time               TEXT NOT NULL DEFAULT '',
+    location           TEXT NOT NULL DEFAULT '',
     location_type      TEXT NOT NULL DEFAULT '',
     quota              INTEGER NOT NULL DEFAULT 0,
     target_interests   TEXT NOT NULL DEFAULT '',
@@ -137,6 +139,18 @@ def _to_int(value: str, default: int = 0) -> int:
         return default
 
 
+def _ensure_event_columns(connection: sqlite3.Connection) -> None:
+    """Önceki geliştirme veritabanlarını veri kaybetmeden günceller."""
+    existing = {
+        row["name"] for row in connection.execute("PRAGMA table_info(events)").fetchall()
+    }
+    for column in ("time", "location"):
+        if column not in existing:
+            connection.execute(
+                f"ALTER TABLE events ADD COLUMN {column} TEXT NOT NULL DEFAULT ''"
+            )
+
+
 def _upsert(connection: sqlite3.Connection, table: str, key: str, rows: list[dict[str, Any]]) -> int:
     if not rows:
         return 0
@@ -181,6 +195,8 @@ def seed_reference_data(connection: sqlite3.Connection) -> dict[str, int]:
             "event_type": row.get("event_type", ""),
             "level": row.get("level", ""),
             "date": row.get("date", ""),
+            "time": row.get("time", ""),
+            "location": row.get("location", ""),
             "location_type": row.get("location_type", ""),
             "quota": _to_int(row.get("quota", "0")),
             "target_interests": row.get("target_interests", ""),
@@ -225,6 +241,7 @@ def init_db(connection: sqlite3.Connection | None = None) -> dict[str, int]:
     try:
         with connection:
             connection.executescript(SCHEMA)
+            _ensure_event_columns(connection)
         return seed_reference_data(connection)
     finally:
         if owned:

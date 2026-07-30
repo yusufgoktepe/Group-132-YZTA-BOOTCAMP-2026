@@ -5,11 +5,10 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { EventCard } from '@/components/event-card';
 import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
-import { events } from '@/mocks/events';
 
 export default function SavedEventsScreen() {
-  const { savedEventIds, toggleSavedEvent } = useApp();
-  const savedEvents = events.filter((event) => savedEventIds.includes(event.id));
+  const { catalogEvents, savedEventIds, toggleSavedEvent } = useApp();
+  const savedEvents = catalogEvents.filter((event) => savedEventIds.includes(event.id));
 
   return (
     <SafeAreaView style={styles.safeArea}>
