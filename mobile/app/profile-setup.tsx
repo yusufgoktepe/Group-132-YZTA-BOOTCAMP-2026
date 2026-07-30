@@ -18,6 +18,8 @@ import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
 import {
   EDUCATION_REFERENCE_VERSION,
+  EDUCATION_REFERENCE_SOURCE,
+  EDUCATION_REFERENCE_UPDATED_AT,
   getClassYearOptions,
   universities,
 } from '@/data/education';
@@ -214,6 +216,9 @@ export default function ProfileSetupScreen() {
                   <Ionicons color={BrandColors.textMuted} name="help-circle-outline" size={18} />
                   <Text style={styles.missingText}>Üniversitemi bulamıyorum</Text>
                 </Pressable>
+                <Text style={styles.referenceText}>
+                  {EDUCATION_REFERENCE_SOURCE} · Güncelleme {EDUCATION_REFERENCE_UPDATED_AT}
+                </Text>
               </View>
             </View>
           ) : null}
@@ -300,6 +305,7 @@ const styles = StyleSheet.create({
   selectMeta: { color: BrandColors.textMuted, fontSize: 12, marginTop: 4 },
   missingButton: { alignItems: 'center', flexDirection: 'row', gap: 6, justifyContent: 'center', padding: 8 },
   missingText: { color: BrandColors.textMuted, fontSize: 12, fontWeight: '600' },
+  referenceText: { color: BrandColors.placeholder, fontSize: 10, lineHeight: 15, textAlign: 'center' },
   selectedSchool: { alignItems: 'center', backgroundColor: BrandColors.primarySoft, borderRadius: 16, flexDirection: 'row', gap: 9, padding: 14 },
   selectedSchoolText: { color: BrandColors.primary, flex: 1, fontSize: 13, fontWeight: '700' },
   chipGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 9 },

@@ -29,10 +29,10 @@ Bu sprintin amacı CampusMatch AI projesini çalışan, test edilmiş ve jüriye
 - [x] Demo için geniş etkinlik ve kulüp havuzunun hazırlanması
 - [x] Etkinliklerin farklı kategorilere dengeli dağıtılması
 - [x] Mobil ve backend kataloglarının aynı etkinlik kimliklerini kullanması
-- [ ] Türkiye'deki üniversitelerin güncel referans listesinin hazırlanması
-- [ ] Üniversitelere bağlı programların düzenlenmesi
-- [ ] Program süresine uygun sınıf seçeneklerinin gösterilmesi
-- [ ] Veri kaynağı ve güncelleme tarihinin belirtilmesi
+- [x] Türkiye'deki üniversitelerin güncel referans listesinin hazırlanması
+- [x] Üniversitelere bağlı programların düzenlenmesi
+- [x] Program süresine uygun sınıf seçeneklerinin gösterilmesi
+- [x] Veri kaynağı ve güncelleme tarihinin belirtilmesi
 
 ## 4. Öneri Sistemi
 

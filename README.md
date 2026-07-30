@@ -286,10 +286,10 @@ Tamamlanmayan ana madde, Türkiye'deki tüm aktif üniversite ve programların r
 | P0 | Etkinlik keşif, detay ve kaydetme | ✅ Tamamlandı |
 | P0 | Gerçek profil ile öneri API'si | ✅ Tamamlandı |
 | P0 | Açıklanabilir öneri nedenleri | ✅ Tamamlandı |
-| P1 | Tam Türkiye üniversite-program referansı | 🟡 Devam ediyor |
+| P1 | 2026 ÖSYM Türkiye üniversite-program referansı | ✅ Tamamlandı |
 | P1 | Profil ve kaydedilen etkinlikleri veritabanında saklama | ✅ Tamamlandı |
-| P1 | Interaction API ve mobil `like/save/view_detail` bağlantısı | ✅ Tamamlandı |
-| P1 | Swipe `like/skip` kart deneyimi | ⬜ Planlandı |
+| P1 | Interaction API ve mobil `like/skip/save/view_detail` bağlantısı | ✅ Tamamlandı |
+| P2 | Tam kart kaydırma (gesture swipe) deneyimi | ⬜ Ürün kararı bekliyor |
 | P1 | V2 model karşılaştırması ve üretim skoru kararı | ✅ Tamamlandı |
 | P2 | Kulüp yöneticisi profil ve etkinlik oluşturma | ⬜ Planlandı |
 | P2 | Kimlik doğrulama ve üniversite doğrulaması | ⬜ Planlandı |
@@ -339,10 +339,13 @@ Onboarding → profil → canlı öneri → detay → like/save akışı fizikse
 - SQLite üzerinde profil, etkinlik ve interaction kalıcılığı tamamlandı.
 - Mobil profil ve profil kimliği AsyncStorage ile cihazda, API üzerinden SQLite'ta saklanıyor.
 - Mobil etkinlikleri `/events` üzerinden alıyor; bağlantı yoksa 56 etkinliklik yerel katalog kullanılıyor.
-- `save`, `unsave`, `like` ve `view_detail` hareketleri backend'e gönderiliyor.
+- `save`, `unsave`, `like`, `skip` ve `view_detail` hareketleri backend'e gönderiliyor.
+- Keşif ekranında yükleniyor, bağlantı/demo fallback, boş sonuç ve tekrar deneme durumları tamamlandı.
+- 2026 ÖSYM Tablo 3/4 verisinden 202 üniversite ve 14.281 programlık sürümlü referans üretildi.
+- Program sınıfları resmî eğitim süresine göre, hazırlık seçeneği öğretim dili sinyaline göre gösteriliyor.
 - Kaydedilen etkinlikler uygulama yeniden açıldığında backend ile eşitleniyor.
 - Backend testleri, TypeScript, Expo lint ve iOS Hermes bundle kontrolleri geçiyor.
-- Swipe ile `skip`, fiziksel iPhone testi ve final jüri provası henüz tamamlanmadı.
+- Fiziksel iPhone kabul testi, temiz kurulum kontrolü ve final jüri provası henüz tamamlanmadı.
 
 **Ayrıntılı görev listesi, kabul kriterleri, bağımlılıklar, riskler ve teslim checklist'i:** [`scrum/sprint-3/sprint_planning.md`](scrum/sprint-3/sprint_planning.md)
 
@@ -381,6 +384,6 @@ npx expo start
 
 <div align="center">
 
-Bu README, jüri değerlendirmesi için ürün, teknik yapı, Sprint 1 ve Sprint 2 bilgilerini **tek dosyada** sunar.
+Bu README, jüri değerlendirmesi için ürün, teknik yapı ve Sprint 1-3 bilgilerini **tek dosyada** sunar.
 
 </div>
