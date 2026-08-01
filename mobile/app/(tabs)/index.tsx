@@ -1,67 +1,117 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-import { EventCard } from '@/components/event-card';
+import { SwipeDeck } from '@/components/swipe-deck';
 import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
-import { eventCategories, events } from '@/mocks/events';
-import { fetchRecommendationOverrides } from '@/services/recommendations-api';
-import { applyRecommendationOverrides, getPersonalizedEvents } from '@/utils/recommendations';
+import { events as fallbackEvents } from '@/mocks/events';
+import { fetchFeed } from '@/services/feed-api';
+import type { CampusEvent } from '@/types/event';
+import { mapFeedItem } from '@/utils/api-event';
+import { getPersonalizedEvents } from '@/utils/recommendations';
+
+type QueueItem = { event: CampusEvent; feedToken?: string };
 
 export default function DiscoverScreen() {
-  const [selectedCategory, setSelectedCategory] = useState('Tümü');
-  const [recommendationSource, setRecommendationSource] = useState<'local' | 'checking' | 'live'>(
-    'local'
-  );
   const {
     profile,
-    recommendationOverrides,
-    setRecommendationOverrides,
+    profileId,
+    isHydrated,
     savedEventIds,
+    registerFeedEvents,
+    recordEventInteraction,
     toggleSavedEvent,
   } = useApp();
+  const [queue, setQueue] = useState<QueueItem[]>([]);
+  const [nextCursor, setNextCursor] = useState<string | null>(null);
+  const [hasMore, setHasMore] = useState(true);
+  const [source, setSource] = useState<'loading' | 'live' | 'local' | 'empty'>('loading');
+  const loadingRef = useRef(false);
+  const shownAtRef = useRef(Date.now());
   const firstName = profile?.displayName.trim().split(/\s+/)[0] || 'Öğrenci';
-  const personalizedEvents = applyRecommendationOverrides(
-    getPersonalizedEvents(events, profile),
-    recommendationOverrides
+
+  const setLocalQueue = useCallback(() => {
+    const localEvents = getPersonalizedEvents(fallbackEvents, profile);
+    registerFeedEvents(localEvents);
+    setQueue(localEvents.map((event) => ({ event })));
+    setNextCursor(null);
+    setHasMore(false);
+    setSource(localEvents.length ? 'local' : 'empty');
+  }, [profile, registerFeedEvents]);
+
+  const loadFeed = useCallback(
+    async (cursor: string | null, reset = false) => {
+      if (!profileId || loadingRef.current) return;
+      loadingRef.current = true;
+      if (reset) setSource('loading');
+      try {
+        const payload = await fetchFeed(profileId, cursor, 20);
+        if (!payload) {
+          if (reset) setLocalQueue();
+          return;
+        }
+        const mapped = payload.items.map(mapFeedItem);
+        registerFeedEvents(mapped);
+        const incoming = mapped.map((event) => ({ event, feedToken: payload.feed_token }));
+        setQueue((current) => {
+          const base = reset ? [] : current;
+          const known = new Set(base.map((item) => item.event.id));
+          return [...base, ...incoming.filter((item) => !known.has(item.event.id))];
+        });
+        setNextCursor(payload.next_cursor);
+        setHasMore(payload.has_more);
+        setSource(incoming.length || !reset ? 'live' : 'empty');
+      } catch (error) {
+        console.warn('Canlı feed alınamadı.', error);
+        if (reset) setLocalQueue();
+      } finally {
+        loadingRef.current = false;
+      }
+    },
+    [profileId, registerFeedEvents, setLocalQueue]
   );
-  const visibleEvents = selectedCategory === 'Tümü'
-    ? personalizedEvents
-    : personalizedEvents.filter((event) => event.category === selectedCategory);
 
   useEffect(() => {
-    let isActive = true;
+    if (!isHydrated) return;
+    if (profileId) void loadFeed(null, true);
+    else setLocalQueue();
+  }, [isHydrated, loadFeed, profileId, setLocalQueue]);
 
-    if (!profile) {
-      setRecommendationSource('local');
-      setRecommendationOverrides({});
-      return () => {
-        isActive = false;
-      };
+  useEffect(() => {
+    shownAtRef.current = Date.now();
+    if (queue.length <= 5 && hasMore && nextCursor && !loadingRef.current) {
+      void loadFeed(nextCursor);
     }
+  }, [hasMore, loadFeed, nextCursor, queue]);
 
-    setRecommendationSource('checking');
-    fetchRecommendationOverrides(profile).then((overrides) => {
-      if (!isActive) return;
-      if (overrides) {
-        setRecommendationOverrides(overrides);
-        setRecommendationSource('live');
-      } else {
-        setRecommendationOverrides({});
-        setRecommendationSource('local');
-      }
+  const consume = (action: 'like' | 'skip') => {
+    const current = queue[0];
+    if (!current) return;
+    const dwellMs = Date.now() - shownAtRef.current;
+    setQueue((items) => items.slice(1));
+    void recordEventInteraction(current.event.id, action, {
+      dwellMs,
+      feedToken: current.feedToken,
     });
+  };
 
-    return () => {
-      isActive = false;
-    };
-  }, [profile, setRecommendationOverrides]);
+  const openDetail = () => {
+    const current = queue[0];
+    if (!current) return;
+    void recordEventInteraction(current.event.id, 'view_detail', {
+      dwellMs: Date.now() - shownAtRef.current,
+      feedToken: current.feedToken,
+    });
+    router.push({ pathname: '/event/[id]', params: { id: current.event.id } });
+  };
+
+  const current = queue[0];
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <View style={styles.content}>
         <View style={styles.header}>
           <View>
             <Text style={styles.eyebrow}>CAMPUSMATCH AI</Text>
@@ -72,83 +122,61 @@ export default function DiscoverScreen() {
           </Pressable>
         </View>
 
-        <View style={styles.intro}>
-          <View style={styles.introIcon}>
-            <Ionicons color={BrandColors.primary} name="sparkles" size={20} />
-          </View>
-          <View style={styles.introCopy}>
-            <Text style={styles.introTitle}>Senin için seçtik</Text>
-            <Text style={styles.introText}>Profiline göre eşleşen kampüs etkinliklerini keşfet.</Text>
-            <View style={styles.sourceRow}>
-              <View
-                style={[
-                  styles.sourceDot,
-                  recommendationSource === 'live' && styles.sourceDotLive,
-                ]}
-              />
-              <Text style={styles.sourceText}>
-                {recommendationSource === 'live'
-                  ? 'Canlı öneri'
-                  : recommendationSource === 'checking'
-                    ? 'Bağlantı kontrol ediliyor'
-                    : 'Yerel öneri'}
-              </Text>
-            </View>
-          </View>
+        <View style={styles.sourceRow}>
+          <View style={[styles.sourceDot, source === 'live' && styles.sourceDotLive]} />
+          <Text style={styles.sourceText}>
+            {source === 'live' ? 'Canlı kart kuyruğu' : source === 'local' ? 'Çevrim dışı örnek kartlar' : 'Kartlar hazırlanıyor'}
+          </Text>
+          {source === 'live' ? <Text style={styles.queueCount}>{queue.length} kart</Text> : null}
         </View>
 
-        <ScrollView contentContainerStyle={styles.categories} horizontal showsHorizontalScrollIndicator={false}>
-          {eventCategories.map((category) => {
-            const isSelected = category === selectedCategory;
-            return (
-              <Pressable key={category} onPress={() => setSelectedCategory(category)} style={[styles.category, isSelected && styles.selectedCategory]}>
-                <Text style={[styles.categoryText, isSelected && styles.selectedCategoryText]}>{category}</Text>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
-
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Önerilen etkinlikler</Text>
-          <Text style={styles.resultCount}>{visibleEvents.length} sonuç</Text>
-        </View>
-
-        {visibleEvents.map((event) => (
-          <EventCard
-            event={event}
-            isSaved={savedEventIds.includes(event.id)}
-            key={event.id}
-            onPress={() => router.push({ pathname: '/event/[id]', params: { id: event.id } })}
-            onToggleSaved={() => toggleSavedEvent(event.id)}
+        {source === 'loading' || !isHydrated ? (
+          <View style={styles.center}>
+            <ActivityIndicator color={BrandColors.primary} size="large" />
+            <Text style={styles.loadingText}>Sana uygun kartlar hazırlanıyor…</Text>
+          </View>
+        ) : current ? (
+          <SwipeDeck
+            event={current.event}
+            isSaved={savedEventIds.includes(current.event.id)}
+            nextEvent={queue[1]?.event}
+            onDetail={openDetail}
+            onLike={() => consume('like')}
+            onSave={() => toggleSavedEvent(current.event.id, current.feedToken)}
+            onSkip={() => consume('skip')}
           />
-        ))}
-      </ScrollView>
+        ) : (
+          <View style={styles.center}>
+            <View style={styles.emptyIcon}><Ionicons color={BrandColors.primary} name="checkmark-done" size={32} /></View>
+            <Text style={styles.emptyTitle}>Şimdilik tüm kartları gördün</Text>
+            <Text style={styles.emptyText}>Yeni etkinlikler eklendiğinde kuyruğun burada yenilenecek.</Text>
+            <Pressable accessibilityLabel="Kart kuyruğunu yenile" accessibilityRole="button" onPress={() => (profileId ? loadFeed(null, true) : setLocalQueue())} style={styles.retryButton}>
+              <Text style={styles.retryText}>Kuyruğu yenile</Text>
+            </Pressable>
+          </View>
+        )}
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: BrandColors.background, flex: 1 },
-  content: { paddingBottom: 30, paddingHorizontal: 20, paddingTop: 14 },
+  content: { flex: 1, paddingHorizontal: 20, paddingTop: 14 },
   header: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   eyebrow: { color: BrandColors.primary, fontFamily: Fonts.rounded, fontSize: 11, fontWeight: '800', letterSpacing: 1.5 },
   greeting: { color: BrandColors.text, fontFamily: Fonts.rounded, fontSize: 26, fontWeight: '800', marginTop: 3 },
   profileButton: { alignItems: 'center', backgroundColor: BrandColors.primarySoft, borderRadius: 22, height: 44, justifyContent: 'center', width: 44 },
-  intro: { alignItems: 'center', backgroundColor: BrandColors.surface, borderColor: BrandColors.border, borderRadius: 20, borderWidth: 1, flexDirection: 'row', marginTop: 24, padding: 15 },
-  introIcon: { alignItems: 'center', backgroundColor: BrandColors.primarySoft, borderRadius: 16, height: 46, justifyContent: 'center', width: 46 },
-  introCopy: { flex: 1, marginLeft: 12 },
-  introTitle: { color: BrandColors.text, fontFamily: Fonts.rounded, fontSize: 16, fontWeight: '800' },
-  introText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 13, lineHeight: 18, marginTop: 3 },
-  sourceRow: { alignItems: 'center', flexDirection: 'row', gap: 6, marginTop: 7 },
-  sourceDot: { backgroundColor: BrandColors.placeholder, borderRadius: 4, height: 7, width: 7 },
+  sourceRow: { alignItems: 'center', flexDirection: 'row', marginTop: 14 },
+  sourceDot: { backgroundColor: BrandColors.placeholder, borderRadius: 4, height: 7, marginRight: 6, width: 7 },
   sourceDotLive: { backgroundColor: '#2C9A68' },
-  sourceText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 10, fontWeight: '700' },
-  categories: { gap: 9, paddingVertical: 20 },
-  category: { backgroundColor: BrandColors.surface, borderColor: BrandColors.border, borderRadius: 999, borderWidth: 1, paddingHorizontal: 17, paddingVertical: 10 },
-  selectedCategory: { backgroundColor: BrandColors.primary, borderColor: BrandColors.primary },
-  categoryText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 13, fontWeight: '700' },
-  selectedCategoryText: { color: BrandColors.surface },
-  sectionHeader: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 13 },
-  sectionTitle: { color: BrandColors.text, fontFamily: Fonts.rounded, fontSize: 19, fontWeight: '800' },
-  resultCount: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 12 },
+  sourceText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 11, fontWeight: '700' },
+  queueCount: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 11, marginLeft: 'auto' },
+  center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingBottom: 70, paddingHorizontal: 28 },
+  loadingText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 14, marginTop: 14 },
+  emptyIcon: { alignItems: 'center', backgroundColor: BrandColors.primarySoft, borderRadius: 32, height: 64, justifyContent: 'center', marginBottom: 18, width: 64 },
+  emptyTitle: { color: BrandColors.text, fontFamily: Fonts.rounded, fontSize: 20, fontWeight: '800', textAlign: 'center' },
+  emptyText: { color: BrandColors.textMuted, fontFamily: Fonts.rounded, fontSize: 14, lineHeight: 21, marginTop: 8, textAlign: 'center' },
+  retryButton: { backgroundColor: BrandColors.primary, borderRadius: 16, marginTop: 20, paddingHorizontal: 20, paddingVertical: 13 },
+  retryText: { color: BrandColors.surface, fontFamily: Fonts.rounded, fontSize: 14, fontWeight: '800' },
 });

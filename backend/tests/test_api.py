@@ -207,9 +207,12 @@ def test_recommendations_are_sorted_and_explained(client, valid_profile):
     for item in recommendations:
         assert 0 <= item["score"] <= 100
         assert item["reasons"], "her öneri en az bir gerekçe içermeli"
+        assert len(item["reasons"]) <= 3
         assert set(item["score_breakdown"]) == {
             "profile_match",
-            "interaction_signal",
+            "dynamic_interest",
+            "organizer_trust",
+            "popularity",
             "personal_adjustment",
         }
 

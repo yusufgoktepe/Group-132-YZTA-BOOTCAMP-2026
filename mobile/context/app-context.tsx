@@ -1,14 +1,30 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react';
 
+import { enqueueInteraction, flushPendingInteractions, loadSession, storeSession } from '@/services/device-storage';
+import { fetchSavedEvents, sendInteraction, type InteractionAction } from '@/services/interactions-api';
 import { RecommendationOverride } from '@/services/recommendations-api';
+import { persistProfile } from '@/services/profiles-api';
+import type { CampusEvent } from '@/types/event';
+import { mapApiEvent } from '@/utils/api-event';
 
 type AppContextValue = {
   profile: StudentProfile | null;
-  saveProfile: (profile: StudentProfile) => void;
+  profileId: string | null;
+  isHydrated: boolean;
+  saveProfile: (profile: StudentProfile) => Promise<string | null>;
   recommendationOverrides: Record<string, RecommendationOverride>;
   setRecommendationOverrides: (overrides: Record<string, RecommendationOverride>) => void;
   savedEventIds: string[];
-  toggleSavedEvent: (eventId: string) => void;
+  savedEvents: CampusEvent[];
+  feedEvents: Record<string, CampusEvent>;
+  registerFeedEvents: (events: CampusEvent[]) => void;
+  recordEventInteraction: (
+    eventId: string,
+    action: InteractionAction,
+    options?: { dwellMs?: number; feedToken?: string }
+  ) => Promise<void>;
+  toggleSavedEvent: (eventId: string, feedToken?: string) => void;
+  refreshSavedEvents: () => Promise<void>;
 };
 
 export type StudentProfile = {
@@ -34,26 +50,122 @@ const AppContext = createContext<AppContextValue | null>(null);
 
 export function AppProvider({ children }: PropsWithChildren) {
   const [profile, setProfile] = useState<StudentProfile | null>(null);
+  const [profileId, setProfileId] = useState<string | null>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [recommendationOverrides, setRecommendationOverrides] = useState<
     Record<string, RecommendationOverride>
   >({});
-  const [savedEventIds, setSavedEventIds] = useState<string[]>(['event-2']);
+  const [savedEventIds, setSavedEventIds] = useState<string[]>([]);
+  const [savedEvents, setSavedEvents] = useState<CampusEvent[]>([]);
+  const [feedEvents, setFeedEvents] = useState<Record<string, CampusEvent>>({});
 
-  const toggleSavedEvent = (eventId: string) => {
+  useEffect(() => {
+    loadSession()
+      .then((session) => {
+        setProfile(session.profile);
+        setProfileId(session.profileId);
+        return flushPendingInteractions();
+      })
+      .catch((error) => console.warn('Cihaz oturumu yüklenemedi.', error))
+      .finally(() => setIsHydrated(true));
+  }, []);
+
+  const registerFeedEvents = useCallback((nextEvents: CampusEvent[]) => {
+    setFeedEvents((current) => ({
+      ...current,
+      ...Object.fromEntries(nextEvents.map((event) => [event.id, event])),
+    }));
+  }, []);
+
+  const refreshSavedEvents = useCallback(async () => {
+    if (!profileId) return;
+    try {
+      const payload = await fetchSavedEvents(profileId);
+      if (!payload) return;
+      const mapped = payload.events.map((event) => mapApiEvent(event));
+      setSavedEvents(mapped);
+      setSavedEventIds(mapped.map((event) => event.id));
+      registerFeedEvents(mapped);
+    } catch (error) {
+      console.warn('Kaydedilen etkinlikler alınamadı.', error);
+    }
+  }, [profileId, registerFeedEvents]);
+
+  const recordEventInteraction = useCallback(async (
+    eventId: string,
+    action: InteractionAction,
+    options?: { dwellMs?: number; feedToken?: string }
+  ) => {
+    if (!profileId) return;
+    const interaction = {
+      profileId,
+      eventId,
+      action,
+      dwellMs: options?.dwellMs,
+      feedToken: options?.feedToken,
+      interactionKey: `${profileId}-${eventId}-${action}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    };
+    try {
+      const response = await sendInteraction(interaction);
+      if (!response) await enqueueInteraction(interaction);
+      else await flushPendingInteractions();
+    } catch {
+      await enqueueInteraction(interaction);
+    }
+  }, [profileId]);
+
+  const toggleSavedEvent = useCallback((eventId: string, feedToken?: string) => {
+    const willSave = !savedEventIds.includes(eventId);
     setSavedEventIds((current) =>
-      current.includes(eventId) ? current.filter((id) => id !== eventId) : [...current, eventId]
+      willSave ? [...current, eventId] : current.filter((id) => id !== eventId)
     );
+    if (willSave && feedEvents[eventId]) {
+      setSavedEvents((current) => [feedEvents[eventId], ...current.filter((item) => item.id !== eventId)]);
+    } else if (!willSave) {
+      setSavedEvents((current) => current.filter((item) => item.id !== eventId));
+    }
+    void recordEventInteraction(eventId, willSave ? 'save' : 'unsave', { feedToken });
+  }, [feedEvents, recordEventInteraction, savedEventIds]);
+
+  const saveProfile = async (nextProfile: StudentProfile) => {
+    setProfile(nextProfile);
+    try {
+      const storedId = await persistProfile(nextProfile, profileId);
+      if (storedId) {
+        setProfileId(storedId);
+        await storeSession({ profile: nextProfile, profileId: storedId });
+        await flushPendingInteractions();
+      } else {
+        await storeSession({ profile: nextProfile, profileId });
+      }
+      return storedId;
+    } catch (error) {
+      console.warn('Profil backend üzerinde saklanamadı; yerel profil kullanılacak.', error);
+      await storeSession({ profile: nextProfile, profileId });
+      return null;
+    }
   };
+
+  useEffect(() => {
+    if (profileId) void refreshSavedEvents();
+  }, [profileId, refreshSavedEvents]);
 
   return (
     <AppContext.Provider
       value={{
         profile,
-        saveProfile: setProfile,
+        profileId,
+        isHydrated,
+        saveProfile,
         recommendationOverrides,
         setRecommendationOverrides,
         savedEventIds,
+        savedEvents,
+        feedEvents,
+        registerFeedEvents,
+        recordEventInteraction,
         toggleSavedEvent,
+        refreshSavedEvents,
       }}>
       {children}
     </AppContext.Provider>

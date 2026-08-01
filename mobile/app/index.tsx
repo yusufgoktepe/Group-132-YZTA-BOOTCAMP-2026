@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import { BrandColors, Fonts } from '@/constants/theme';
+import { useApp } from '@/context/app-context';
 
 const benefits = [
   { icon: 'sparkles-outline' as const, label: 'Sana özel öneriler' },
@@ -19,6 +20,7 @@ const benefits = [
 ];
 
 export default function OnboardingScreen() {
+  const { isHydrated, profileId } = useApp();
   const fade = useRef(new Animated.Value(0)).current;
   const rise = useRef(new Animated.Value(24)).current;
 
@@ -37,6 +39,10 @@ export default function OnboardingScreen() {
       }),
     ]).start();
   }, [fade, rise]);
+
+  useEffect(() => {
+    if (isHydrated && profileId) router.replace('/(tabs)');
+  }, [isHydrated, profileId]);
 
   return (
     <SafeAreaView style={styles.safeArea}>

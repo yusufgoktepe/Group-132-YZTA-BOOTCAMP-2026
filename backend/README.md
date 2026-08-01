@@ -6,6 +6,14 @@ aktarılır. Kullanıcı profilleri ve kullanıcı hareketleri (`like`, `skip`, 
 `unsave`, `view_detail`) veritabanında kalıcı olarak saklanır; servis yeniden
 başlatıldığında kaybolmaz.
 
+Faz 1 ile mevcut kayıtları silmeyen ileri yönlü migration ve iki katmanlı Event V3
+verisi eklenmiştir. Açılışta 4 geriye uyumlu demo etkinliğine ek olarak 1.000 sentetik
+profil, 80 resmî ve 170 mikro etkinlik, 1.200 katılım, 800 rating ve 5.393 başlangıç
+ilgi ağırlığı idempotent biçimde seed edilir.
+
+Faz 4 ile interaction kayıtları dinamik ilgi vektörünü transaction içinde günceller;
+dwell eşikleri ve açıklanabilir V3 ranking bu kalıcı vektörü kullanır.
+
 ## Kurulum ve çalıştırma
 
 Proje kökünde:
@@ -56,6 +64,18 @@ Tablolar:
 | `clubs`, `events`, `students` | CSV'den aktarılan referans veri. Aktarım idempotenttir: aynı kimlikler tekrar yüklendiğinde güncellenir, çoğaltılmaz. |
 | `profiles` | Onboarding akışından gelen öğrenci profilleri. Liste alanları JSON metni olarak tutulur. |
 | `interactions` | Kullanıcı hareketleri. `action` sütunu veritabanı düzeyinde `CHECK` ile sınırlandırılmıştır. |
+| `organizers` | Öğrenci ve kurumsal organizatör kimliği, doğrulama ve güven durumu. |
+| `participations` | Tekil katılım isteği ve katılım doğrulaması. |
+| `ratings` | Etkinlik bazında tekil, istemci tarafında anonim organizatör puanı. |
+| `user_interest_weights` | Profil bazında normalize dinamik ilgi ağırlıkları. |
+| `moderation_actions` | Güven engeli, feed kaldırma ve insan incelemesi kayıtları. |
+| `schema_migrations` | Uygulanan ileri yönlü migration sürümleri. |
+
+V3 örnek verisini tekrar üretmek için:
+
+```powershell
+.\.venv\Scripts\python.exe ml\generate_v3_dataset.py
+```
 
 Veritabanını sıfırlamak için dosyayı silmek yeterlidir; sonraki açılışta yeniden kurulur.
 
@@ -96,9 +116,36 @@ korunur.
 
 | Metot | Adres | Açıklama |
 |---|---|---|
-| `POST` | `/interactions` | `like`, `skip`, `save`, `unsave`, `view_detail` kaydeder (`201`) |
+| `POST` | `/interactions` | `like`, `skip`, `save`, `unsave`, `view_detail`, `apply` kaydeder; `interaction_key` ile tekrarları tekilleştirir (`201`) |
 | `GET` | `/profiles/{profile_id}/interactions` | Hareket geçmişi. `?action=save` ile filtrelenir. |
 | `GET` | `/profiles/{profile_id}/saved-events` | Kaydedilen etkinlikler |
+| `GET` | `/profiles/{profile_id}/interest-weights` | Normalize açık/davranış ilgi ağırlıkları |
+| `POST` | `/events` | Profil sahibi adına mikro etkinlik yayımlar (`201`) |
+| `PUT` | `/events/{event_id}` | Sahibinin mikro etkinliğini günceller |
+| `DELETE` | `/events/{event_id}?actor_profile_id=...` | Mikro etkinliği `cancelled` durumuna geçirir |
+| `POST` | `/events/{event_id}/apply` | İdempotent katılım isteği oluşturur (`201`) |
+| `GET` | `/profiles/{profile_id}/participations` | Profilin katılım isteklerini listeler |
+| `PATCH` | `/participations/{participation_id}` | Yetkiye ve durum geçişine göre katılımı günceller |
+| `POST` | `/events/{event_id}/ratings` | Doğrulanmış katılım sonrası tekil anonim puan oluşturur |
+| `GET` | `/organizers/{organizer_id}/trust-summary` | Puanlayan kimliklerini içermeyen güven özeti |
+| `PATCH` | `/organizers/{organizer_id}/verification` | Moderatör anahtarıyla organizatör doğrulaması |
+| `PATCH` | `/events/{event_id}/approval` | Moderatör anahtarıyla resmî yayın onayı |
+| `GET` | `/moderation/actions` | Korumalı moderasyon kayıt listesi |
+
+Moderasyon uçları `CAMPUSMATCH_MODERATOR_KEY` ortam değişkeni ve
+`X-Moderator-Key` istek başlığı ile korunur. Anahtar yapılandırılmamışsa uçlar `503`,
+yanlış anahtarda `403` döndürür.
+
+### Kişiselleştirilmiş feed
+
+| Metot | Adres | Açıklama |
+|---|---|---|
+| `GET` | `/feed?profile_id=...&limit=20&cursor=...` | En fazla 30 güvenli aday arasından sıralanmış, cursor tabanlı kart sayfası |
+
+Feed; yayın/onay, başlangıç ve sona erme zamanı, kota, üniversite/katılım biçimi,
+program/sınıf hedefi, organizatör doğrulaması, kara liste ve daha önce tüketilmiş
+kart filtrelerini uygular. Her cevap sonraki interaction isteklerinde kullanılacak
+bir `feed_token` taşır.
 
 ### Öneriler
 

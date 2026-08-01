@@ -1,4 +1,5 @@
 import type { StudentProfile } from '@/context/app-context';
+import { toProfileRequest } from '@/services/profiles-api';
 
 export type RecommendationOverride = {
   score: number;
@@ -20,24 +21,7 @@ export async function fetchRecommendationOverrides(profile: StudentProfile) {
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
-  const requestBody = {
-    schema_version: profile.schemaVersion,
-    education_reference_version: profile.educationReferenceVersion,
-    display_name: profile.displayName,
-    university_id: profile.universityId,
-    university_name: profile.universityName,
-    program_id: profile.programId,
-    program_name: profile.programName,
-    education_level: profile.educationLevel,
-    program_duration: profile.programDuration,
-    class_year: profile.classYear,
-    interest_ids: profile.interestIds,
-    participation_goal_ids: profile.participationGoalIds,
-    participation_modes: profile.participationModes,
-    fee_preference: profile.feePreference,
-    language_preference: profile.languagePreference,
-    campus_id: profile.campusId,
-  };
+  const requestBody = toProfileRequest(profile);
 
   try {
     const response = await fetch(`${API_URL}/recommendations/profile`, {

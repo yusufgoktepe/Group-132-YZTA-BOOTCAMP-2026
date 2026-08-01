@@ -2,21 +2,20 @@
 
 ## Birincil Hedef Kitle
 
-- Üniversite öğrencileri
-- Lise öğrencileri
+- Türkiye'deki üniversitelerin ön lisans, lisans ve lisansüstü öğrencileri
 - Kulüp ve topluluklara katılmak isteyen öğrenciler
 - Kariyer, sosyal gelişim, teknik beceri veya topluluk deneyimi kazanmak isteyen öğrenciler
 
 ## İkincil Hedef Kitle
 
-- Üniversite kulüpleri
-- Lise toplulukları
-- Etkinlik düzenleyen öğrenci organizasyonları
+- Üniversite kulüpleri ve öğrenci toplulukları
+- Üniversite birimleri, belediyeler ve doğrulanmış profesyonel organizatörler
+- Mikro etkinlik oluşturan doğrulanmış üniversite öğrencileri
 - Katılımcı kitlesini daha doğru belirlemek isteyen kulüp ekipleri
 
 ## Öncelik Dağılımı
 
-- Öğrenci tarafı: 6/10
-- Kulüp yöneticisi tarafı: 4/10
+- Öğrenci keşif ve etkileşim tarafı: 7/10
+- Organizatör ve güven tarafı: 3/10
 
-Ürün öğrenci deneyimini ana vitrin olarak konumlandırır; ancak kulüp yöneticisi tarafı da final üründe anlamlı ve kullanılabilir bir panel olarak yer almalıdır.
+Ürün öğrenci deneyimini ana vitrin olarak konumlandırır. Lise öğrencileri ve genel tüketici etkinlik keşfi MVP kapsamında değildir. Organizatör tarafı ilk aşamada mobil uyumlu temel etkinlik oluşturma ve güven akışlarıyla sınırlıdır; gelişmiş panel sonraki sürümdedir.

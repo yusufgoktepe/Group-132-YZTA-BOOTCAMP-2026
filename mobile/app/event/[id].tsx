@@ -1,22 +1,26 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
 import { Alert, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
 import { events } from '@/mocks/events';
+import { applyToEvent } from '@/services/events-api';
 import { applyRecommendationOverrides, personalizeEvent } from '@/utils/recommendations';
 
 export default function EventDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { profile, recommendationOverrides, savedEventIds, toggleSavedEvent } = useApp();
+  const { profile, profileId, recommendationOverrides, savedEventIds, feedEvents, toggleSavedEvent } = useApp();
+  const [applying, setApplying] = useState(false);
+  const [applied, setApplied] = useState(false);
   const sourceEvent = events.find((item) => item.id === id);
-  const event = sourceEvent
+  const event = feedEvents[id] ?? (sourceEvent
     ? applyRecommendationOverrides(
         [personalizeEvent(sourceEvent, profile)],
         recommendationOverrides
       )[0]
-    : undefined;
+    : undefined);
 
   if (!event) {
     return (
@@ -79,8 +83,18 @@ export default function EventDetailScreen() {
           ))}
         </View>
 
-        <Pressable onPress={() => Alert.alert('İlgin kaydedildi', 'Etkinlik yaklaşınca sana hatırlatacağız.')} style={({ pressed }) => [styles.primaryButton, pressed && styles.pressed]}>
-          <Text style={styles.primaryButtonText}>İlgileniyorum</Text>
+        <Pressable accessibilityRole="button" accessibilityState={{ busy: applying, disabled: applying || applied }} disabled={applying || applied} onPress={async () => {
+          if (!profileId) return Alert.alert('Profil gerekli', 'Katılım isteği için önce profilini tamamla.');
+          setApplying(true);
+          try {
+            const result = await applyToEvent(event.id, profileId);
+            setApplied(true);
+            Alert.alert(result.is_duplicate ? 'İsteğin zaten kayıtlı' : 'Katılım isteğin alındı', 'Etkinlik organizatörü isteğini görüntüleyebilir.');
+          } catch (error) {
+            Alert.alert('Katılım isteği oluşturulamadı', error instanceof Error ? error.message : 'Bilinmeyen bir hata oluştu.');
+          } finally { setApplying(false); }
+        }} style={({ pressed }) => [styles.primaryButton, (pressed || applying || applied) && styles.pressed]}>
+          <Text style={styles.primaryButtonText}>{applying ? 'Gönderiliyor…' : applied ? 'Katılım isteği gönderildi' : 'İlgileniyorum'}</Text>
           <Ionicons color={BrandColors.surface} name="arrow-forward" size={19} />
         </Pressable>
       </ScrollView>

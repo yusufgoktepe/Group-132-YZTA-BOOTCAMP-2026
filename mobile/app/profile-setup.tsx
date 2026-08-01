@@ -128,7 +128,7 @@ export default function ProfileSetupScreen() {
     else setStep((current) => current - 1);
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (!isCurrentStepValid) return;
     if (step < 3) {
       setStep((current) => current + 1);
@@ -136,7 +136,7 @@ export default function ProfileSetupScreen() {
     }
     if (!selectedUniversity || !selectedProgram) return;
 
-    saveProfile({
+    await saveProfile({
       schemaVersion: '2.0',
       educationReferenceVersion: EDUCATION_REFERENCE_VERSION,
       displayName: displayName.trim(),

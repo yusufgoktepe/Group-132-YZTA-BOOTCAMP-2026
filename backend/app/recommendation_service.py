@@ -12,6 +12,7 @@ Her öneri, hangi sinyalin katkı yaptığını gösteren `reasons` listesiyle d
 from __future__ import annotations
 
 import csv
+import json
 import sqlite3
 from functools import lru_cache
 from typing import Any
@@ -19,7 +20,7 @@ from typing import Any
 from .db import SAMPLE_DATA_DIR
 from . import repository
 
-SCORING_STRATEGY = "rule_based_v2"
+SCORING_STRATEGY = "explainable_rule_based_v3"
 
 # Kullanıcının kendi hareketlerinin skora etkisi.
 LIKE_BONUS = 8.0
@@ -142,26 +143,52 @@ def _build_recommendation(
     profile_score: float,
     reasons: list[str],
     actions: set[str],
+    interest_weights: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     stats = _interaction_stats().get(
         event["event_id"], {"interaction_count": 0, "right_swipe_rate": 0.0}
     )
     interaction_score = float(stats["right_swipe_rate"]) * 100
     personal_adjustment, personal_reasons = _personal_adjustment(actions)
-    final_score = round(
-        max(0.0, min(100.0, profile_score * 0.8 + interaction_score * 0.2 + personal_adjustment)),
-        1,
-    )
+    event_interests = _split_tags(event.get("target_interests", ""))
+    try:
+        event_interests.update(
+            str(item).lower() for item in json.loads(event.get("interest_ids") or "[]")
+        )
+    except (TypeError, ValueError):
+        event_interests.update(_split_tags(event.get("interest_ids", "")))
+    dynamic_match = min(1.0, sum((interest_weights or {}).get(item, 0.0) for item in event_interests))
+    trust_score = max(0.0, min(5.0, float(event.get("organizer_trust_score") or 0.0))) / 5.0 * 100
+
+    contributions = {
+        "profile_match": round(profile_score * 0.65, 1),
+        "dynamic_interest": round(dynamic_match * 20.0, 1),
+        "organizer_trust": round(trust_score * 0.10, 1),
+        "popularity": round(interaction_score * 0.05, 1),
+        "personal_adjustment": round(personal_adjustment, 1),
+    }
+    final_score = round(max(0.0, min(100.0, sum(contributions.values()))), 1)
+
+    dynamic_reasons = []
+    if dynamic_match > 0:
+        dynamic_reasons.append(
+            f"Güncel ilgi profilinle %{round(dynamic_match * 100)} uyumlu."
+        )
+    if trust_score >= 80:
+        dynamic_reasons.append("Güven puanı yüksek bir organizatör tarafından düzenleniyor.")
+    explanation_reasons = (
+        dynamic_reasons[:1]
+        + personal_reasons[:1]
+        + reasons
+        + dynamic_reasons[1:]
+        + personal_reasons[1:]
+    )[:3]
 
     return {
         "event": event,
         "score": final_score,
-        "score_breakdown": {
-            "profile_match": round(profile_score, 1),
-            "interaction_signal": round(interaction_score, 1),
-            "personal_adjustment": round(personal_adjustment, 1),
-        },
-        "reasons": reasons + personal_reasons,
+        "score_breakdown": contributions,
+        "reasons": explanation_reasons,
         "interaction_stats": {
             "interaction_count": int(stats["interaction_count"]),
             "right_swipe_rate": round(float(stats["right_swipe_rate"]), 4),
@@ -198,24 +225,12 @@ def recommend_for_profile(
     `profile_id` verilirse kullanıcının kaydedilmiş like/skip/save hareketleri
     de skora katılır.
     """
-    actions_by_event = (
-        repository.profile_action_map(connection, profile_id) if profile_id else {}
+    recommendations = recommend_events_for_profile(
+        connection,
+        profile,
+        repository.list_events(connection),
+        profile_id=profile_id,
     )
-
-    recommendations = []
-    for event in repository.list_events(connection):
-        profile_score, reasons = _profile_v2_score(profile, event)
-        recommendation = _build_recommendation(
-            event,
-            profile_score,
-            reasons,
-            actions_by_event.get(event["event_id"], set()),
-        )
-        if not recommendation["reasons"]:
-            recommendation["reasons"] = ["Yeni ilgi alanlarını keşfetmen için önerildi."]
-        recommendations.append(recommendation)
-
-    recommendations.sort(key=lambda item: item["score"], reverse=True)
     return {
         "schema_version": "2.0",
         "recommendation_source": "profile_and_interactions",
@@ -223,3 +238,32 @@ def recommend_for_profile(
         "profile_id": profile_id,
         "recommendations": recommendations,
     }
+
+
+def recommend_events_for_profile(
+    connection: sqlite3.Connection,
+    profile: dict[str, Any],
+    events: list[dict[str, Any]],
+    profile_id: str | None = None,
+) -> list[dict[str, Any]]:
+    """Yalnız candidate generation tarafından seçilmiş etkinlikleri sıralar."""
+    actions_by_event = (
+        repository.profile_action_map(connection, profile_id) if profile_id else {}
+    )
+    interest_weights = repository.interest_weight_map(connection, profile_id) if profile_id else {}
+    recommendations = []
+    for event in events:
+        profile_score, reasons = _profile_v2_score(profile, event)
+        recommendation = _build_recommendation(
+            event,
+            profile_score,
+            reasons,
+            actions_by_event.get(event["event_id"], set()),
+            interest_weights,
+        )
+        if not recommendation["reasons"]:
+            recommendation["reasons"] = ["Yeni ilgi alanlarını keşfetmen için önerildi."]
+        recommendations.append(recommendation)
+
+    recommendations.sort(key=lambda item: item["score"], reverse=True)
+    return recommendations
