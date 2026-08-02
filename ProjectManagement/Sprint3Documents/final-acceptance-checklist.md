@@ -13,7 +13,8 @@
 ## Teslim öncesi insan kontrolleri
 
 - [ ] GitHub reposunun public olduğu doğrulandı
-- [ ] GitHub Projects board bağlantısı ve sprint görselleri eklendi
+- [x] Güncel final ürün ekran görüntüleri eklendi
+- [ ] GitHub Projects board bağlantısı ve sprint board görselleri eklendi
 - [ ] Expo Go ile fiziksel telefonda ana akış tamamlandı
 - [ ] Offline kuyruk bağlantı dönüşünde tekil senkronize oldu
 - [ ] Büyük yazı ve VoiceOver kontrol edildi

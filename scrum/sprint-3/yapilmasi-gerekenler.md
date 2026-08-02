@@ -60,7 +60,7 @@ Bu sprintin amacı CampusMatch AI projesini çalışan, test edilmiş ve jüriye
 - [x] Sprint 3 backlog durumlarının işaretlenmesi
 - [x] Sprint Review bölümünün yazılması
 - [x] Sprint Retrospective bölümünün yazılması
-- [ ] Güncel uygulama ekran görüntülerinin eklenmesi
+- [x] Güncel uygulama ekran görüntülerinin eklenmesi
 - [x] Kurulum ve çalıştırma komutlarının kontrol edilmesi
 - [x] Kullanılan sentetik verilerin açıklanması
 - [x] Bilinen eksiklerin ve sonraki adımların belirtilmesi

@@ -14,6 +14,7 @@ kadar backend ile kalıcı çalışır durumdadır.
 - Cursor tabanlı, güven ve kota filtreli açıklanabilir feed
 - Idempotent interaction ve çevrim dışı mobil tekrar kuyruğu
 - Mobil swipe, detay, kaydedilenler, oluşturma ve katılımlar ekranları
+- Final onboarding, swipe keşif ve açıklanabilir etkinlik detayı ekran kanıtları
 - Dinamik ilgi vektörü ve dwell tabanlı ranking güncellemesi
 - Mikro etkinlik sahipliği, kota, sona erme ve katılım durumları
 - Anonim rating, güven eşiği, yayın engeli ve korumalı moderasyon

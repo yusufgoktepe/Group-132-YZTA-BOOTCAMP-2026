@@ -256,13 +256,19 @@ PB-01–PB-28 işleri teknik bağımlılıklarına göre dokuz faza ayrıldı. �
 
 ## Sprint Board Güncellemeleri
 
-PB-01–PB-27 tamamlandı; PB-28 fiziksel iPhone kabulünü bekliyor. Board bağlantısı ve ekran görüntüleri henüz eklenmemiştir.
+PB-01–PB-27 tamamlandı; PB-28 fiziksel iPhone kabulünü bekliyor. Güncel ürün ekranları eklendi; GitHub Projects bağlantısı ve board ekran görüntüleri henüz eklenmemiştir.
 
 [Sprint Board Güncellemeleri](./ProjectManagement/Sprint3Documents/sprint-board-updates.md)
 
 ## Ürün Durumu
 
-Ana öğrenci akışı profil oluşturmadan kişiselleştirilmiş feed'e, kaydetmeye, mikro etkinlik katılımına ve anonim puanlamaya kadar backend ile kalıcı çalışır durumdadır. Resmî eğitim referansı V3 öneri kimlikleriyle, eski etkinlik kataloğu ise yeni interaction kimlikleriyle uyumlu hâle getirilmiştir. Profil, kaydedilen etkinlikler ve başarısız interaction istekleri cihazda korunur; canlı API yanıt vermediğinde uygulama beş saniye içinde yerel açıklanabilir kartlara geçer. Sprint 3'e özel ürün ekran görüntüleri henüz eklenmediği için bozuk görsel bağlantısı kullanılmamıştır.
+Ana öğrenci akışı profil oluşturmadan kişiselleştirilmiş feed'e, kaydetmeye, mikro etkinlik katılımına ve anonim puanlamaya kadar backend ile kalıcı çalışır durumdadır. Resmî eğitim referansı V3 öneri kimlikleriyle, eski etkinlik kataloğu ise yeni interaction kimlikleriyle uyumlu hâle getirilmiştir. Profil, kaydedilen etkinlikler ve başarısız interaction istekleri cihazda korunur; canlı API yanıt vermediğinde uygulama beş saniye içinde yerel açıklanabilir kartlara geçer.
+
+| Final onboarding | Swipe ile kişiselleştirilmiş keşif |
+|---|---|
+| <img src="./ProjectManagement/Sprint3Documents/product-screen-1-final-onboarding.jpeg" width="300" alt="CampusMatch final onboarding ekranı"> | <img src="./ProjectManagement/Sprint3Documents/product-screen-2-swipe-discovery.jpeg" width="300" alt="CampusMatch swipe keşif ekranı"> |
+| **Etkinlik detayı ve profil eşleşmesi** | **Açıklanabilir öneri detayı** |
+| <img src="./ProjectManagement/Sprint3Documents/product-screen-3-event-detail.jpeg" width="300" alt="CampusMatch etkinlik detay ekranı"> | <img src="./ProjectManagement/Sprint3Documents/product-screen-4-explainable-detail.jpeg" width="300" alt="CampusMatch açıklanabilir öneri ekranı"> |
 
 ## Sprint Review
 
@@ -321,7 +327,8 @@ CampusMatch AI, öğrenci profilini kişiselleştirilmiş ve açıklanabilir etk
 
 - [ ] GitHub reposu public olarak doğrulandı
 - [x] Üç sprint için ilerleme ve kanıt belgeleri repoya eklendi
-- [ ] Eksik board ve ürün ekran görüntüleri eklendi
+- [x] Güncel final ürün ekran görüntüleri eklendi
+- [ ] Eksik sprint board ekran görüntüleri eklendi
 - [ ] GitHub Projects/Miro/Jira bağlantısı eklendi
 - [ ] Fiziksel cihaz kabul listesi tamamlandı
 - [ ] Canlı demo bağlantısı eklendi veya sunulmadığı belirtildi

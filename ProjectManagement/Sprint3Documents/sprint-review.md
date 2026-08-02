@@ -6,6 +6,7 @@
 - 306 etkinliklik birleşik katalog ve ÖSYM kaynaklı 202 üniversite/14.281 program referansı
 - Cursor tabanlı açıklanabilir feed ve idempotent interaction
 - Mobil swipe, offline kuyruk, kaydedilenler, oluşturma ve katılımlar
+- Final onboarding, swipe keşif ve açıklanabilir etkinlik detayı ekran kanıtları
 - Dinamik ilgi, mikro etkinlik, anonim rating ve moderasyon
 - Temporal XGBoost/hibrit karşılaştırması ve K-Means deneyi
 - 74 backend/ML testi, mobil kontroller ile Expo web ve iOS production export

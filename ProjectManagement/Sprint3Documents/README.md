@@ -11,4 +11,13 @@ backend/ML testiyle doğrulanmıştır. Fiziksel iPhone kabulü insan kontrolü 
 - [Sprint retrospective](./sprint-retrospective.md)
 - [Final kabul kontrol listesi](./final-acceptance-checklist.md)
 
-Eksik görsel kanıtlar: `sprint-3-backlog.png`, `sprint-3-board.png`, `product-screen-1.png` ve `product-screen-2.png`. Mevcut olmadıkları için bozuk bağlantı oluşturulmamıştır.
+## Final Ürün Ekranları
+
+| Ekran | Kanıt |
+|---|---|
+| Final onboarding | [Görüntüyü aç](./product-screen-1-final-onboarding.jpeg) |
+| Swipe ile kişiselleştirilmiş keşif | [Görüntüyü aç](./product-screen-2-swipe-discovery.jpeg) |
+| Etkinlik detayı ve profil eşleşmesi | [Görüntüyü aç](./product-screen-3-event-detail.jpeg) |
+| Açıklanabilir öneri detayı | [Görüntüyü aç](./product-screen-4-explainable-detail.jpeg) |
+
+Eksik görsel kanıtlar yalnız `sprint-3-backlog.png` ve `sprint-3-board.png` dosyalarıdır. Mevcut olmadıkları için bozuk bağlantı oluşturulmamıştır.
