@@ -1,34 +1,37 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createContext, PropsWithChildren, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from 'react';
 
-import { RecommendationOverride } from '@/services/recommendations-api';
 import {
-  fetchEventCatalog,
-  fetchSavedEventIds,
-  type InteractionAction,
-  recordInteraction,
-  saveProfileToApi,
-} from '@/services/campus-api';
-import { events as fallbackEvents } from '@/mocks/events';
+  enqueueInteraction,
+  flushPendingInteractions,
+  loadSavedState,
+  loadSession,
+  storeSavedState,
+  storeSession,
+} from '@/services/device-storage';
+import { fetchSavedEvents, sendInteraction, type InteractionAction } from '@/services/interactions-api';
+import { RecommendationOverride } from '@/services/recommendations-api';
+import { persistProfile } from '@/services/profiles-api';
 import type { CampusEvent } from '@/types/event';
-
-const PROFILE_KEY = 'campusmatch.profile.v2';
-const PROFILE_ID_KEY = 'campusmatch.profile-id';
-const SAVED_EVENTS_KEY = 'campusmatch.saved-events';
+import { canonicalEventId, mapApiEvent } from '@/utils/api-event';
 
 type AppContextValue = {
   profile: StudentProfile | null;
   profileId: string | null;
   isHydrated: boolean;
-  catalogEvents: CampusEvent[];
-  catalogStatus: 'loading' | 'live' | 'fallback';
-  retryCatalog: () => void;
-  saveProfile: (profile: StudentProfile) => void;
+  saveProfile: (profile: StudentProfile) => Promise<string | null>;
   recommendationOverrides: Record<string, RecommendationOverride>;
   setRecommendationOverrides: (overrides: Record<string, RecommendationOverride>) => void;
   savedEventIds: string[];
-  toggleSavedEvent: (eventId: string) => void;
-  recordEventInteraction: (eventId: string, action: InteractionAction) => void;
+  savedEvents: CampusEvent[];
+  feedEvents: Record<string, CampusEvent>;
+  registerFeedEvents: (events: CampusEvent[]) => void;
+  recordEventInteraction: (
+    eventId: string,
+    action: InteractionAction,
+    options?: { dwellMs?: number; feedToken?: string }
+  ) => Promise<void>;
+  toggleSavedEvent: (eventId: string, feedToken?: string) => void;
+  refreshSavedEvents: () => Promise<void>;
 };
 
 export type StudentProfile = {
@@ -55,123 +58,118 @@ const AppContext = createContext<AppContextValue | null>(null);
 export function AppProvider({ children }: PropsWithChildren) {
   const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [profileId, setProfileId] = useState<string | null>(null);
-  const profileSyncRef = useRef<Promise<string | null> | null>(null);
   const [isHydrated, setIsHydrated] = useState(false);
-  const [catalogEvents, setCatalogEvents] = useState<CampusEvent[]>(fallbackEvents);
-  const [catalogStatus, setCatalogStatus] = useState<'loading' | 'live' | 'fallback'>(
-    'loading'
-  );
   const [recommendationOverrides, setRecommendationOverrides] = useState<
     Record<string, RecommendationOverride>
   >({});
   const [savedEventIds, setSavedEventIds] = useState<string[]>([]);
+  const [savedEvents, setSavedEvents] = useState<CampusEvent[]>([]);
+  const [feedEvents, setFeedEvents] = useState<Record<string, CampusEvent>>({});
 
-  const loadCatalog = async () => {
-    setCatalogStatus('loading');
+  const registerFeedEvents = useCallback((nextEvents: CampusEvent[]) => {
+    setFeedEvents((current) => ({
+      ...current,
+      ...Object.fromEntries(nextEvents.map((event) => [event.id, event])),
+    }));
+  }, []);
+
+  useEffect(() => {
+    Promise.all([loadSession(), loadSavedState()])
+      .then(([session, savedState]) => {
+        const restoredEvents = savedState.events.map((event) => ({
+          ...event,
+          id: canonicalEventId(event.id),
+        }));
+        const restoredIds = [...new Set(savedState.eventIds.map(canonicalEventId))];
+        setProfile(session.profile);
+        setProfileId(session.profileId);
+        setSavedEventIds(restoredIds);
+        setSavedEvents(restoredEvents);
+        registerFeedEvents(restoredEvents);
+        void storeSavedState({ eventIds: restoredIds, events: restoredEvents });
+        return flushPendingInteractions();
+      })
+      .catch((error) => console.warn('Cihaz oturumu yüklenemedi.', error))
+      .finally(() => setIsHydrated(true));
+  }, [registerFeedEvents]);
+
+  const refreshSavedEvents = useCallback(async () => {
+    if (!profileId) return;
     try {
-      const remoteEvents = await fetchEventCatalog();
-      if (remoteEvents.length === 0) {
-        setCatalogEvents(fallbackEvents);
-        setCatalogStatus('fallback');
-        return;
-      }
-      setCatalogEvents(remoteEvents);
-      setCatalogStatus('live');
+      const payload = await fetchSavedEvents(profileId);
+      if (!payload) return;
+      const mapped = payload.events.map((event) => mapApiEvent(event));
+      setSavedEvents(mapped);
+      setSavedEventIds(mapped.map((event) => event.id));
+      registerFeedEvents(mapped);
+      await storeSavedState({ eventIds: mapped.map((event) => event.id), events: mapped });
     } catch (error) {
-      console.warn('Etkinlik kataloğu alınamadı; demo verileri gösteriliyor.', error);
-      setCatalogEvents(fallbackEvents);
-      setCatalogStatus('fallback');
+      console.warn('Kaydedilen etkinlikler alınamadı.', error);
+    }
+  }, [profileId, registerFeedEvents]);
+
+  const recordEventInteraction = useCallback(async (
+    eventId: string,
+    action: InteractionAction,
+    options?: { dwellMs?: number; feedToken?: string }
+  ) => {
+    if (!profileId) return;
+    const interaction = {
+      profileId,
+      eventId,
+      action,
+      dwellMs: options?.dwellMs,
+      feedToken: options?.feedToken,
+      interactionKey: `${profileId}-${eventId}-${action}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    };
+    try {
+      const response = await sendInteraction(interaction);
+      if (!response) await enqueueInteraction(interaction);
+      else await flushPendingInteractions();
+    } catch {
+      await enqueueInteraction(interaction);
+    }
+  }, [profileId]);
+
+  const toggleSavedEvent = useCallback((eventId: string, feedToken?: string) => {
+    const willSave = !savedEventIds.includes(eventId);
+    const nextIds = willSave
+      ? [...savedEventIds, eventId]
+      : savedEventIds.filter((id) => id !== eventId);
+    const nextEvents = willSave && feedEvents[eventId]
+      ? [feedEvents[eventId], ...savedEvents.filter((item) => item.id !== eventId)]
+      : savedEvents.filter((item) => item.id !== eventId);
+    setSavedEventIds(nextIds);
+    setSavedEvents(nextEvents);
+    if (willSave && feedEvents[eventId]) {
+      registerFeedEvents([feedEvents[eventId]]);
+    }
+    void storeSavedState({ eventIds: nextIds, events: nextEvents });
+    void recordEventInteraction(eventId, willSave ? 'save' : 'unsave', { feedToken });
+  }, [feedEvents, recordEventInteraction, registerFeedEvents, savedEventIds, savedEvents]);
+
+  const saveProfile = async (nextProfile: StudentProfile) => {
+    setProfile(nextProfile);
+    try {
+      const storedId = await persistProfile(nextProfile, profileId);
+      if (storedId) {
+        setProfileId(storedId);
+        await storeSession({ profile: nextProfile, profileId: storedId });
+        await flushPendingInteractions();
+      } else {
+        await storeSession({ profile: nextProfile, profileId });
+      }
+      return storedId;
+    } catch (error) {
+      console.warn('Profil backend üzerinde saklanamadı; yerel profil kullanılacak.', error);
+      await storeSession({ profile: nextProfile, profileId });
+      return null;
     }
   };
 
   useEffect(() => {
-    let active = true;
-
-    async function hydrate() {
-      void loadCatalog();
-      try {
-        const entries = await AsyncStorage.multiGet([
-          PROFILE_KEY,
-          PROFILE_ID_KEY,
-          SAVED_EVENTS_KEY,
-        ]);
-        const stored = Object.fromEntries(entries);
-        const storedProfile = stored[PROFILE_KEY]
-          ? (JSON.parse(stored[PROFILE_KEY]) as StudentProfile)
-          : null;
-        const storedProfileId = stored[PROFILE_ID_KEY] || null;
-        const storedSavedIds = stored[SAVED_EVENTS_KEY]
-          ? (JSON.parse(stored[SAVED_EVENTS_KEY]) as string[])
-          : [];
-
-        if (!active) return;
-        setProfile(storedProfile);
-        setProfileId(storedProfileId);
-        setSavedEventIds(storedSavedIds);
-
-        if (storedProfileId) {
-          fetchSavedEventIds(storedProfileId)
-            .then((remoteIds) => {
-              if (!active) return;
-              setSavedEventIds(remoteIds);
-              return AsyncStorage.setItem(SAVED_EVENTS_KEY, JSON.stringify(remoteIds));
-            })
-            .catch(() => undefined);
-        }
-      } catch (error) {
-        console.warn('Yerel profil bilgileri okunamadı.', error);
-      } finally {
-        if (active) setIsHydrated(true);
-      }
-    }
-
-    void hydrate();
-    return () => {
-      active = false;
-    };
-  }, []);
-
-  const saveProfile = (nextProfile: StudentProfile) => {
-    setProfile(nextProfile);
-    void AsyncStorage.setItem(PROFILE_KEY, JSON.stringify(nextProfile));
-
-    const sync = saveProfileToApi(nextProfile, profileId)
-      .then((remoteProfileId) => {
-        setProfileId(remoteProfileId);
-        return AsyncStorage.setItem(PROFILE_ID_KEY, remoteProfileId).then(
-          () => remoteProfileId
-        );
-      })
-      .catch((error) => {
-        console.warn('Profil backend ile senkronlanamadı; yerel profil korunuyor.', error);
-        return null;
-      });
-    profileSyncRef.current = sync;
-  };
-
-  const syncInteraction = async (eventId: string, action: InteractionAction) => {
-    const remoteProfileId = profileId ?? (await profileSyncRef.current);
-    if (!remoteProfileId) return;
-    await recordInteraction(remoteProfileId, eventId, action);
-  };
-
-  const toggleSavedEvent = (eventId: string) => {
-    const isSaved = savedEventIds.includes(eventId);
-    const nextIds = isSaved
-      ? savedEventIds.filter((id) => id !== eventId)
-      : [...savedEventIds, eventId];
-    setSavedEventIds(nextIds);
-    void AsyncStorage.setItem(SAVED_EVENTS_KEY, JSON.stringify(nextIds));
-    void syncInteraction(eventId, isSaved ? 'unsave' : 'save').catch((error) =>
-        console.warn('Kaydetme hareketi backend ile senkronlanamadı.', error)
-      );
-  };
-
-  const recordEventInteraction = (eventId: string, action: InteractionAction) => {
-    void syncInteraction(eventId, action).catch((error) =>
-      console.warn(`${action} hareketi backend ile senkronlanamadı.`, error)
-    );
-  };
+    if (profileId && isHydrated) void refreshSavedEvents();
+  }, [isHydrated, profileId, refreshSavedEvents]);
 
   return (
     <AppContext.Provider
@@ -179,15 +177,16 @@ export function AppProvider({ children }: PropsWithChildren) {
         profile,
         profileId,
         isHydrated,
-        catalogEvents,
-        catalogStatus,
-        retryCatalog: () => void loadCatalog(),
         saveProfile,
         recommendationOverrides,
         setRecommendationOverrides,
         savedEventIds,
-        toggleSavedEvent,
+        savedEvents,
+        feedEvents,
+        registerFeedEvents,
         recordEventInteraction,
+        toggleSavedEvent,
+        refreshSavedEvents,
       }}>
       {children}
     </AppContext.Provider>

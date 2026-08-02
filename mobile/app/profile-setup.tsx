@@ -130,7 +130,7 @@ export default function ProfileSetupScreen() {
     else setStep((current) => current - 1);
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (!isCurrentStepValid) return;
     if (step < 3) {
       setStep((current) => current + 1);
@@ -138,7 +138,7 @@ export default function ProfileSetupScreen() {
     }
     if (!selectedUniversity || !selectedProgram) return;
 
-    saveProfile({
+    await saveProfile({
       schemaVersion: '2.0',
       educationReferenceVersion: EDUCATION_REFERENCE_VERSION,
       displayName: displayName.trim(),
@@ -209,7 +209,7 @@ export default function ProfileSetupScreen() {
                   onPress={() =>
                     Alert.alert(
                       'Üniversiten listede yok mu?',
-                      'Liste şu anda geliştirme verisi kullanıyor. Tam YÖK referansı eklendiğinde Türkiye’deki aktif üniversiteler burada yer alacak.'
+                      'Liste, 2026 ÖSYM YKS tablolarında aktif programı bulunan üniversitelerden oluşturuldu. Kurumun görünmüyorsa veri güncellemesinde yeniden kontrol edeceğiz.'
                     )
                   }
                   style={styles.missingButton}>

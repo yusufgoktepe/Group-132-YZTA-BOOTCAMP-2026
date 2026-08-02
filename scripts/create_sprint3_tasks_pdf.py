@@ -159,7 +159,10 @@ def task_card(section_title: str, tasks: list[tuple[bool, str]], style_map) -> K
         rows.append(
             [
                 Paragraph(status, style_map["small_bold"]),
-                Paragraph(task.replace("→", "-&gt;"), style_map["task_done"] if completed else style_map["task"]),
+                Paragraph(
+                    task.replace("→", "-&gt;").replace("`", ""),
+                    style_map["task_done"] if completed else style_map["task"],
+                ),
             ]
         )
     table = Table(rows, colWidths=[18 * mm, 142 * mm], hAlign="LEFT")

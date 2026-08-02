@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusmatch.participation.v3",
+  "title": "CampusMatch Participation V3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["participation_id", "schema_version", "profile_id", "event_id", "status", "attendance_verified"],
+  "properties": {
+    "participation_id": { "type": "string", "minLength": 1 },
+    "schema_version": { "const": "3.0" },
+    "profile_id": { "type": "string", "minLength": 1 },
+    "event_id": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["requested", "approved", "rejected", "cancelled", "attended", "no_show"] },
+    "attendance_verified": { "type": "boolean" },
+    "requested_at": { "type": "string", "format": "date-time" },
+    "verified_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

@@ -22,6 +22,14 @@ export default function TabLayout() {
         title: 'Kaydedilenler',
         tabBarIcon: ({ color, focused }) => <Ionicons color={color} name={focused ? 'bookmark' : 'bookmark-outline'} size={23} />,
       }} />
+      <Tabs.Screen name="create" options={{
+        title: 'Oluştur',
+        tabBarIcon: ({ color, focused }) => <Ionicons color={color} name={focused ? 'add-circle' : 'add-circle-outline'} size={25} />,
+      }} />
+      <Tabs.Screen name="participations" options={{
+        title: 'Katılımlar',
+        tabBarIcon: ({ color, focused }) => <Ionicons color={color} name={focused ? 'ticket' : 'ticket-outline'} size={23} />,
+      }} />
     </Tabs>
   );
 }

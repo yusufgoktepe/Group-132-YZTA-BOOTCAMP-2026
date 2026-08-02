@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusmatch.organizer.v3",
+  "title": "CampusMatch Organizer V3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "organizer_id", "schema_version", "organizer_type", "display_name",
+    "verification_status", "trust_score", "rating_count", "is_blacklisted"
+  ],
+  "properties": {
+    "organizer_id": { "type": "string", "minLength": 1 },
+    "schema_version": { "const": "3.0" },
+    "user_id": { "type": ["string", "null"] },
+    "organizer_type": { "enum": ["student", "club", "university", "municipality", "company"] },
+    "display_name": { "type": "string", "minLength": 2, "maxLength": 120 },
+    "university_id": { "type": ["string", "null"] },
+    "verification_status": { "enum": ["pending", "verified", "rejected"] },
+    "trust_score": { "type": "number", "minimum": 0, "maximum": 5 },
+    "rating_count": { "type": "integer", "minimum": 0 },
+    "is_blacklisted": { "type": "boolean" },
+    "blacklist_reason": { "type": ["string", "null"], "maxLength": 500 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  }
+}

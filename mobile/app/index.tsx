@@ -2,7 +2,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useEffect, useRef } from 'react';
 import {
-  ActivityIndicator,
   Animated,
   Pressable,
   SafeAreaView,
@@ -44,16 +43,6 @@ export default function OnboardingScreen() {
   useEffect(() => {
     if (isHydrated && profile) router.replace('/(tabs)');
   }, [isHydrated, profile]);
-
-  if (!isHydrated || profile) {
-    return (
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.loadingState}>
-          <ActivityIndicator color={BrandColors.primary} size="small" />
-        </View>
-      </SafeAreaView>
-    );
-  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -384,10 +373,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 11,
     color: BrandColors.textMuted,
-  },
-  loadingState: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
   },
 });

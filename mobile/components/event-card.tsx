@@ -14,7 +14,7 @@ type EventCardProps = {
 
 export function EventCard({ event, isSaved, onPress, onSkip, onToggleSaved }: EventCardProps) {
   return (
-    <Pressable onPress={onPress} style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
+    <Pressable accessibilityLabel={`${event.title} etkinliğinin detayını aç`} accessibilityRole="button" onPress={onPress} style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
       <View style={[styles.visual, { backgroundColor: event.color }]}>
         <View style={styles.scoreBadge}>
           <Ionicons color={BrandColors.primary} name="sparkles" size={13} />
@@ -23,6 +23,8 @@ export function EventCard({ event, isSaved, onPress, onSkip, onToggleSaved }: Ev
         <Ionicons color={BrandColors.primary} name={event.icon} size={52} />
         <Pressable
           accessibilityLabel={isSaved ? 'Etkinliği kaydedilenlerden çıkar' : 'Etkinliği kaydet'}
+          accessibilityRole="button"
+          accessibilityState={{ selected: isSaved }}
           hitSlop={8}
           onPress={(pressEvent) => {
             pressEvent.stopPropagation();

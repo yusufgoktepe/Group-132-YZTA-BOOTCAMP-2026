@@ -29,4 +29,7 @@ export type CampusEvent = {
   reasons: string[];
   icon: EventIcon;
   color: string;
+  eventTier?: 'official' | 'micro';
+  organizerTrustScore?: number;
+  participantCount?: number;
 };

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusmatch.rating.v3",
+  "title": "CampusMatch Anonymous Organizer Rating V3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rating_id", "schema_version", "event_id", "organizer_id", "rater_profile_id", "score", "created_at"],
+  "properties": {
+    "rating_id": { "type": "string", "minLength": 1 },
+    "schema_version": { "const": "3.0" },
+    "event_id": { "type": "string", "minLength": 1 },
+    "organizer_id": { "type": "string", "minLength": 1 },
+    "rater_profile_id": { "type": "string", "minLength": 1, "description": "Yalnız sunucu tarafında tutulur; genel API cevabında gösterilmez." },
+    "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

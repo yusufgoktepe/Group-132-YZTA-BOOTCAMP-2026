@@ -1,0 +1,112 @@
+{
+  "generated_on": "2026-08-01",
+  "dataset": "data/sample/v2/interactions_v2.csv",
+  "time_field": "interaction_id (proxy; source has no timestamp)",
+  "split": {
+    "strategy": "chronological",
+    "train": 35000,
+    "validation": 7500,
+    "test": 7500,
+    "train_max_id": 35000,
+    "validation_id_range": [
+      35001,
+      42500
+    ],
+    "test_min_id": 42501
+  },
+  "label": "like/save/apply or view_detail with dwell>=8s",
+  "feature_columns": [
+    "interest_overlap",
+    "goal_overlap",
+    "mode_match",
+    "fee_match",
+    "language_match",
+    "same_university",
+    "quota_scaled",
+    "duration_hours",
+    "category_id_career",
+    "category_id_culture-community",
+    "category_id_design-art",
+    "category_id_science",
+    "category_id_social-impact",
+    "category_id_sports-health",
+    "category_id_technology",
+    "event_type_competition",
+    "event_type_conference",
+    "event_type_networking",
+    "event_type_seminar",
+    "event_type_social",
+    "event_type_trip",
+    "event_type_workshop",
+    "participation_mode_hybrid",
+    "participation_mode_online",
+    "participation_mode_onsite"
+  ],
+  "selected_model_weight": 0.55,
+  "selection_metric": "validation ndcg@10",
+  "test_results": {
+    "majority": {
+      "roc_auc": 0.5,
+      "precision_at_5": 0.5283,
+      "ndcg_at_10": 0.7701
+    },
+    "rule_based_v3_proxy": {
+      "roc_auc": 0.5604,
+      "precision_at_5": 0.5398,
+      "ndcg_at_10": 0.7992
+    },
+    "xgboost": {
+      "roc_auc": 0.5633,
+      "precision_at_5": 0.5454,
+      "ndcg_at_10": 0.8032
+    },
+    "hybrid": {
+      "roc_auc": 0.5643,
+      "precision_at_5": 0.547,
+      "ndcg_at_10": 0.8015
+    }
+  },
+  "kmeans_micro": {
+    "event_count": 170,
+    "selected_clusters": 4,
+    "silhouette": 0.2183,
+    "cluster_sizes": {
+      "0": 12,
+      "1": 50,
+      "2": 82,
+      "3": 26
+    },
+    "candidates": [
+      {
+        "clusters": 2,
+        "silhouette": 0.1664
+      },
+      {
+        "clusters": 3,
+        "silhouette": 0.1944
+      },
+      {
+        "clusters": 4,
+        "silhouette": 0.2183
+      },
+      {
+        "clusters": 5,
+        "silhouette": 0.2042
+      },
+      {
+        "clusters": 6,
+        "silhouette": 0.1889
+      },
+      {
+        "clusters": 7,
+        "silhouette": 0.1864
+      },
+      {
+        "clusters": 8,
+        "silhouette": 0.1898
+      }
+    ],
+    "production_decision": "experiment_only"
+  },
+  "production_decision": "rule_based_v3"
+}

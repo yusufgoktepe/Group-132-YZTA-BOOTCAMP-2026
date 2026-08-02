@@ -47,24 +47,24 @@ Bu sprintin amacı CampusMatch AI projesini çalışan, test edilmiş ve jüriye
 ## 5. Entegrasyon ve Test
 
 - [x] Mobil uygulama ile backend bağlantısının teknik olarak doğrulanması
-- [ ] Profil oluşturma → öneri → detay → kaydetme akışının kontrol edilmesi
+- [x] Profil oluşturma → öneri → detay → kaydetme akışının otomatik E2E kontrolü
 - [x] Farklı profillerin farklı öneriler almasının doğrulanması
 - [x] İnternet veya backend bağlantısı olmadığında yedek akışın çalışması
 - [x] TypeScript, Expo lint ve Python testlerinin hatasız tamamlanması
-- [ ] Temiz kurulumdan sonra projenin tekrar çalıştırılması
+- [x] Temiz `npm ci` kurulumundan sonra mobil kontrollerin tekrar çalıştırılması
 - [x] Tespit edilen kritik kalıcılık hatalarının kapatılması
 
 ## 6. Dokümantasyon ve Jüri Hazırlığı
 
 - [x] Ana README'nin son ürün durumuna göre güncellenmesi
-- [ ] Sprint 3 backlog durumlarının işaretlenmesi
-- [ ] Sprint Review bölümünün yazılması
-- [ ] Sprint Retrospective bölümünün yazılması
+- [x] Sprint 3 backlog durumlarının işaretlenmesi
+- [x] Sprint Review bölümünün yazılması
+- [x] Sprint Retrospective bölümünün yazılması
 - [ ] Güncel uygulama ekran görüntülerinin eklenmesi
 - [x] Kurulum ve çalıştırma komutlarının kontrol edilmesi
 - [x] Kullanılan sentetik verilerin açıklanması
 - [x] Bilinen eksiklerin ve sonraki adımların belirtilmesi
-- [ ] 3-5 dakikalık demo senaryosunun hazırlanması
+- [x] 3-5 dakikalık demo senaryosunun hazırlanması
 - [ ] Final sunum provasının yapılması
 
 ## Önerilen Çalışma Sırası

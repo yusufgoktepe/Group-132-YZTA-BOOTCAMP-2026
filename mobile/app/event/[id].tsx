@@ -1,37 +1,27 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Alert, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
+import { events } from '@/mocks/events';
+import { applyToEvent } from '@/services/events-api';
+import { canonicalEventId } from '@/utils/api-event';
 import { applyRecommendationOverrides, personalizeEvent } from '@/utils/recommendations';
 
 export default function EventDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const {
-    profile,
-    catalogEvents,
-    recommendationOverrides,
-    savedEventIds,
-    toggleSavedEvent,
-    recordEventInteraction,
-  } = useApp();
-  const sourceEvent = catalogEvents.find((item) => item.id === id);
-  const event = sourceEvent
+  const { profile, profileId, recommendationOverrides, savedEventIds, feedEvents, toggleSavedEvent } = useApp();
+  const [applying, setApplying] = useState(false);
+  const [applied, setApplied] = useState(false);
+  const sourceEvent = events.find((item) => canonicalEventId(item.id) === id);
+  const event = feedEvents[id] ?? (sourceEvent
     ? applyRecommendationOverrides(
-        [personalizeEvent(sourceEvent, profile)],
+        [personalizeEvent({ ...sourceEvent, id: canonicalEventId(sourceEvent.id) }, profile)],
         recommendationOverrides
       )[0]
-    : undefined;
-
-  const viewedEventId = useRef<string | null>(null);
-  useEffect(() => {
-    if (id && viewedEventId.current !== id) {
-      viewedEventId.current = id;
-      recordEventInteraction(id, 'view_detail');
-    }
-  }, [id, recordEventInteraction]);
+    : undefined);
 
   if (!event) {
     return (
@@ -94,11 +84,18 @@ export default function EventDetailScreen() {
           ))}
         </View>
 
-        <Pressable onPress={() => {
-          recordEventInteraction(event.id, 'like');
-          Alert.alert('İlgin kaydedildi', 'Bu tercih sonraki önerilerini iyileştirecek.');
-        }} style={({ pressed }) => [styles.primaryButton, pressed && styles.pressed]}>
-          <Text style={styles.primaryButtonText}>İlgileniyorum</Text>
+        <Pressable accessibilityRole="button" accessibilityState={{ busy: applying, disabled: applying || applied }} disabled={applying || applied} onPress={async () => {
+          if (!profileId) return Alert.alert('Profil gerekli', 'Katılım isteği için önce profilini tamamla.');
+          setApplying(true);
+          try {
+            const result = await applyToEvent(event.id, profileId);
+            setApplied(true);
+            Alert.alert(result.is_duplicate ? 'İsteğin zaten kayıtlı' : 'Katılım isteğin alındı', 'Etkinlik organizatörü isteğini görüntüleyebilir.');
+          } catch (error) {
+            Alert.alert('Katılım isteği oluşturulamadı', error instanceof Error ? error.message : 'Bilinmeyen bir hata oluştu.');
+          } finally { setApplying(false); }
+        }} style={({ pressed }) => [styles.primaryButton, (pressed || applying || applied) && styles.pressed]}>
+          <Text style={styles.primaryButtonText}>{applying ? 'Gönderiliyor…' : applied ? 'Katılım isteği gönderildi' : 'İlgileniyorum'}</Text>
           <Ionicons color={BrandColors.surface} name="arrow-forward" size={19} />
         </Pressable>
       </ScrollView>

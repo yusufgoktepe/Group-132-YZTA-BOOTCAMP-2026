@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusmatch.moderation-action.v3",
+  "title": "CampusMatch Moderation Action V3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["moderation_action_id", "schema_version", "organizer_id", "action_type", "reason", "status", "created_at"],
+  "properties": {
+    "moderation_action_id": { "type": "string", "minLength": 1 },
+    "schema_version": { "const": "3.0" },
+    "organizer_id": { "type": "string", "minLength": 1 },
+    "event_id": { "type": ["string", "null"] },
+    "action_type": { "enum": ["publish_block", "feed_removal", "manual_review", "warning", "restore"] },
+    "reason": { "type": "string", "minLength": 3, "maxLength": 500 },
+    "status": { "enum": ["open", "resolved", "dismissed"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "resolved_at": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

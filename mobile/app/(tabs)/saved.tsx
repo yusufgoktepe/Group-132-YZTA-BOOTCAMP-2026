@@ -1,5 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
+import { useFocusEffect } from '@react-navigation/native';
 import { router } from 'expo-router';
+import { useCallback } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { EventCard } from '@/components/event-card';
@@ -7,15 +9,20 @@ import { BrandColors, Fonts } from '@/constants/theme';
 import { useApp } from '@/context/app-context';
 
 export default function SavedEventsScreen() {
-  const { catalogEvents, savedEventIds, toggleSavedEvent } = useApp();
-  const savedEvents = catalogEvents.filter((event) => savedEventIds.includes(event.id));
+  const { savedEvents, toggleSavedEvent, refreshSavedEvents } = useApp();
+
+  useFocusEffect(
+    useCallback(() => {
+      void refreshSavedEvents();
+    }, [refreshSavedEvents])
+  );
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <Text style={styles.eyebrow}>KOLEKSİYONUN</Text>
         <Text style={styles.title}>Kaydedilenler</Text>
-        <Text style={styles.subtitle}>Daha sonra incelemek istediğin etkinlikler burada.</Text>
+        <Text style={styles.subtitle}>Kaydettiğin etkinlikleri burada yeniden bulabilirsin.</Text>
         {savedEvents.length > 0 ? (
           <View style={styles.list}>
             {savedEvents.map((event) => (

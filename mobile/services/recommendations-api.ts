@@ -1,27 +1,33 @@
 import type { StudentProfile } from '@/context/app-context';
-import {
-  fetchProfileRecommendations,
-  fetchSavedProfileRecommendations,
-  type RecommendationResponse,
-} from '@/services/campus-api';
+import { apiRequest, isApiConfigured } from '@/services/api-client';
+import { toProfileRequest } from '@/services/profiles-api';
+import { canonicalEventId } from '@/utils/api-event';
 
 export type RecommendationOverride = {
   score: number;
   reasons: string[];
 };
 
-export async function fetchRecommendationOverrides(
-  profile: StudentProfile,
-  profileId: string | null
-) {
+type RecommendationResponse = {
+  recommendations: {
+    event: { event_id: string };
+    score: number;
+    reasons: string[];
+  }[];
+};
+
+export async function fetchRecommendationOverrides(profile: StudentProfile) {
+  if (!isApiConfigured()) return null;
+  const requestBody = toProfileRequest(profile);
 
   try {
-    const payload: RecommendationResponse = profileId
-      ? await fetchSavedProfileRecommendations(profileId)
-      : await fetchProfileRecommendations(profile);
+    const payload = await apiRequest<RecommendationResponse>('/recommendations/profile', {
+      method: 'POST',
+      body: JSON.stringify(requestBody),
+    }, 'Öneriler alınamadı.');
     return Object.fromEntries(
       payload.recommendations.map((item) => [
-        `event-${item.event.event_id}`,
+        canonicalEventId(item.event.event_id),
         { score: item.score, reasons: item.reasons },
       ])
     ) as Record<string, RecommendationOverride>;

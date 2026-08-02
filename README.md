@@ -1,389 +1,352 @@
-<div align="center">
+# YZTA Bootcamp 2026 Grup 132
 
-# CampusMatch AI
+> CampusMatch AI — doğru öğrenci, doğru kulüp ve doğru etkinlikle daha hızlı buluşsun.
 
-### Doğru öğrenci, doğru kulüp ve doğru etkinlikle daha hızlı buluşsun.
+`Mobil öncelikli` · `Açıklanabilir öneri sistemi` · `React Native / Expo` · `FastAPI`
 
-**YZTA Bootcamp 2026 · Grup 132 · Mobil Öncelikli Öğrenci Etkinlik Platformu**
+## Ürün Bilgileri
 
-`Sprint 2 Tamamlandı` · `Mobil MVP Çalışıyor` · `Açıklanabilir Öneri Sistemi`
+### Takım Üyeleri
 
-<br>
+| İsim | Rol | Sorumluluk |
+|---|---|---|
+| Yusuf Öztop | Product Owner | Ürün vizyonu, kapsam ve backlog öncelikleri |
+| Yusuf Göktepe | Scrum Master | Sprint takibi, ekip koordinasyonu ve süreç yönetimi |
+| Betül Tuba Gümüş | Developer | Mobil uygulama ve ürün geliştirme |
+| Gülşen Eymen Dediler | Developer | Mobil/backend entegrasyonu ve ürün geliştirme |
+| Cemal Faruk Tuğrul | Developer | Backend, AI/veri ve ürün geliştirme |
 
-<img src="assets/screenshots/sprint-2/01-onboarding.jpeg" width="32%" alt="CampusMatch onboarding ekranı" />
-&nbsp;&nbsp;&nbsp;
-<img src="assets/screenshots/sprint-2/06-personalized-discovery.jpeg" width="32%" alt="CampusMatch kişiselleştirilmiş keşif ekranı" />
+> Sorumluluk açıklamaları repo içindeki iş sahipliği modeline göre özetlenmiştir; kesin kişi bazlı görev dağılımı takım tarafından güncellenebilir.
 
-</div>
+### Ürün Adı
 
----
+**CampusMatch AI**
 
-## Proje Özeti
+### Ürün Açıklaması
 
-CampusMatch AI, Türkiye'deki üniversite öğrencilerinin ilgi alanları, programları ve etkinlik tercihleri doğrultusunda uygun kulüp ve etkinlikleri keşfetmesini sağlayan yapay zekâ destekli mobil platformdur.
+CampusMatch AI, üniversite öğrencilerinin ilgi alanları, bölümleri, hedefleri ve etkinlik tercihleri doğrultusunda kendilerine uygun kulüp ve etkinlikleri keşfetmesini sağlayan yapay zekâ destekli, mobil öncelikli bir platformdur. Dağınık etkinlik duyurularını tek deneyimde toplar ve öğrencinin keşif süresini kısaltır.
 
-| Problem | Çözüm |
+Ürün yalnızca bir eşleşme yüzdesi sunmaz; etkinliğin neden önerildiğini açıklayarak kullanıcı güvenini artırır. Öğrenci profili, davranış sinyalleri ve sentetik veriler açıklanabilir bir sıralama sisteminde birleştirilir.
+
+### Temel Özellikler
+
+- Kontrollü onboarding ve öğrenci profili oluşturma
+- İlgi, bölüm, katılım amacı, biçim, ücret ve dil tercihlerine göre öneri
+- Açıklanabilir eşleşme skoru ve “Neden önerildi?” bilgisi
+- Kart kaydırmalı etkinlik keşfi, detay, beğenme, atlama ve kaydetme
+- Çevrim dışı interaction kuyruğu ve bağlantı sonrası güvenli tekrar
+- Mikro etkinlik oluşturma, katılım ve anonim organizatör puanlama
+- Güven, moderasyon ve etkinlik yayınlama kuralları
+
+### Hedef Kitle
+
+- Türkiye'deki üniversite öğrencileri
+- Üniversite kulüpleri ve öğrenci toplulukları
+- Kampüs etkinliği düzenleyen öğrenci organizatörleri
+
+### Proje Yönetimi Bağlantıları
+
+| Kaynak | Bağlantı |
 |---|---|
-| Etkinlik duyurularının dağınık kanallarda kaybolması | Öğrenci profiline göre tek yerde kişiselleştirilmiş keşif |
-| Öğrencinin neden bir etkinlik gördüğünü bilmemesi | Açıklanabilir eşleşme skoru ve öneri nedenleri |
-| Kulüplerin doğru öğrenci kitlesine ulaşamaması | İlgi, program ve davranış sinyallerine dayalı hedefleme altyapısı |
+| GitHub Repository | [Group-132-YZTA-BOOTCAMP-2026](https://github.com/yusufgoktepe/Group-132-YZTA-BOOTCAMP-2026) |
+| Product Backlog | [Repo içi backlog](./product/product_backlog.md) |
+| GitHub Projects / Miro / Jira | `[Bağlantı eklenecek]` |
+| Tasarım Dosyası | `[Figma bağlantısı eklenecek]` |
+| Canlı Demo | `[Demo bağlantısı eklenecek veya sunulmadı olarak belirtilecek]` |
+| 3 Dakikalık Proje Videosu | `[YouTube bağlantısı eklenecek]` |
+| Sprint Belgeleri | [ProjectManagement](./ProjectManagement/README.md) |
 
-**Birincil hedef kitle:** Türkiye'deki üniversite öğrencileri<br>
-**İkincil hedef kitle:** Üniversite kulüpleri ve öğrenci toplulukları<br>
-**MVP odağı:** Öğrenci profili → kişiselleştirilmiş öneri → etkinlik detayı → kaydetme
+## İhtiyaç ve Çözüm Eşleşmesi
 
-<details>
-<summary><strong>Ürün kapsamı ve temel özellikler</strong></summary>
-
-- Kontrollü üniversite, program ve sınıf seçimi
-- Geniş ilgi alanı ve katılım amacı seçenekleri
-- Katılım biçimi, ücret ve dil tercihleri
-- Kişiselleştirilmiş etkinlik sıralaması
-- Eşleşme yüzdesi ve “Neden önerildi?” açıklaması
-- Etkinlik detay ve kaydetme akışı
-- Canlı backend önerisi ile yerel öneri arasında güvenli geçiş
-- İlerleyen aşamada swipe etkileşimi ve kulüp yönetim paneli
-
-</details>
-
-## Takım
-
-| İsim | Rol |
-|---|---|
-| Yusuf Göktepe | Scrum Master |
-| Yusuf Öztop | Product Owner |
-| Betül Tuba Gümüş | Developer |
-| Gülşen Eymen Dediler | Developer |
-| Cemal Faruk Tuğrul | Developer |
+| İhtiyaç | CampusMatch AI çözümü | Kullanıcı değeri |
+|---|---|---|
+| Duyurular farklı kanallarda kayboluyor. | Etkinlikleri tek kişiselleştirilmiş keşif akışında toplar. | Arama süresi azalır. |
+| Genel listeler öğrencinin ilgisini yansıtmıyor. | Profil ve davranış sinyalleriyle sıralama yapar. | Daha ilgili etkinlikler öne çıkar. |
+| Önerinin nedeni anlaşılmıyor. | Skor kırılımı ve kısa öneri nedenleri sunar. | Güven ve karar kalitesi artar. |
+| Küçük öğrenci etkinlikleri görünür olamıyor. | Güven kurallı mikro etkinlik oluşturma sağlar. | Kampüs içi katılım ve erişim artar. |
 
 ## Kullanıcı Akışı
 
 ```mermaid
 flowchart LR
-    A[Onboarding] --> B[Üniversite seçimi]
-    B --> C[Program ve sınıf]
-    C --> D[İlgi alanları]
-    D --> E[Etkinlik tercihleri]
-    E --> F[Kişiselleştirilmiş keşif]
-    F --> G[Etkinlik detayı]
-    G --> H[Kaydet veya ilgilen]
+    A[Onboarding] --> B[Profil ve tercihler]
+    B --> C[Kişiselleştirilmiş feed]
+    C --> D[Swipe veya detay]
+    D --> E[Kaydetme / katılım]
+    E --> F[Anonim puanlama]
+    F --> G[Güven ve daha iyi sıralama]
 ```
 
-## Teknik Yapı
+## Teknik Mimari ve Yapay Zekâ
 
-| Alan | Kullanılan Teknoloji / Yaklaşım |
+| Katman | Teknoloji / yaklaşım |
 |---|---|
 | Mobil | React Native, Expo, Expo Router, TypeScript |
 | Backend | FastAPI, Uvicorn, Python |
-| AI / Veri | Açıklanabilir skor, sentetik etkileşim verisi, XGBoost baseline |
-| Veri yapısı | CSV ve JSON Schema; SQLite/PostgreSQL sonraki aşama |
-| Test / Kalite | TypeScript kontrolü, Expo lint, Python derleme ve API testleri |
+| Veri | SQLite, CSV, JSON Schema ve sentetik veri |
+| Öneri | Açıklanabilir kural/skor tabanı ve davranış sinyalleri |
+| Deneysel ML | Temporal XGBoost karşılaştırması ve K-Means segmentasyon deneyi |
+| Kalite | Pytest, TypeScript, Expo lint, sözleşme ve E2E kontrolleri |
 
-<details>
-<summary><strong>Öneri sistemi nasıl çalışıyor?</strong></summary>
+### Doğrulanmış Son Ürün Kapsamı
 
-Öğrenci profili; ilgi alanları, program, katılım amacı, katılım biçimi, ücret ve dil tercihleri üzerinden değerlendirilir. Canlı öneri endpoint'i profil eşleşmesini sentetik swipe etkileşimleriyle birleştirir:
-
-- Profil uyumu: `%80`
-- Etkileşim sinyali: `%20`
-
-İlk veri çalışmasında 1.000 kullanıcı, 200 etkinlik ve 50.000 swipe kaydı üretildi. XGBoost baseline modeli eğitildi; etkinlik kategorisi, ücret ve organizatör güven puanı en etkili özellikler olarak gözlemlendi.
-
-Sprint 2 sonunda hazırlanan V2 veri yapısı ise 1.000 profil, 500 etkinlik ve 50.000 `view/skip/save/like/apply` etkileşimi içerir. Böylece eski spor/oyun/akademik kısıtı daha geniş kategori yapısına taşınmıştır.
-
-Model eğitim havuzu ile uygulamada gösterilen katalog birbirinden ayrıdır. Eğitim verisi yalnızca model geliştirme ve değerlendirme için kullanılır. Bootcamp demosunda ise 7 kategoriye dengeli dağıtılmış **14 sentetik kulüp ve 56 açıklamalı etkinlik** gösterilir. Bu katalog backend ile mobilin çevrimdışı yedeğinde aynı etkinlik kimliklerini kullanır.
-
-> Eğitilmiş `.pkl` model mobil cihazda çalıştırılmaz. Modelleme backend/ML katmanında tutulur; mobil uygulama yalnızca API sonucunu kullanır.
-
-</details>
-
-<details>
-<summary><strong>API endpoint'leri</strong></summary>
-
-- `GET /health`
-- `GET /students`
-- `GET /clubs`
-- `GET /events`
-- `POST /recommendations/student/{student_id}`
-- `POST /recommendations/profile`
-
-Mobil uygulama backend'e ulaşamazsa kullanıcı deneyimini kesmeden yerel açıklanabilir öneri sistemine döner. Keşif ekranında `Canlı öneri`, `Bağlantı kontrol ediliyor` veya `Yerel öneri` durumu gösterilir.
-
-</details>
-
----
-
-## Sprint 1 Özeti
-
-**Tarih:** 19 Haziran – 5 Temmuz 2026<br>
-**Amaç:** Ürün fikrini, hedef kitleyi, kullanıcı akışlarını, ekip çalışma modelini ve teknik yaklaşımı netleştirmek.
-
-<details>
-<summary><strong>Sprint 1 çıktıları, review ve retrospective</strong></summary>
-
-### Tamamlananlar
-
-- Ürün vizyonu ve problem tanımı oluşturuldu.
-- Öğrenci ve kulüp yöneticisi kullanıcı hikâyeleri çıkarıldı.
-- Product backlog'un ilk sürümü hazırlandı.
-- Mobil-first yaklaşım ve öğrenci MVP önceliği belirlendi.
-- Sentetik veri şeması ve açıklanabilir öneri kriterleri oluşturuldu.
-- FastAPI iskeleti ve skor bazlı recommendation baseline başlatıldı.
-
-### İyi Gidenler
-
-- Ekip ortak ürün yönünde uzlaştı.
-- Öğrenci deneyimi net biçimde önceliklendirildi.
-- İlk AI yaklaşımı sade, test edilebilir ve açıklanabilir tutuldu.
-
-### Geliştirme Alanları
-
-- Görev sahipliği ve GitHub Projects kullanımı daha düzenli yürütülmeli.
-- Mobil ve backend ekipleri ortak veri sözleşmesini daha erken belirlemeli.
-- Sprint kapanışına bırakılan işler sprint içine daha dengeli dağıtılmalı.
-
-### Sprint 2'ye Aktarılan Hedefler
-
-- Çalışan Expo mobil iskeleti
-- Onboarding ve profil oluşturma
-- Etkinlik keşif ve detay ekranları
-- Backend endpoint'lerinin genişletilmesi
-- Sentetik veri ile öneri entegrasyonu
-
-</details>
-
----
-
-## Sprint 2
-
-**Tarih:** 6 – 18 Temmuz 2026<br>
-**Sprint amacı:** Sprint 1'de planlanan öğrenci deneyimini çalışan mobil MVP'ye dönüştürmek; backend, veri ve öneri katmanları arasında ilk uçtan uca entegrasyonu kurmak.
-
-### Sprint 2 Beklentileri
-
-- Expo tabanlı mobil uygulamanın çalışması
-- Onboarding ve öğrenci profil akışının tamamlanması
-- Etkinlik keşif, detay ve kaydetme ekranlarının geliştirilmesi
-- FastAPI endpoint'lerinin gerçek veri döndürmesi
-- Sentetik verinin öneri sistemine bağlanması
-- Öneri sonucunun açıklanabilir olması
-- Mobil uygulamanın iPhone üzerinde Expo Go ile test edilmesi
-
-### Sprint 2 Backlog ve Durum
-
-| ID | Görev | Alan | Durum |
-|---|---|---|---|
-| S2-01 | Expo ve Expo Router mobil iskeleti | Mobil | ✅ Tamamlandı |
-| S2-02 | Modern onboarding ekranı | Mobil / UI | ✅ Tamamlandı |
-| S2-03 | Kontrollü Profil V2 akışı | Mobil / Product | ✅ Tamamlandı |
-| S2-04 | Üniversite → program → sınıf bağımlı seçimi | Mobil / Veri | ✅ Tamamlandı |
-| S2-05 | Geniş ilgi alanı ve etkinlik tercihleri | Mobil / Product | ✅ Tamamlandı |
-| S2-06 | Kişiselleştirilmiş etkinlik keşif ekranı | Mobil | ✅ Tamamlandı |
-| S2-07 | Etkinlik detay ve kaydetme akışı | Mobil | ✅ Tamamlandı |
-| S2-08 | Öğrenci, kulüp, etkinlik ve öneri endpoint'leri | Backend | ✅ Tamamlandı |
-| S2-09 | Data branch'indeki 50.000 etkileşimin entegrasyonu | AI / Backend | ✅ Tamamlandı |
-| S2-10 | XGBoost baseline ve özellik önemleri | AI / Veri | ✅ Tamamlandı |
-| S2-11 | Gerçek profil ile `/recommendations/profile` akışı | Mobil / Backend | ✅ Tamamlandı |
-| S2-12 | Profil V2 ve Etkinlik V2 JSON şemaları | Veri / Backend | ✅ Tamamlandı |
-| S2-13 | 500 etkinlikli V2 sentetik dataset | AI / Veri | ✅ Tamamlandı |
-| S2-14 | Türkiye üniversite-program referans altyapısı | Veri / Mobil | 🟡 Kısmi |
-| S2-15 | Mobil, backend ve veri doğrulamaları | Test | ✅ Tamamlandı |
-
-<details open>
-<summary><strong>Sprint 2 ürün çıktıları</strong></summary>
-
-### Mobil Uygulama
-
-- iPhone 11 üzerinde Expo Go bağlantısı kuruldu.
-- Kullanıcı dostu, sade, modern ve ferah görsel dil oluşturuldu.
-- Dört adımlı Profil V2 akışı geliştirildi.
-- Serbest metin üniversite, bölüm ve sınıf girişleri kontrollü seçimlere dönüştürüldü.
-- Genel “seviye” ve “uygunluk zamanı” soruları kaldırıldı.
-- İlgi alanları teknoloji, kariyer, tasarım-sanat ve yaşam-topluluk başlıklarında genişletildi.
-- Katılım amacı, biçimi, ücret ve dil tercihleri eklendi.
-- Etkinlik filtreleme, detay görüntüleme ve kaydetme çalışır hâle getirildi.
-- Etkinlik kartları ileride swipe deneyimine uyarlanabilecek bağımsız yapıda hazırlandı.
-
-### Backend ve Entegrasyon
-
-- FastAPI proje ortamı ve hafif bağımlılık yapısı kuruldu.
-- Gerçek profil gövdesini kabul eden öneri endpoint'i eklendi.
-- Profil ile backend arasındaki demo öğrenci bağı kaldırıldı.
-- Backend erişilemediğinde yerel öneriye dönüş sağlandı.
-- Yerel ağ üzerinden fiziksel iPhone bağlantısı doğrulandı.
-
-### AI ve Veri
-
-- 50.000 swipe kaydı sisteme alındı.
-- Açıklanabilir profil skoru davranış sinyaliyle birleştirildi.
-- XGBoost modeli, eğitim betiği ve feature importance çıktısı projeye eklendi.
-- Profil ve etkinlik için sürümlenebilir V2 şemaları oluşturuldu.
-- 7 kategoriye yayılan 500 etkinlik ve 50.000 çoklu etkileşim içeren V2 veri üretildi.
-
-</details>
-
-<details>
-<summary><strong>Sprint 2 ekran görüntüleri</strong></summary>
-
-### Profil Oluşturma Akışı
-
-<p align="center">
-  <img src="assets/screenshots/sprint-2/02-university-selection.jpeg" width="23%" alt="Üniversite seçimi" />
-  <img src="assets/screenshots/sprint-2/03-program-and-class.jpeg" width="23%" alt="Program ve sınıf seçimi" />
-  <img src="assets/screenshots/sprint-2/04-interest-selection.jpeg" width="23%" alt="İlgi alanı seçimi" />
-  <img src="assets/screenshots/sprint-2/05-event-preferences.jpeg" width="23%" alt="Etkinlik tercihleri" />
-</p>
-
-### Keşif Deneyimi
-
-<p align="center">
-  <img src="assets/screenshots/sprint-2/01-onboarding.jpeg" width="31%" alt="Onboarding" />
-  <img src="assets/screenshots/sprint-2/06-personalized-discovery.jpeg" width="31%" alt="Kişiselleştirilmiş etkinlik keşfi" />
-</p>
-
-</details>
-
-<details>
-<summary><strong>Sprint 2 test ve doğrulama sonuçları</strong></summary>
-
-| Kontrol | Sonuç |
+| Gösterge | Son durum |
 |---|---|
-| TypeScript `tsc --noEmit` | Başarılı |
-| Expo lint | Başarılı |
-| Python sözdizimi / derleme | Başarılı |
-| FastAPI `/health` | Başarılı |
-| FastAPI profil önerisi | Başarılı |
-| Yerel ağ üzerinden API erişimi | Başarılı |
-| V2 profil sayısı | 1.000 |
-| V2 etkinlik sayısı | 500 |
-| V2 etkileşim sayısı | 50.000 |
-| Uygulama demo kataloğu | 14 kulüp / 56 etkinlik / 7 kategori |
+| Eğitim referansı | ÖSYM 2026-YKS kaynaklı 202 üniversite ve 14.281 aktif ön lisans/lisans programı |
+| Etkinlik kataloğu | 56 geriye uyumlu etkinlik ile 250 Event V3 kaydından oluşan 306 etkinlik |
+| V3 demo verisi | 80 organizatör, 1.200 katılım, 800 anonim puan ve 5.393 ilgi ağırlığı |
+| Mobil kapsam | 6 rota; profil, swipe keşif, detay, kayıt, mikro etkinlik ve katılım/puanlama |
+| Otomatik kalite | 74 backend/ML testi, TypeScript, Expo lint, mobil sözleşme ve web/iOS production export kontrolleri başarılı |
 
-</details>
+Resmî ÖSYM kimlikleri ile sentetik V3 kimlikleri backend eşleme katmanında uzlaştırılmıştır. Bu sayede kullanıcı resmî listeden üniversite ve program seçerken kişiselleştirilmiş V3 feed filtreleri çalışmaya devam eder. Kaynak ve üretim ayrıntıları: [Türkiye eğitim referansı](./data/reference/README.md).
 
-### Sprint 2 Review
+Öneri motoru profil uyumu, dinamik ilgi, organizatör güveni, popülerlik ve kişisel davranış düzeltmesini ayrı bileşenlerde hesaplar. `like`, `skip`, `save`, `view_detail` ve `apply` sinyalleri ile kartta geçirilen süre, ilgi ağırlıklarını kontrollü biçimde günceller.
 
-Sprint hedefinin ana bölümü gerçekleştirildi. Öğrenci onboarding'den başlayarak profilini oluşturabiliyor, kişiselleştirilmiş etkinlikleri görebiliyor, öneri nedenini inceleyebiliyor ve etkinliği kaydedebiliyor. Mobil, backend ve veri katmanları ilk kez uçtan uca bağlandı.
+Temporal değerlendirmede test NDCG@10 değeri kural tabanında `0.7992`, XGBoost'ta `0.8032`, hibritte `0.8015` ölçüldü. XGBoost belirlenen göreli `%2` iyileştirme eşiğini aşmadığı için üretimde daha açıklanabilir kural tabanı korundu. Ayrıntı: [Ranking değerlendirmesi](./ml/ranking_evaluation_v3.md).
 
-Tamamlanmayan ana madde, Türkiye'deki tüm aktif üniversite ve programların resmî referans veriyle doldurulmasıdır. Seçim altyapısı hazırdır; mevcut kayıtlar geliştirme amaçlı örnek üniversitelerdir.
-
-### Sprint 2 Retrospective
-
-| İyi Gidenler | Geliştirilecek Noktalar | Alınan Aksiyon |
-|---|---|---|
-| Mobil MVP'nin fiziksel telefonda çalışması | Profil alanlarının geliştirme sırasında değişmesi | Form, öneri profili ve ML özelliği katmanları ayrıldı |
-| Backend ve veri entegrasyonunun kurulması | Dataset kategorilerinin başlangıçta dar kalması | 7 kategorili V2 dataset üretildi |
-| Açıklanabilir öneri yaklaşımının korunması | Canlı ve yerel önerinin kullanıcı tarafından ayırt edilememesi | Kaynak göstergesi eklendi |
-| Mock veriyle ekiplerin beklemeden ilerlemesi | Tam YÖK referans listesinin henüz bulunmaması | Sürümlü eğitim referans altyapısı oluşturuldu |
-
----
-
-## Güncel Product Backlog
-
-| Öncelik | İş | Durum |
-|---|---|---|
-| P0 | Öğrenci onboarding ve Profil V2 | ✅ Tamamlandı |
-| P0 | Etkinlik keşif, detay ve kaydetme | ✅ Tamamlandı |
-| P0 | Gerçek profil ile öneri API'si | ✅ Tamamlandı |
-| P0 | Açıklanabilir öneri nedenleri | ✅ Tamamlandı |
-| P1 | 2026 ÖSYM Türkiye üniversite-program referansı | ✅ Tamamlandı |
-| P1 | Profil ve kaydedilen etkinlikleri veritabanında saklama | ✅ Tamamlandı |
-| P1 | Interaction API ve mobil `like/skip/save/view_detail` bağlantısı | ✅ Tamamlandı |
-| P2 | Tam kart kaydırma (gesture swipe) deneyimi | ⬜ Ürün kararı bekliyor |
-| P1 | V2 model karşılaştırması ve üretim skoru kararı | ✅ Tamamlandı |
-| P2 | Kulüp yöneticisi profil ve etkinlik oluşturma | ⬜ Planlandı |
-| P2 | Kimlik doğrulama ve üniversite doğrulaması | ⬜ Planlandı |
-
-## Sprint 3 - Ürün Tamamlama Sprinti
-
-**Başlangıç:** 22 Temmuz 2026<br>
-**Amaç:** Çalışan prototipi kalıcı veri, gerçek API, interaction kaydı, V2 model, test ve jüri teslim paketiyle tamamlanmış MVP'ye dönüştürmek.
-
-<details open>
-<summary><strong>Sprint 3 kapsamı ve görev dağılımı</strong></summary>
-
-### Mutlaka Tamamlanacaklar
-
-1. Profil, etkinlik, kayıt ve interaction verilerini SQLite ile kalıcılaştırmak.
-2. Mobil uygulamadaki mock etkinlikleri gerçek backend verisiyle değiştirmek.
-3. `like`, `skip`, `save` ve `view_detail` olaylarını backend'e kaydetmek.
-4. Tam üniversite/program referansını sürümlü ve aranabilir hâle getirmek.
-5. V2 modelini eğitmek, metrikleri raporlamak ve güvenli fallback ile servislemek.
-6. Loading, hata, boş durum ve retry deneyimlerini tamamlamak.
-7. Uçtan uca iPhone testi, Sprint 3 review/retrospective ve final demo hazırlamak.
-
-### Önerilen Ana Sorumluluklar
-
-| Kişi | Sprint 3 Ana Alanı |
-|---|---|
-| Yusuf Göktepe | Scrum, mobil-backend entegrasyonu ve release |
-| Yusuf Öztop | Product, kabul testleri, README ve demo |
-| Betül Tuba Gümüş | Mobil UI, swipe ve kaydedilenler |
-| Gülşen Eymen Dediler | Backend, API ve SQLite |
-| Cemal Faruk Tuğrul | AI, V2 model ve eğitim referans verisi |
-
-### 10 Günlük Akış
-
-- D1–D3: Kapsam/API sözleşmesi, DB ve referans veri temeli
-- D4–D6: Interaction, swipe, gerçek API ve model entegrasyonu
-- D7: Feature freeze
-- D8: QA ve code freeze
-- D9–D10: README, demo, temiz kurulum testi ve final release
-
-### Bitmiş Ürün Kriteri
-
-Onboarding → profil → canlı öneri → detay → like/save akışı fiziksel telefonda çalışmalı; veriler uygulama yeniden açıldığında korunmalı; öneri nedeni görünür olmalı ve temiz kurulum komutları doğrulanmalıdır.
-
-### Güncel Entegrasyon Durumu
-
-- SQLite üzerinde profil, etkinlik ve interaction kalıcılığı tamamlandı.
-- Mobil profil ve profil kimliği AsyncStorage ile cihazda, API üzerinden SQLite'ta saklanıyor.
-- Mobil etkinlikleri `/events` üzerinden alıyor; bağlantı yoksa 56 etkinliklik yerel katalog kullanılıyor.
-- `save`, `unsave`, `like`, `skip` ve `view_detail` hareketleri backend'e gönderiliyor.
-- Keşif ekranında yükleniyor, bağlantı/demo fallback, boş sonuç ve tekrar deneme durumları tamamlandı.
-- 2026 ÖSYM Tablo 3/4 verisinden 202 üniversite ve 14.281 programlık sürümlü referans üretildi.
-- Program sınıfları resmî eğitim süresine göre, hazırlık seçeneği öğretim dili sinyaline göre gösteriliyor.
-- Kaydedilen etkinlikler uygulama yeniden açıldığında backend ile eşitleniyor.
-- Backend testleri, TypeScript, Expo lint ve iOS Hermes bundle kontrolleri geçiyor.
-- Fiziksel iPhone kabul testi, temiz kurulum kontrolü ve final jüri provası henüz tamamlanmadı.
-
-**Ayrıntılı görev listesi, kabul kriterleri, bağımlılıklar, riskler ve teslim checklist'i:** [`scrum/sprint-3/sprint_planning.md`](scrum/sprint-3/sprint_planning.md)
-
-</details>
+> Ürün, öneri ve makine öğrenmesi bileşenleri içerir. Repo içinde kullanıcıya sunulan bağımsız bir AI ajan, ajan hafızası veya çoklu ajan orkestrasyonu kanıtı bulunmadığından böyle bir özellik varmış gibi beyan edilmemiştir.
 
 ## Çalıştırma
 
-**Backend:**
+### Backend
 
 ```powershell
-cd C:\Users\yusuf\Desktop\Group-132-YZTA-BOOTCAMP-2026-Starter
+cd <proje-klasörü>
 .\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000
 ```
 
-**Mobil uygulama:**
+API sağlık kontrolü: `http://127.0.0.1:8000/health`
+
+### Mobil uygulama ve Expo Go
 
 ```powershell
-cd C:\Users\yusuf\Desktop\Group-132-YZTA-BOOTCAMP-2026-Starter\mobile
-npx expo start
+cd <proje-klasörü>\mobile
+Copy-Item .env.example .env
+npx.cmd expo start
 ```
+
+Fiziksel telefon için bilgisayar ve telefon aynı Wi-Fi ağına bağlanır. `.env` içindeki `EXPO_PUBLIC_API_URL`, bilgisayarın yerel IP adresiyle (örneğin `http://192.168.x.x:8000`) ayarlanır. Telefonda Expo Go açılarak terminaldeki QR kod okutulur. Ayrıntılı yönergeler: [Expo kurulumu](./mobile/EXPO_SETUP.md).
+
+---
+
+# Sprint 1
+
+## Sprint Notları
+
+- Sprint hedefi: Ürün fikrini, hedef kitleyi, kullanıcı akışlarını, ekip modelini ve teknik yaklaşımı netleştirmek.
+- Tahmini sprint puanı: `[Takım tarafından doğrulanacak]`
+- Tamamlanan puan: `[Takım tarafından doğrulanacak]`
+- Sprint tarihi: 19 Haziran – 5 Temmuz 2026
+
+## Backlog Düzeni ve Story Seçimleri
+
+Planlama ve temel oluşturma işleri önceliklendirildi. Ürün vizyonu, öğrenci/kulüp yöneticisi hikâyeleri, mobil-first akış, sentetik veri şeması, FastAPI iskeleti ve açıklanabilir recommendation baseline alt görevlere ayrıldı. [Sprint 1 planlama ayrıntıları](./ProjectManagement/Sprint1Documents/sprint-planning.md)
+
+## Daily Scrum
+
+Toplantılar takım uygunluğuna göre WhatsApp üzerinden yürütüldü ve üç kontrol noktasında repo notlarına aktarıldı.
+
+[Daily Scrum Notları](./ProjectManagement/Sprint1Documents/daily-scrum-notes.md)
+
+## Sprint Board Güncellemeleri
+
+GitHub Projects bağlantısı ve Sprint 1 board ekran görüntüleri henüz eklenmemiştir. Beklenen dosyalar `sprint-1-backlog.png` ve `sprint-1-board.png` olarak belgelenmiştir.
+
+[Sprint Board Güncellemeleri](./ProjectManagement/Sprint1Documents/sprint-board-updates.md)
+
+## Ürün Durumu
+
+Sprint 1, fikri yapılandırılmış MVP hazırlığına taşıdı. Gösterilebilir çıktılar ürün belgeleri, backlog, veri şeması, recommendation baseline ve backend health endpoint'idir. Bu sprinte ait ürün ekran görüntüsü bulunmadığından sahte veya bozuk görsel eklenmedi.
+
+## Sprint Review
+
+- Tamamlanan çalışmalar: Ürün vizyonu, hedef kitle, hikâyeler, akışlar, veri ve teknik temel.
+- Tamamlanamayan işler ve nedenleri: Çalışan mobil MVP Sprint 2 kapsamına bırakıldı; board görselleri belgelenmedi.
+- Alınan geri bildirimler: Öğrenci deneyimi ve açıklanabilir AI önceliklendirildi.
+- Bir sonraki sprint'e aktarılan işler: Mobil MVP, API genişletme ve öneri entegrasyonu.
+- Katılımcılar: Beş takım üyesi.
+
+[Ayrıntılı Sprint Review](./ProjectManagement/Sprint1Documents/sprint-review.md)
+
+## Sprint Retrospective
+
+| İyi Gidenler | Geliştirilecek Noktalar | Aksiyonlar |
+|---|---|---|
+| Ortak ürün yönü netleşti. | Görev sahipliği ve board takibi güçlendirilmeli. | Her işe tek sorumlu ve düzenli kayıt atanacak. |
+| Açıklanabilir AI yaklaşımı seçildi. | Belgeler sprint sonuna yığılmamalı. | Sprint içinde periyodik güncelleme yapılacak. |
+
+[Ayrıntılı Retrospective](./ProjectManagement/Sprint1Documents/sprint-retrospective.md)
+
+---
+
+# Sprint 2
+
+## Sprint Notları
+
+- Sprint hedefi: Planlanan öğrenci deneyimini çalışan mobil MVP'ye dönüştürmek ve mobil, backend ile AI/veri katmanlarını bağlamak.
+- Tahmini sprint puanı: `[Takım tarafından doğrulanacak]`
+- Tamamlanan puan: `[Takım tarafından doğrulanacak]`
+- Sprint tarihi: 6 – 18 Temmuz 2026
+
+## Backlog Düzeni ve Story Seçimleri
+
+Onboarding → profil → kişiselleştirilmiş keşif → detay → kaydetme yolu P0 olarak seçildi. Backend, mobil ve veri işleri ortak API sözleşmesine göre birleştirildi. Tam Türkiye üniversite-program referansı kısmi kaldı. [Sprint 2 planlama ayrıntıları](./ProjectManagement/Sprint2Documents/sprint-planning.md)
+
+## Daily Scrum
+
+Sprint 2 için tarih bazlı Daily Scrum kaydı mevcut arşivde bulunmamaktadır. Dosyada, takımın gerçek mesajlarını sonradan aktarabileceği şablon bırakılmıştır.
+
+[Daily Scrum Notları](./ProjectManagement/Sprint2Documents/daily-scrum-notes.md)
+
+## Sprint Board Güncellemeleri
+
+Backlog durumu metinsel olarak doğrulanmıştır; `sprint-2-backlog.png` ve `sprint-2-board.png` henüz eklenmemiştir.
+
+[Sprint Board Güncellemeleri](./ProjectManagement/Sprint2Documents/sprint-board-updates.md)
+
+## Ürün Durumu
+
+![Sprint 2 Onboarding](./ProjectManagement/Sprint2Documents/product-screen-1-onboarding.jpeg)
+*Kısa açıklama: CampusMatch AI öğrenci onboarding ekranı.*
+
+![Sprint 2 Kişiselleştirilmiş Keşif](./ProjectManagement/Sprint2Documents/product-screen-6-personalized-discovery.jpeg)
+*Kısa açıklama: Profil tercihlerine göre sıralanan etkinlik keşif ekranı.*
+
+Diğer dört gerçek ekran [Sprint 2 belge dizininde](./ProjectManagement/Sprint2Documents/README.md) listelenmiştir.
+
+## Sprint Review
+
+- Tamamlanan çalışmalar: Expo MVP, Profil V2, keşif/detay/kaydetme, API ve V2 sentetik veri.
+- Tamamlanamayan işler ve nedenleri: Tam resmî üniversite-program referansı veri kaynağı eksikliği nedeniyle kısmi kaldı.
+- Alınan geri bildirimler: Veri sözleşmeleri erken sabitlenmeli; canlı/yerel öneri kaynağı görünür olmalı.
+- Bir sonraki sprint'e aktarılan işler: Kalıcı veri, swipe, mikro etkinlik, güven ve final testleri.
+- Katılımcılar: `[Takım tarafından doğrulanacak]`
+
+[Ayrıntılı Sprint Review](./ProjectManagement/Sprint2Documents/sprint-review.md)
+
+## Sprint Retrospective
+
+| İyi Gidenler | Geliştirilecek Noktalar | Aksiyonlar |
+|---|---|---|
+| Mobil MVP fiziksel telefonda çalıştı. | Veri sözleşmeleri süreçte değişti. | Profil ve ML sözleşmeleri ayrıldı. |
+| Backend/veri entegrasyonu tamamlandı. | Kategori ve referans kapsamı dardı. | V2 dataset genişletildi. |
+
+[Ayrıntılı Retrospective](./ProjectManagement/Sprint2Documents/sprint-retrospective.md)
+
+---
+
+# Sprint 3
+
+## Sprint Notları
+
+- Sprint hedefi: Faz 0–8 kapsamında kalıcı veri, feed, swipe, davranış öğrenmesi, mikro etkinlik, güven ve final kalite akışlarını tamamlamak.
+- Tahmini sprint puanı: `[Takım tarafından doğrulanacak]`
+- Tamamlanan puan: `[Takım tarafından doğrulanacak]`
+- Sprint tarihi: 1 Ağustos 2026 – `[Bitiş tarihi takım tarafından doğrulanacak]`
+
+## Backlog Düzeni ve Story Seçimleri
+
+PB-01–PB-28 işleri teknik bağımlılıklarına göre dokuz faza ayrıldı. Ürün kararları ve veri sözleşmeleri tamamlandıktan sonra feed, mobil swipe, dinamik ilgi, mikro etkinlik, güven/moderasyon ve ölçümlü ML değerlendirmesi geliştirildi. [Sprint 3 planlama ayrıntıları](./ProjectManagement/Sprint3Documents/sprint-planning.md)
+
+## Daily Scrum
+
+İlerleme Faz 0–1, 2–3, 4–5, 6–7 ve 8 kontrol noktalarında özetlendi. Açık dış bağımlılık fiziksel cihaz kabulüdür.
+
+[Daily Scrum Notları](./ProjectManagement/Sprint3Documents/daily-scrum-notes.md)
+
+## Sprint Board Güncellemeleri
+
+PB-01–PB-27 tamamlandı; PB-28 fiziksel iPhone kabulünü bekliyor. Board bağlantısı ve ekran görüntüleri henüz eklenmemiştir.
+
+[Sprint Board Güncellemeleri](./ProjectManagement/Sprint3Documents/sprint-board-updates.md)
+
+## Ürün Durumu
+
+Ana öğrenci akışı profil oluşturmadan kişiselleştirilmiş feed'e, kaydetmeye, mikro etkinlik katılımına ve anonim puanlamaya kadar backend ile kalıcı çalışır durumdadır. Resmî eğitim referansı V3 öneri kimlikleriyle, eski etkinlik kataloğu ise yeni interaction kimlikleriyle uyumlu hâle getirilmiştir. Profil, kaydedilen etkinlikler ve başarısız interaction istekleri cihazda korunur; canlı API yanıt vermediğinde uygulama beş saniye içinde yerel açıklanabilir kartlara geçer. Sprint 3'e özel ürün ekran görüntüleri henüz eklenmediği için bozuk görsel bağlantısı kullanılmamıştır.
+
+## Sprint Review
+
+- Tamamlanan çalışmalar: V3 veri, feed, swipe, offline kuyruk, dinamik ranking, mikro etkinlik, güven ve otomatik kalite.
+- Tamamlanamayan işler ve nedenleri: Fiziksel cihaz/VoiceOver kabulü dış ortam doğrulaması gerektiriyor.
+- Alınan geri bildirimler: Model değişikliği ölçülebilir kalite eşiğine bağlandı.
+- Bir sonraki sprint'e aktarılan işler: Yeni geliştirme fazı yok; teslim ve insan kabulü kapatılacak.
+- Katılımcılar: `[Takım tarafından doğrulanacak]`
+
+[Ayrıntılı Sprint Review](./ProjectManagement/Sprint3Documents/sprint-review.md)
+
+## Sprint Retrospective
+
+| İyi Gidenler | Geliştirilecek Noktalar | Aksiyonlar |
+|---|---|---|
+| Fazlar sözleşme ve testlerle kapatıldı. | Fiziksel cihaz testi CI içinde değil. | Final insan kabul listesi uygulanacak. |
+| Production ranking ölçümle korundu. | Gerçek timestamp verisi bulunmuyor. | Gerçek veride promotion eşiği yeniden ölçülecek. |
+
+[Ayrıntılı Retrospective](./ProjectManagement/Sprint3Documents/sprint-retrospective.md)
+
+---
+
+# Proje Sonucu
+
+## Genel Değerlendirme
+
+CampusMatch AI, öğrenci profilini kişiselleştirilmiş ve açıklanabilir etkinlik keşfine bağlayan çalışan bir mobil MVP düzeyine ulaşmıştır. Mobil uygulama, FastAPI backend, kalıcı veri, interaction kaydı, mikro etkinlik ve güven döngüsü tek ürün akışında birleşmektedir. Sentetik veriler gerçek kullanıcı mahremiyetini riske atmadan öneri yaklaşımını geliştirmeyi ve ölçmeyi mümkün kılmıştır.
+
+Ürün; ihtiyaç–çözüm uyumu, öğrenci odaklı kullanıcı deneyimi, kampüs toplulukları için pazar potansiyeli ve açıklanabilir AI yaklaşımıyla değerlendirme kriterlerine doğrudan karşılık verir. Bununla birlikte public repo, fiziksel telefon kabulü, board görselleri ve YouTube videosu teslimden önce ayrıca kapatılmalıdır.
+
+## Değerlendirme Kriterleri ve Kanıtlar
+
+| Kriter | Repo kanıtı | Durum |
+|---|---|---|
+| Yarışmaya hazır, çalışan proje | Expo mobil, FastAPI, web/iOS export ve E2E testleri | Otomatik kontroller tamam; fiziksel kabul açık |
+| Özgünlük | Açıklanabilir kampüs etkinliği eşleştirme ve mikro etkinlik güven döngüsü | Mevcut |
+| Ürün tamamlanma / bütünlük | Profil → feed → interaction → katılım → rating | Ana akış mevcut |
+| İhtiyaç ve çözüm eşleşmesi | Problem/çözüm tablosu ve ürün akışı | Belgeli |
+| Kullanıcı değeri ve deneyimi | Mobil-first onboarding, swipe, neden açıklaması, offline kuyruk | Mevcut |
+| Pazar potansiyeli | Öğrenci, kulüp ve mikro organizatör olmak üzere iki taraflı yapı | Hipotez; gerçek kullanıcı doğrulaması gerekli |
+| Fonksiyonel yeterlilik | API'ler, 6 mobil rota ve 74 testlik son kayıt | Mevcut |
+| Yapay zekâ modeli | Skor tabanı, XGBoost karşılaştırması, K-Means deneyi | Belgeli |
+| AI ajanları / hafıza / orkestrasyon | Üründe bu özellik için doğrulanmış kanıt yok | Talep edilmemiş / beyan edilmedi |
+| Mimari ve temiz kod | `mobile/`, `backend/`, `ml/`, `data/` katmanları ve sözleşmeler | Mevcut |
+| Canlıya alınabilirlik | Expo Go LAN kurulumu ile web ve iOS production export | Canlı URL yok; cihaz kabulü açık |
+
+## Gelecek Geliştirmeler
+
+- ÖSYM üniversite ve program referansını her yeni kılavuz döneminde yeniden üretmek
+- Authentication ve üniversite doğrulaması eklemek
+- Gerçek kullanıcı verisiyle öneri kalitesini ve pazar varsayımlarını ölçmek
+- Native tarih seçici, erişilebilirlik ve fiziksel cihaz kabulünü tamamlamak
+- PostgreSQL ve production deployment altyapısına geçmek
+
+## Son Teslim Kontrolü
+
+- [ ] GitHub reposu public olarak doğrulandı
+- [x] Üç sprint için ilerleme ve kanıt belgeleri repoya eklendi
+- [ ] Eksik board ve ürün ekran görüntüleri eklendi
+- [ ] GitHub Projects/Miro/Jira bağlantısı eklendi
+- [ ] Fiziksel cihaz kabul listesi tamamlandı
+- [ ] Canlı demo bağlantısı eklendi veya sunulmadığı belirtildi
+- [ ] Üç dakikalık proje videosu YouTube'a yüklendi
+- [ ] Teslim formu eksiksiz dolduruldu
+- [ ] Tüm teslimler 2 Ağustos 2026 saat 23.59'dan önce tamamlandı
+
+Ayrıntılı kontrol: [Final kabul kontrol listesi](./ProjectManagement/Sprint3Documents/final-acceptance-checklist.md)
 
 ## Repo Yapısı
 
 ```text
 .
-├── assets/screenshots/  # Sprint ve ürün ekranları
-├── backend/             # FastAPI servisleri
-├── data/                # Şemalar, referanslar ve sentetik veriler
-├── ml/                  # Veri üretimi ve modelleme
-├── mobile/              # Expo mobil uygulaması
-├── product/             # Ürün çalışma belgeleri
-└── scrum/               # Sprint arşivi
+├── README.md
+├── ProjectManagement/
+│   ├── Sprint1Documents/
+│   ├── Sprint2Documents/
+│   └── Sprint3Documents/
+├── backend/
+├── mobile/
+├── ml/
+├── data/
+├── product/
+├── scrum/
+└── assets/
 ```
 
----
-
-<div align="center">
-
-Bu README, jüri değerlendirmesi için ürün, teknik yapı ve Sprint 1-3 bilgilerini **tek dosyada** sunar.
-
-</div>
+Eski `product/`, `scrum/` ve `assets/` kayıtları geçmişi korumak için silinmemiştir. `ProjectManagement/` teslim odaklı düzenli görünüm, kök README ise ana rapor ve sunum sayfasıdır.
